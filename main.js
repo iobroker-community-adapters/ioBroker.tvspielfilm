@@ -69,8 +69,10 @@ function check_sender (ueberschrift) { //  wird so übergeben "16:50 | Sky Cinem
     return(true);//return(empfangbar); 
 }
 
-function readTipps () { // alle 5 Minuten
-    var link = 'http://www.tvspielfilm.de/tv-programm/rss/filme.xml';
+function readFeed (x) {
+    var array = [];
+    array [0] = ['http://www.tvspielfilm.de/tv-programm/rss/filme.xml', 'rss.tipps', 'tv_tipps', 'Tipps'];
+    array [1] = ['http://www.tvspielfilm.de/tv-programm/rss/jetzt.xml', 'rss.jetzt', 'tv_jetzt', 'Jetzt'];
     request(link, function (error, response, body) {
         if (!error && response.statusCode == 200) {
     
@@ -93,30 +95,29 @@ function readTipps () { // alle 5 Minuten
                             if (sender_empfangbar) {
                                 var entry = {
                                     image: result.rss.channel.item[i].enclosure ? '<img width="100%" src="' + result.rss.channel.item[i].enclosure.url + '" />' : '',
-                                    text:  '<table class="tv_tipps"><tr><td class="tv_tipps_text" style="text-align: left; padding-left: 5px; font-weight: bold"><a href="' +
+                                    text:  '<table class="' + array[x][2]+ '"><tr><td class="' + array[x][2] + '_text" style="text-align: left; padding-left: 5px; font-weight: bold"><a href="' +
                                        result.rss.channel.item[i].link + '" target="_blank">' + result.rss.channel.item[i].title +
                                        '</a></td></tr><tr><td style="text-align: left; padding-left: 5px">' +
                                        result.rss.channel.item[i].description +'</td></tr></table>',
-                                    _Bild: result.rss.channel.item[i].enclosure ? '<img class="tv_tipps_bild" width="100%" src="' + result.rss.channel.item[i].enclosure.url + '" />' : 'no image'
+                                    _Bild: result.rss.channel.item[i].enclosure ? '<img class="' + array[x][2] + '_bild" width="100%" src="' + result.rss.channel.item[i].enclosure.url + '" />' : 'no image'
                                 };
                                 table.push(entry);
                             } // Ende Abfrage, ob Sender empfangbar
                         }
                     } else log('LENGTH in TV Programm Jetzt nicht definiert'); // ende if ungleich
                 }
-                adapter.setState('rss.tipps', JSON.stringify(table), true, function () {// ganze XML in Objekt für Table Widget
-                    adapter.stop();
-                });
+                adapter.setState(array[x][1], {val: JSON.stringify(table), ack: true});// ganze XML in Objekt für Table Widget
             });
         } else log(error,'error');
     });   // Ende request 
-    adapter.log.info('XML-Daten aus TV Spielfilm eingelesen');
-    adapter.stop();
+    adapter.log.info('XML-Daten aus TV Spielfilm (' + array[x][3] + ') eingelesen');
 }
 
 
 function main() {
     readSettings();
-    readTipps();
+    readFeed(0); // Tipps
+    readFeed(1); // jetzt
+    adapter.stop();
 }
 main();
