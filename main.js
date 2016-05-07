@@ -119,3 +119,4 @@ function main() {
     readSettings();
     readTipps();
 }
+main();
