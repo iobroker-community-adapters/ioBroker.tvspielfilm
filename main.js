@@ -38,7 +38,7 @@ function readSettings() {
             blacklist = undefined;
         }
     adapter.log.info('Blacklist: ' + blacklist);*/
-    var blacklist = adapter.config.stations;
+    var blacklist = adapter.config[stations];
     adapter.log.info('Stationen aus Blacklist: ' + blacklist);
     
 } 
