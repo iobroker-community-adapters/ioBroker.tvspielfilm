@@ -71,10 +71,10 @@ function check_sender (ueberschrift) { //  wird so übergeben "16:50 | Sky Cinem
 
 function readFeed (x) {
     var array = [];
-    array [0] = ['http://www.tvspielfilm.de/tv-programm/rss/filme.xml', 'rss.tipps', 'tv_tipps', 'Tipps'];
-    array [1] = ['http://www.tvspielfilm.de/tv-programm/rss/jetzt.xml', 'rss.jetzt', 'tv_jetzt', 'Jetzt'];
+    array[0] = ['http://www.tvspielfilm.de/tv-programm/rss/filme.xml', 'rss.tipps', 'tv_tipps', 'Tipps'];
+    array[1] = ['http://www.tvspielfilm.de/tv-programm/rss/jetzt.xml', 'rss.jetzt', 'tv_jetzt', 'Jetzt'];
     var link = array[x][0];
-    adapter.log.info(link);
+    adapter.log.info('Feed wird eingelesen: ' + link);
     request(link, function (error, response, body) {
         if (!error && response.statusCode == 200) {
     
