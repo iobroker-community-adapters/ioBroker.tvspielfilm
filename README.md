@@ -38,7 +38,8 @@ Deutsch  | English
 ------------- | -------------
 Für eine optisch ansprechende Formatierung, empfehle ich folge CSS Definitionen im VIS Editor zu verwenden | For a nicer look the following CSS is suggested to be copied to the VIS editor.
 
-'''.tclass-th { /* Headerzeilen */
+```
+.tclass-th { /* Headerzeilen */
     background-color: darkgrey;
     background-color: rgba(100,100,100,0.8);
     color: white;
@@ -95,7 +96,7 @@ Für eine optisch ansprechende Formatierung, empfehle ich folge CSS Definitionen
 .tv_jetzt tr td a {
     font-size: 130%;
 }
-'''
+```
 
 ![alt text](img/tvspielfilmVISScreenshot.jpg "Screenshot VIS widgets")
 
