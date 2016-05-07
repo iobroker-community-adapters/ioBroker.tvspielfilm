@@ -41,7 +41,7 @@ function readSettings() {
         }
     adapter.log.info('Blacklist: ' + blacklist);*/
     var blacklist = adapter.config.stations;
-    adapter.log.info('Zahl Stationen in Blacklist: ' + blacklist.length);
+    adapter.log.info('Zahl Stationen in Blacklist: ' + adapter.config.stations.length);
     
 } 
 
@@ -68,9 +68,9 @@ function check_sender (ueberschrift) { //  wird so übergeben "16:50 | Sky Cinem
                  'AXN',
                  'Syfy',
                  'Sky Atlantic HD'
-                ];
-    var suchergebnis = blacklist.indexOf(sender,0);  // Ergebnis ist die Position im Array oder "-1", wenn nicht gefunden
-    empfangbar = (suchergebnis == -1) ? true : false; // Sender nicht in der Blacklist, also empfangbar*/
+                ];*/
+    var suchergebnis = adapter.config.stations.indexOf(sender,0);  // Ergebnis ist die Position im Array oder "-1", wenn nicht gefunden
+    empfangbar = (suchergebnis == -1) ? true : false; // Sender nicht in der Blacklist, also empfangbar
     return(true);//return(empfangbar); 
 }
 
