@@ -58,13 +58,13 @@
         });
         onChange(false);
     }
-    
+      
     function save(callback) {
         var obj = {};
-        var broadcaster = $('#stations').val().split(',');
+        var sender = $('#stations').val().split(',');
         var common = {blacklist: []};
-        for (var l = 0; l < broadcaster.length; l++) {
-            common.blacklist.push(broadcaster[l].trim());
+        for (var l = 0; l < sender.length; l++) {
+            common.blacklist.push(sender[l].trim());
         }
         callback(obj);
     }
