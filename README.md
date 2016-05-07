@@ -108,7 +108,7 @@ Für eine optisch ansprechende Formatierung, empfehle ich folge CSS Definitionen
 ## Aktivierung / Schedule
 Deutsch  | English
 ------------- | -------------
-Der Adapter startet alle 5min und liest beide Feeds ("Tipps" und "jetzt") ein | The adapter starts every 5min to read both RSS-Feeds ("Suggestions" and "Now").
+Der Adapter startet alle 5min und liest beide Feeds ("Tipps" und "jetzt") ein | The adapter starts every 5min to read both RSS feeds ("Suggestions" and "Now").
 
 ## Changelog
 

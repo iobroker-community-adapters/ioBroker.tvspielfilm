@@ -37,7 +37,7 @@ function readSettings() {
             callback = blacklist;
             blacklist = undefined;
         }*/
-    //adapter.log.info('Blacklist: ' + blacklist);
+    adapter.log.info('Blacklist: ' + blacklist);
 } 
 
 function check_sender (ueberschrift) { //  wird so übergeben "16:50 | Sky Cinema | Kill the Boss 2"
@@ -63,9 +63,9 @@ function check_sender (ueberschrift) { //  wird so übergeben "16:50 | Sky Cinem
                  'AXN',
                  'Syfy',
                  'Sky Atlantic HD'
-                ];
+                ];*/
     var suchergebnis = blacklist.indexOf(sender,0);  // Ergebnis ist die Position im Array oder "-1", wenn nicht gefunden
-    empfangbar = (suchergebnis == -1) ? true : false; // Sender nicht in der Blacklist, also empfangbar*/
+    empfangbar = (suchergebnis == -1) ? true : false; // Sender nicht in der Blacklist, also empfangbar
     return(true);//return(empfangbar); 
 }
 
