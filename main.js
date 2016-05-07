@@ -33,7 +33,8 @@ adapter.on('ready', function () {
 });
  
 function readSettings() {
-    var path = __dirname;
+    if (adapter.config.stations === undefined) adapter.log.info('Keine Stationen zur Blacklist hinzugefügt');
+   
         /*if (typeof blacklist == 'function') {
             callback = blacklist;
             blacklist = undefined;
@@ -129,6 +130,7 @@ function readFeed (x) {
     adapter.log.info('XML-Daten aus TV Spielfilm (' + rss_options[x].feedname + ') eingelesen');
 }
 function main() {
+    readSettings();
     for (var j in rss_options) {
         readFeed(j);
     }
