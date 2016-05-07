@@ -18,7 +18,7 @@ Deutsch  | English
 ------------- | -------------
 Sender, die nicht empfangbar sind, können in der Blacklist gespeichert werden und so bei der Ausgabe übersprungen werden | TV channels that are not provided by your supplier are not considered to be listed. Therefore you can add them to the blacklist.
 
-![alt text](img/SettingScreenshot.jpg "Screenshot Settings")
+![alt text](img/tvspielfilmSettingScreenshot.jpg "Screenshot Settings")
 
 
 ##  Datenpunkte
