@@ -94,9 +94,7 @@ function readFeed (x) {
                 explicitArray: false,
                 mergeAttrs: true
             }, function (err, result) {
-                //log(JSON.stringify(result, null, 2));
                 var data = JSON.stringify(result, null, 2);
-                
                 var table = [];
                 if (err) {
                     adapter.log.warn("Fehler: " + err);
@@ -132,4 +130,3 @@ function main() {
     }
     adapter.stop();
 }
-main();
