@@ -126,22 +126,10 @@ function readFeed (x) {
     });   // Ende request 
     adapter.log.info('XML-Daten aus TV Spielfilm (' + rss_options[x].feedname + ') eingelesen');
 }
-
-/*
-function main() {
-    readSettings();
-    readFeed(0); // Tipps
-    setTimeout(function() {
-        readFeed(1)
-    }, 3000); // jetzt
-    adapter.stop();
-}*/
 function main() {
     for (var j in rss_options) {
         readFeed(j);
-        //readFeed(rss_options[j]);
     }
     adapter.stop();
 }
-main();
 main();
