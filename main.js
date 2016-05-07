@@ -36,8 +36,8 @@ function readSettings() {
         /*if (typeof blacklist == 'function') {
             callback = blacklist;
             blacklist = undefined;
-        }*/
-    adapter.log.info('Blacklist: ' + blacklist);
+        }
+    adapter.log.info('Blacklist: ' + blacklist);*/
 } 
 
 function check_sender (ueberschrift) { //  wird so übergeben "16:50 | Sky Cinema | Kill the Boss 2"
