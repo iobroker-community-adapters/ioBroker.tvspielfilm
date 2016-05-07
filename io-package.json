@@ -29,6 +29,7 @@
         }
     },
     "native": {
+    	"stations" : ""
     },
     "objects": [],
     "instanceObjects": [
