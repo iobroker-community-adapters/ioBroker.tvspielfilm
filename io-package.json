@@ -1,9 +1,9 @@
 {
     "common": {
         "name":                     "tvspielfilm",
-        "title":                    "TV Spielfilm program guide",
-        "desc": {                   "en": "TV Spielfilm program guide",
-                                    "de": "TV Spielfilm Programm Informationen",
+        "title":                    "TV Spielfilm RSS",
+        "desc": {                   "en": "TV Spielfilm program guide from rss feed",
+                                    "de": "TV Spielfilm Programm Informationen aus RSS Feed",
                                     "ru": "TV Spielfilm Program Guide - translate to russian, please"},
         "version":                  "0.0.1",
         "mode":                     "schedule",
@@ -23,7 +23,7 @@
         "type":                     "schedule",
         "config": {
             "width": 650,
-            "height": 680,
+            "height": 350,
             "minWidth": 650,
             "minHeight": 300
         }
