@@ -119,6 +119,7 @@ Der Adapter startet alle 5min und liest beide Feeds ("Tipps" und "jetzt") ein | 
 
 * Übersetzungen / Translation
 * Programmtipps, die auf eine Uhrzeit hinweisen, die vor der aktuellen Uhrzeit liegt, ausblenden
+* beide Feeds einlesen / derzeit nur Tipps
 
 
 ## License
