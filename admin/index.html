@@ -1,0 +1,90 @@
+<html>
+
+<!-- these 4 files always have to be included -->
+<link rel="stylesheet" type="text/css" href="../../lib/css/themes/jquery-ui/redmond/jquery-ui.min.css"/>
+<link rel="stylesheet" type="text/css" href="../../lib/css/jquery.multiselect-1.13.css"/>
+
+<script type="text/javascript" src="../../lib/js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="../../socket.io/socket.io.js"></script>
+<script type="text/javascript" src="../../lib/js/jquery-ui-1.10.3.full.min.js"></script>
+
+<!-- these two file always have to be included -->
+<link rel="stylesheet" type="text/css" href="../../css/adapter.css"/>
+<script type="text/javascript" src="../../js/translate.js"></script>
+<script type="text/javascript" src="../../js/adapter-settings.js"></script>
+
+<style>
+    #config {
+        font-size: smaller;	
+    }
+    .table_header {
+        background-color: blue;
+        color: white;
+    }
+    .ip {
+        width: 150px;
+        text-align: right;
+    }
+</style>
+<!-- you have to define 2 functions in the global scope: -->
+<script type="text/javascript">
+	systemDictionary = {
+            "tvspielfilm Adapter Settings": {
+                "en": "tvspielfilm Adapter Settings",
+                "de": "tvspielfilm Adapter Einstellungen",
+                "ru": "Настройки tvspielfilm Adapter"
+            },
+            "Sender, die nicht berücksichtigt werden sollen:": {
+                "en": "List of stations to be skipped",
+                "de": "Sender, die nicht berücksichtigt werden sollen:",
+                "ru": "Translate pls: Sender, die nicht berücksichtigt werden sollen:"
+            },
+            "Blacklist":       	{"en": "Blacklist",                          "de": "Blacklist",                              "ru": "Blacklist"},
+            "Divided by comma":	{"en": "Divided by comma",                   "de": "Durch Komma getrennt",                   "ru": "Divided by comma"}
+	};
+
+    function load(settings, onChange) {
+        $('.value').each(function () {
+            var id = $(this).attr('id');
+            setValue(id, settings[id] || '', onChange);
+        });
+        if (common.blacklist){
+            $('#stations').val(common.blacklist.join(', '));
+        }
+        $('#stations').change(function () {
+            onChange();
+        }).keyup(function () {
+            $(this).trigger('change');
+        });
+        onChange(false);
+    }
+    
+    function save(callback) {
+        var obj = {};
+        var broadcaster = $('#stations').val().split(',');
+        var common = {blacklist: []};
+        for (var l = 0; l < broadcaster.length; l++) {
+            common.blacklist.push(broadcaster[l].trim());
+        }
+        callback(obj);
+    }
+    
+</script>
+
+<div id="adapter-container">
+    <table style="width: 100%">
+    	<tr>
+            <td><img src="tvspielfilm.png"></td>
+            <td style="padding-top: 20px;padding-left: 10px"><h3 class="translate">tvspielfilm Adapter settings</h3></td>
+        </tr>
+    </table>
+    <h4 class="translate" style="width: calc(100% - 10px)">Blacklist</h4>
+    <table id="config" style="width: calc(100% - 5px)">
+        <tr>
+            <td class="translate">Sender, die nicht berücksichtigt werden sollen:</td>
+            <td><input id="stations" class="value" style="width: 100%"/></td>
+            <td class="translate" style="color: gray; font-style: italic; font-size: smaller">Divided by comma</td>
+        </tr>
+    </table>
+</div>
+</html>

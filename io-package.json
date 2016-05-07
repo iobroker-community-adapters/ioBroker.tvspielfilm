@@ -1,0 +1,69 @@
+{
+    "common": {
+        "name":                     "tvspielfilm",
+        "title":                    "TV Spielfilm program guide",
+        "desc": {                   "en": "TV Spielfilm program guide",
+                                    "de": "TV Spielfilm Programm Informationen",
+                                    "ru": "TV Spielfilm Program Guide - translate to russian, please"},
+        "version":                  "0.0.1",
+        "mode":                     "schedule",
+        "schedule":                 "*/5 * * * *",
+        "platform":                 "javascript/Node.js",
+        "loglevel":                 "info",
+        "keywords":                 ["tv", "program", "guide", "Fernsehprogramm", "Tvprogramm", "Programm", "tvspielfilm", "spielfilm", "pix"],
+        "main":                     "main.js",
+        "authors": [
+            "Pix"
+        ],
+        "license":                  "MIT",
+        "readme":                   "https://github.com/Pix---/ioBroker.feiertage/blob/master/README.md",
+        "icon":                     "tvspielfilm.png",
+        "extIcon":                  "https://raw.githubusercontent.com/Pix---/ioBroker.tvspielfilm/master/admin/tvspielfilm.png",
+	    "allowInit":                true,
+        "type":                     "schedule",
+        "config": {
+            "width": 650,
+            "height": 680,
+            "minWidth": 650,
+            "minHeight": 300
+        }
+    },
+    "native": {
+    },
+    "objects": [],
+    "instanceObjects": [
+        {
+            "_id":  "rss",
+            "type": "channel",
+            "common": {
+                "role": "",
+                "name": ""
+            },
+            "native": {}
+        },
+        {
+            "_id":  "rss.tipps",
+            "type": "state",
+            "common": {
+                "name":  "tvspielfilm Tipps",
+                "desc":  "TV Tipps für heute",
+                "type":  "string",
+                "read":  true,
+                "write": false
+            },
+            "native": {}
+        },
+        {
+            "_id":  "rss.jetzt",
+            "type": "state",
+            "common": {
+                "name":  "tvspielfilm jetzt",
+                "desc":  "Was läuft jetzt im TV?",
+                "type":  "string",
+                "read":  true,
+                "write": false
+            },
+            "native": {}
+        }
+    ]
+}
