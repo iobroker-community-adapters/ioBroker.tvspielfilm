@@ -38,6 +38,9 @@ function readSettings() {
             blacklist = undefined;
         }
     adapter.log.info('Blacklist: ' + blacklist);*/
+    var blacklist = adapter.config.stations;
+    adapter.log.info('Stationen aus Blacklist: ' + blacklist);
+    
 } 
 
 function check_sender (ueberschrift) { //  wird so übergeben "16:50 | Sky Cinema | Kill the Boss 2"
