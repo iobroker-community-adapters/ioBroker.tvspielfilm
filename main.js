@@ -10,6 +10,7 @@ var lang = 'de';
 
 var adapter = utils.adapter({
     name:           'tvspielfilm',
+    systemConfig:   true,
     useFormatDate:  true
 });
 
