@@ -127,7 +127,7 @@ function readFeed (x) {
     adapter.log.info('XML-Daten aus TV Spielfilm (' + rss_options[x].feedname + ') eingelesen');
 }
 
-
+/*
 function main() {
     readSettings();
     readFeed(0); // Tipps
@@ -135,5 +135,12 @@ function main() {
         readFeed(1)
     }, 3000); // jetzt
     adapter.stop();
+}*/
+function main() {
+    for (var j in rss_options) {
+        readFeed(rss_options[j]);
+    }
+    adapter.stop();
 }
+main();
 main();
