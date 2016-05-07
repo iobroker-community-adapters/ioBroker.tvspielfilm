@@ -73,7 +73,8 @@ function readFeed (x) {
     var array = [];
     array [0] = ['http://www.tvspielfilm.de/tv-programm/rss/filme.xml', 'rss.tipps', 'tv_tipps', 'Tipps'];
     array [1] = ['http://www.tvspielfilm.de/tv-programm/rss/jetzt.xml', 'rss.jetzt', 'tv_jetzt', 'Jetzt'];
-    link = array[x][0];
+    var link = array[x][0];
+    adapter.log.info(link);
     request(link, function (error, response, body) {
         if (!error && response.statusCode == 200) {
     
