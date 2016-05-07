@@ -29,7 +29,7 @@
         }
     },
     "native": {
-    	"stations" : ""
+    	"blacklist" : ""
     },
     "objects": [],
     "instanceObjects": [
