@@ -16,7 +16,7 @@
             "Pix"
         ],
         "license":                  "MIT",
-        "readme":                   "https://github.com/Pix---/ioBroker.feiertage/blob/master/README.md",
+        "readme":                   "https://github.com/Pix---/ioBroker.tvspielfilm/blob/master/README.md",
         "icon":                     "tvspielfilm.png",
         "extIcon":                  "https://raw.githubusercontent.com/Pix---/ioBroker.tvspielfilm/master/admin/tvspielfilm.png",
 	    "allowInit":                true,
