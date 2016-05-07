@@ -4,7 +4,7 @@
 
 [![NPM version](http://img.shields.io/npm/v/iobroker.feiertage.svg)](https://www.npmjs.com/package/iobroker.tvspielfilm)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.feiertage.svg)](https://www.npmjs.com/package/iobroker.tvspielfilm)
-[![Tests](https://travis-ci.org/ioBroker/ioBroker.tvspielfilm.svg?branch=master)](https://travis-ci.org/ioBroker/ioBroker.tvspielfilm
+[![Tests](https://travis-ci.org/ioBroker/ioBroker.tvspielfilm.svg?branch=master)](https://travis-ci.org/ioBroker/ioBroker.tvspielfilm)
 
 [![NPM](https://nodei.co/npm/iobroker.tvspielfilm.png?downloads=true)](https://nodei.co/npm/iobroker.tvspielfilm/)
 
