@@ -138,7 +138,8 @@ function main() {
 }*/
 function main() {
     for (var j in rss_options) {
-        readFeed(rss_options[j]);
+        readFeed(j);
+        //readFeed(rss_options[j]);
     }
     adapter.stop();
 }
