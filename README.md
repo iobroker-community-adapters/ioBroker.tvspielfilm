@@ -102,7 +102,7 @@ Für eine optisch ansprechende Formatierung, empfehle ich folge CSS Definitionen
 
 ## VIS Widget
 ```
-[{"tpl":"tplTableBody","data":{"visibility-cond":"==","visibility-val":1,"static_value":"","table_oid":"tvspielfilm.0.tipps","colCount":"2","colName1":"Vorschau","colWidth1":"30px","colName2":"Tagestipps","colAttr1":"","colWidth2":"60px","hide_header":false,"show_scroll":false,"new_on_top":true,"name":"JSON Tabelle TV Programm TIPPS","gestures-offsetX":0,"gestures-offsetY":0},"style":{"left":"71px","top":"156px","width":"357px","height":"auto","z-index":"25","color":"rgba(250,250,250,1)","text-align":"","font-family":"","background-color":"","border-style":""},"widgetSet":"basic"}]
+[{"tpl":"tplTableBody","data":{"visibility-cond":"==","visibility-val":1,"static_value":"","table_oid":"tvspielfilm.0.rss.tipps","colCount":"2","colName1":"Vorschau","colWidth1":"30px","colName2":"Tagestipps","colAttr1":"","colWidth2":"60px","hide_header":false,"show_scroll":false,"new_on_top":true,"name":"JSON Tabelle TV Programm TIPPS","gestures-offsetX":0,"gestures-offsetY":0},"style":{"left":"44px","top":"30px","width":"357px","height":"auto","z-index":"25","color":"rgba(250,250,250,1)","text-align":"","font-family":"","background-color":"","border-style":""},"widgetSet":"basic"}]
 ```
 
 ## Aktivierung / Schedule
