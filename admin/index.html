@@ -49,9 +49,9 @@
             setValue(id, settings[id] || '', onChange);
         });
         if (common.blacklist){
-            $('#stations').val(common.blacklist.join(', '));
+            $('#blacklist').val(common.blacklist.join(', '));
         }
-        $('#stations').change(function () {
+        $('#blacklist').change(function () {
             onChange();
         }).keyup(function () {
             $(this).trigger('change');
@@ -61,7 +61,7 @@
       
     function save(callback) {
         var obj = {};
-        var sender = $('#stations').val().split(',');
+        var sender = $('#blacklist').val().split(',');
         var common = {blacklist: []};
         for (var l = 0; l < sender.length; l++) {
             common.blacklist.push(sender[l].trim());
