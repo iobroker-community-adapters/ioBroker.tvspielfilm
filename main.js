@@ -38,10 +38,8 @@ function readSettings() {
     // eigentlich wird erst in check_sender das setting (config.blacklist) eingelesen
     
     for (var s in adapter.config.blacklist) {
-        adapter.log.info(adapter.config.blacklist[s]);
+        adapter.log.info('Blacklist (#' + (s+1) + '): ' + adapter.config.blacklist[s]);
     }
-    
-    
 } 
 
 
@@ -56,6 +54,7 @@ function check_sender (show) { //  wird so übergeben "16:50 | Sky Cinema | Kill
     // Vergleich mit aktueller zeit möglich....
     
     // Suche nach Filmen genauso möglich
+    // movie = show_info[2];
     
     // Suche nach Sender
     var station = show_info[1];
