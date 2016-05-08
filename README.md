@@ -146,4 +146,4 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 ---
-*Logo is partly crafted by CHALLENGER*
+*Logo is partly crafted by CHALLENGER* :+1: 
