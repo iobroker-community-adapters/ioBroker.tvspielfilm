@@ -31,21 +31,19 @@ adapter.on('ready', function () {
 
     });
 });
- 
+
 function readSettings() {
-    if (adapter.config.blacklist === undefined) adapter.log.info('Keine Stationen zur Blacklist hinzugefügt');
-   
-    adapter.log.info('Zahl Stationen in Blacklist: ' + adapter.config.blacklist.length);
-    
+    if (adapter.config.blacklist === undefined || adapter.config.blacklist.length === 0) adapter.log.info('Keine Stationen zur Blacklist hinzugefügt');
+    else adapter.log.info('Zahl Stationen in Blacklist: ' + adapter.config.blacklist.length);
+    // eigentlich wird erst in check_sender das setting (config.blacklist) eingelesen
     
 } 
 
-function check_sender (ueberschrift) { //  wird so übergeben "16:50 | Sky Cinema | Kill the Boss 2"
-    var ueberschrift_teile = ueberschrift.split(' | ');
-    var sender = ueberschrift_teile[1];
-    var empfangbar;
+function check_sender (show) { //  wird so übergeben "16:50 | Sky Cinema | Kill the Boss 2"
+    var show_info = show.split(' | ');
+    var station = show_info[1];
     
-    /*var blacklist = [];
+    /*var blacklist = []; // Array aus dem Skript, nicht für Adapter. So sehen die Sender aus
     blacklist = ['Silverline',
                  'Sky Action',
                  'Sky Cinema',
@@ -64,9 +62,10 @@ function check_sender (ueberschrift) { //  wird so übergeben "16:50 | Sky Cinem
                  'Syfy',
                  'Sky Atlantic HD'
                 ];*/
-    var suchergebnis = adapter.config.blacklist.indexOf(sender,0);  // Ergebnis ist die Position im Array oder "-1", wenn nicht gefunden
-    empfangbar = (suchergebnis == -1) ? true : false; // Sender nicht in der Blacklist, also empfangbar
-    return(true);//return(empfangbar); 
+    
+    var blacklist_of_stations = adapter.config.blacklist.indexOf(station,0);  // Ergebnis ist die Position im Array oder "-1", wenn nicht gefunden
+    var station_in_blacklist = (blacklist_of_stations == -1) ? true : false; // Sender nicht in der Blacklist, also empfangbar
+    return(true);//return(station_in_blacklist); 
 }
 
 
