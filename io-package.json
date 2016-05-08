@@ -65,11 +65,11 @@
             "native": {}
         },
         {
-            "_id":  "rss.2000",
+            "_id":  "rss.heute2015uhr",
             "type": "state",
             "common": {
-                "name":  "tvspielfilm 2000 Uhr",
-                "desc":  "Was läuft um 20Uhr im TV?",
+                "name":  "tvspielfilm 20:15 Uhr",
+                "desc":  "Was läuft um 20:15Uhr im TV?",
                 "type":  "string",
                 "read":  true,
                 "write": false
@@ -77,23 +77,11 @@
             "native": {}
         },
         {
-            "_id":  "rss.2200",
+            "_id":  "rss.heute2200uhr",
             "type": "state",
             "common": {
-                "name":  "tvspielfilm 2200 Uhr",
-                "desc":  "Was läuft um 22Uhr im TV?",
-                "type":  "string",
-                "read":  true,
-                "write": false
-            },
-            "native": {}
-        },
-        {
-            "_id":  "rss.news",
-            "type": "state",
-            "common": {
-                "name":  "tvspielfilm News",
-                "desc":  "News Tipps für heute",
+                "name":  "tvspielfilm 22:00 Uhr",
+                "desc":  "Was läuft um 22:00Uhr im TV?",
                 "type":  "string",
                 "read":  true,
                 "write": false
@@ -105,7 +93,7 @@
             "type": "state",
             "common": {
                 "name":  "tvspielfilm Filme",
-                "desc":  "Film Tipps für heute",
+                "desc":  "Spielfilm-Highlights des Tages",
                 "type":  "string",
                 "read":  true,
                 "write": false
