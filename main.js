@@ -5,7 +5,7 @@
 var utils       = require(__dirname + '/lib/utils'); // Get common adapter utils
 var parseString = require('xml2js').parseString;
 var request     = require('request');
-
+var logging     = true;
 var lang = 'de';
 
 var adapter = utils.adapter({
@@ -34,11 +34,11 @@ adapter.on('ready', function () {
 
 function readSettings() {
     if (adapter.config.blacklist === undefined || adapter.config.blacklist.length === 0) adapter.log.info('Keine Stationen zur Blacklist hinzugefügt');
-    else adapter.log.info('Zahl Stationen in Blacklist: ' + adapter.config.blacklist.length);
+    else if (logging) adapter.log.info('Zahl Stationen in Blacklist: ' + adapter.config.blacklist.length);
     // eigentlich wird erst in check_sender das setting (config.blacklist) eingelesen
     
     for (var s in adapter.config.blacklist) {
-        adapter.log.info('Blacklist (#' + (parseInt(s,10)+1) + '): ' + adapter.config.blacklist[s]);
+        if (logging) adapter.log.info('Blacklist (#' + (parseInt(s,10)+1) + '): ' + adapter.config.blacklist[s]);
     }
 } 
 
@@ -130,7 +130,7 @@ function readFeed (x) {
             });
         } else adapter.log.warn(error,'error');
     });   // Ende request 
-    adapter.log.info('XML-Daten aus TV Spielfilm (' + rss_options[x].feedname + ') eingelesen');
+    if (logging) adapter.log.info('XML-Daten aus TV Spielfilm (' + rss_options[x].feedname + ') eingelesen');
 }
 function main() {
     readSettings();
