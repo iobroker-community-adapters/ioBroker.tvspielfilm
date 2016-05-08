@@ -5,7 +5,7 @@
         "desc": {                   "en": "TV Spielfilm program guide from rss feed",
                                     "de": "TV Spielfilm Programm Informationen aus RSS Feed",
                                     "ru": "TV Spielfilm Program Guide - translate to russian, please"},
-        "version":                  "0.1.0",
+        "version":                  "0.1.1",
         "mode":                     "schedule",
         "schedule":                 "*/5 * * * *",
         "platform":                 "javascript/Node.js",
@@ -32,7 +32,7 @@
     "objects": [],
     "instanceObjects": [
         {
-            "_id":  "rss",
+            "_id":  "json",
             "type": "channel",
             "common": {
                 "role": "",
@@ -41,7 +41,7 @@
             "native": {}
         },
         {
-            "_id":  "rss.tipps",
+            "_id":  "json.tipps",
             "type": "state",
             "common": {
                 "name":  "tvspielfilm Tipps",
@@ -53,7 +53,7 @@
             "native": {}
         },
         {
-            "_id":  "rss.jetzt",
+            "_id":  "json.jetzt",
             "type": "state",
             "common": {
                 "name":  "tvspielfilm jetzt",
@@ -65,7 +65,7 @@
             "native": {}
         },
         {
-            "_id":  "rss.heute2015",
+            "_id":  "json.heute2015",
             "type": "state",
             "common": {
                 "name":  "tvspielfilm 20:15 Uhr",
@@ -77,7 +77,7 @@
             "native": {}
         },
         {
-            "_id":  "rss.heute2200",
+            "_id":  "json.heute2200",
             "type": "state",
             "common": {
                 "name":  "tvspielfilm 22:00 Uhr",
@@ -89,7 +89,7 @@
             "native": {}
         },
         {
-            "_id":  "rss.filme",
+            "_id":  "json.filme",
             "type": "state",
             "common": {
                 "name":  "tvspielfilm Filme",
