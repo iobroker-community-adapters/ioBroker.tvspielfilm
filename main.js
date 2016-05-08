@@ -76,12 +76,12 @@ var rss_options = {
                     },
     heute2015uhr:  { feedname: 'heute 20:15 Uhr',
                      url: 'http://www.tvspielfilm.de/tv-programm/rss/heute2015.xml',
-                     state: 'rss.heute2015',
+                     state: 'rss.heute2015uhr',
                      cssclass:  'tv_heute2015'
                     },
     heute2200uhr:  { feedname: 'heute 22:00 Uhr',
                      url: 'http://www.tvspielfilm.de/tv-programm/rss/heute2200.xml',
-                     state: 'rss.heute2200',
+                     state: 'rss.heute2200uhr',
                      cssclass:  'tv_heute2200'
                     },
     filme:          { feedname: 'Spielfilm-Highlights des Tages',
