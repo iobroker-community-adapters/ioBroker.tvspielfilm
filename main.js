@@ -70,7 +70,7 @@ var rss_options = {
               cssclass:  'tv_jetzt'
             },
     tipps:  { feedname: 'Tipps',
-              url: 'http://www.tvspielfilm.de/tv-programm/rss/filme.xml',
+              url: 'http://www.tvspielfilm.de/tv-programm/rss/tipps.xml',
               state: 'rss.tipps',
               cssclass:  'tv_tipps'
             }
