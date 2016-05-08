@@ -49,7 +49,7 @@
 
     function load(settings, onChange) {
         if (native.blacklist){
-            $('#blacklist').val(native.blacklist.join(', '));
+            $('#blacklist').val(blacklist.join(', '));
         }
         $('#blacklist').change(function () {
             onChange();
@@ -62,9 +62,8 @@
     function save(callback) {
         var obj = {};
         var sender = $('#blacklist').val().split(','); // Array aus Senderliste erstellen
-        var native = {blacklist: []}; // leer
         for (var l = 0; l < sender.length; l++) { // alle sender durchgehen
-            native.blacklist.push(sender[l].trim()); // und in objekt schreiben
+            blacklist.push(sender[l].trim()); // und in objekt schreiben
         }
         callback(obj);
     }
