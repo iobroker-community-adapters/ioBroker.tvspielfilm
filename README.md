@@ -9,9 +9,9 @@
 [![NPM](https://nodei.co/npm/iobroker.tvspielfilm.png?downloads=true)](https://nodei.co/npm/iobroker.tvspielfilm/)
 
 ## Beschreibung / Description
-Dieser Adapter liefert das TV Programm aus den RSS-Feeds "Tipps" und "jetzt" des Anbieters tvspielfilm.de
+:de: Dieser Adapter liefert das TV Programm aus den RSS-Feeds "Tipps" und "jetzt" des Anbieters tvspielfilm.de
 
-This adapter delivers german TV program guide. The content ist captured from two RSS feeds of supplier tvspielfilm.de
+:uk: This adapter delivers german TV program guide. The content ist captured from two RSS feeds of supplier tvspielfilm.de
 
 ## Einstellungen / Configuration
 Sender, die nicht empfangbar sind oder nicht gelistet werden sollen, können in der Blacklist gespeichert und so bei der Ausgabe übersprungen werden.
