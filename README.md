@@ -9,14 +9,12 @@
 [![NPM](https://nodei.co/npm/iobroker.tvspielfilm.png?downloads=true)](https://nodei.co/npm/iobroker.tvspielfilm/)
 
 ## Beschreibung / Description
-Deutsch  | English
-------------- | -------------
-Dieser Adapter liefert das TV Programm aus den RSS-Feeds "Tipps" und "jetzt" des Anbieters tvspielfilm.de  | This adapter delivers german TV program guide. The content ist captured from two RSS feeds of supplier tvspielfilm.de
+Dieser Adapter liefert das TV Programm aus den RSS-Feeds "Tipps" und "jetzt" des Anbieters tvspielfilm.de
+This adapter delivers german TV program guide. The content ist captured from two RSS feeds of supplier tvspielfilm.de
 
 ## Einstellungen / Configuration
-Deutsch  | English
-------------- | -------------
-Sender, die nicht empfangbar sind oder nicht gelistet werden sollen, können in der Blacklist gespeichert und so bei der Ausgabe übersprungen werden | TV channels that are not provided by your supplier or simply are not considered to be listed will be skipped. Therefore you can add them to the blacklist.
+Sender, die nicht empfangbar sind oder nicht gelistet werden sollen, können in der Blacklist gespeichert und so bei der Ausgabe übersprungen werden.
+TV channels that are not provided by your supplier or simply are not considered to be listed will be skipped. Therefore you can add them to the blacklist.
 
 ![alt text](img/tvspielfilmSettingScreenshot.jpg "Screenshot Settings")
 
@@ -34,9 +32,8 @@ Beispiel / Example:
 
 
 ## CSS Konfiguration / CSS settings
-Deutsch  | English
-------------- | -------------
-Für eine optisch ansprechende Formatierung, empfehle ich folge CSS Definitionen im VIS Editor zu verwenden | For a nicer look the following CSS is suggested to be copied to the VIS editor.
+Für eine optisch ansprechende Formatierung, empfehle ich folge CSS Definitionen im VIS Editor zu verwenden.
+For a nicer look the following CSS is suggested to be copied to the VIS editor.
 
 ```
 .tclass-th { /* Headerzeilen */
@@ -106,9 +103,8 @@ Für eine optisch ansprechende Formatierung, empfehle ich folge CSS Definitionen
 ```
 
 ## Aktivierung / Schedule
-Deutsch  | English
-------------- | -------------
-Der Adapter startet alle 5min und liest beide Feeds ("Tipps" und "jetzt") ein | The adapter starts every 5min to read both RSS feeds ("Suggestions" and "Now").
+Der Adapter startet alle 5min und liest beide Feeds ("Tipps" und "jetzt") ein.
+The adapter starts every 5min to read both RSS feeds ("Suggestions" and "Now").
 
 ## Changelog
 ### 0.1.0 (2016-05-08)
