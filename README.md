@@ -36,7 +36,7 @@ Beispiel / Example:
 ## CSS Konfiguration / CSS settings
 Für eine optisch ansprechende Formatierung, empfehle ich folge CSS Definitionen im VIS Editor zu verwenden.
 
-For a nicer look the following CSS is suggested to be copied to the VIS editor.
+For a nicer look the following CSS is suggested to be used to the VIS editor.
 
 ```
 .tclass-th { /* Headerzeilen */
