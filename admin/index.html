@@ -48,8 +48,8 @@
 	};
 
     function load(settings, onChange) {
-        if (common.blacklist){
-            $('#blacklist').val(common.blacklist.join(', '));
+        if (native.blacklist){
+            $('#blacklist').val(native.blacklist.join(', '));
         }
         $('#blacklist').change(function () {
             onChange();
@@ -62,9 +62,9 @@
     function save(callback) {
         var obj = {};
         var sender = $('#blacklist').val().split(','); // Array aus Senderliste erstellen
-        var common = {blacklist: []}; // leer
+        var native = {blacklist: []}; // leer
         for (var l = 0; l < sender.length; l++) { // alle sender durchgehen
-            common.blacklist.push(sender[l].trim()); // und in objekt schreiben
+            native.blacklist.push(sender[l].trim()); // und in objekt schreiben
         }
         callback(obj);
     }
