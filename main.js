@@ -37,34 +37,29 @@ function readSettings() {
     else adapter.log.info('Zahl Stationen in Blacklist: ' + adapter.config.blacklist.length);
     // eigentlich wird erst in check_sender das setting (config.blacklist) eingelesen
     
+    for (var s in adapter.config.blacklist) {
+        adapter.log.info(adapter.config.blacklist[s]);
+    }
+    
+    
 } 
+
 
 function check_sender (show) { //  wird so übergeben "16:50 | Sky Cinema | Kill the Boss 2"
     var show_info = show.split(' | ');
+    
+    // es können noch weitere Daten extrahiert und geprüft werden:
+    // showtime_info = show_info[0].split(':');
+    // showtime = new Date ();
+    // showtime.setHours(parseInt(showtime_info[0],10));   // -> 16
+    // showtime.setMinutes(parseInt(showtime_info[1],10)); // -> 50
+    // Vergleich mit aktueller zeit möglich....
+    
+    // Suche nach Filmen genauso möglich
+    
+    // Suche nach Sender
     var station = show_info[1];
-    
-    /*var blacklist = []; // Array aus dem Skript, nicht für Adapter. So sehen die Sender aus
-    blacklist = ['Silverline',
-                 'Sky Action',
-                 'Sky Cinema',
-                 'Sky Comedy',
-                 'MGM HD',
-                 'Sky Nostalgie',
-                 'KinoweltTV',
-                 'Sky Emotion',
-                 'Sky 007 HD',
-                 'Disney Channel',
-                 'Sony E. Television',
-                 'TNT Film',
-                 'Sky Hits HD',
-                 'Disney Cinemagic',
-                 'AXN',
-                 'Syfy',
-                 'Sky Atlantic HD'
-                ];*/
-    
-    var blacklist_of_stations = adapter.config.blacklist.indexOf(station,0);  // Ergebnis ist die Position im Array oder "-1", wenn nicht gefunden
-    var station_in_blacklist = (blacklist_of_stations == -1) ? true : false; // Sender nicht in der Blacklist, also empfangbar
+    var station_in_blacklist = (adapter.config.blacklist.indexOf(station,0) == -1) ? true : false; // Sender nicht in der Blacklist, also empfangbar
     return(true);//return(station_in_blacklist); 
 }
 
