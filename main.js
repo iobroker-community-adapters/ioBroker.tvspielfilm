@@ -60,7 +60,7 @@ function check_sender (show) { //  wird so übergeben "16:50 | Sky Cinema | Kill
     // Suche nach Sender
     var station = show_info[1];
     var station_in_blacklist = (adapter.config.blacklist.indexOf(station,0) == -1) ? true : false; // Sender nicht in der Blacklist, also empfangbar
-    return(true);//return(station_in_blacklist); 
+    return(station_in_blacklist); 
 }
 
 
