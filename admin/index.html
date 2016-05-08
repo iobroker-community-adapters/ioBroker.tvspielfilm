@@ -48,7 +48,7 @@
 	};
 
     function load(settings, onChange) {
-        if (native.blacklist){
+        if (blacklist){
             $('#blacklist').val(blacklist.join(', '));
         }
         $('#blacklist').change(function () {
