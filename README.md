@@ -23,15 +23,15 @@ TV channels that are not provided by your supplier or simply are not considered 
 
 ##  Datenpunkte / Datapoints
 
-tvspielfilm.# __filme__  (*JSON* Tabelle für VIS Widget *json,table*)
+tvspielfilm.0.json __filme__  (*JSON* Tabelle für VIS Widget *json,table*)
 
-tvspielfilm.# __heute2015__  (*JSON* Tabelle für VIS Widget *json,table*)
+tvspielfilm.0.json __heute2015__  (*JSON* Tabelle für VIS Widget *json,table*)
 
-tvspielfilm.# __heute2200__  (*JSON* Tabelle für VIS Widget *json,table*)
+tvspielfilm.0.json __heute2200__  (*JSON* Tabelle für VIS Widget *json,table*)
 
-tvspielfilm.# __jetzt__  (*JSON* Tabelle für VIS Widget *json,table*)
+tvspielfilm.0.json __jetzt__  (*JSON* Tabelle für VIS Widget *json,table*)
 
-tvspielfilm.# __tipss__  (*JSON* Tabelle für VIS Widget *json,table*)
+tvspielfilm.0.json __tipss__  (*JSON* Tabelle für VIS Widget *json,table*)
 
 
 Beispiel / Example:
@@ -127,6 +127,9 @@ Der Adapter startet alle 5min und liest beide Feeds ("Tipps" und "jetzt") ein.
 The adapter starts every 5min to read both RSS feeds ("Suggestions" and "Now").
 
 ## Changelog
+### 0.1.1 (2016-05-08)
+* (pix) Channel renamed to 'json'
+
 ### 0.1.0 (2016-05-08)
 * (pix) Blacklist function fixed
  
