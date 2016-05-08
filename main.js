@@ -64,16 +64,31 @@ function check_sender (show) { //  wird so übergeben "16:50 | Sky Cinema | Kill
 
 
 var rss_options = {
-    jetzt : { feedname: 'Jetzt',
-              url: 'http://www.tvspielfilm.de/tv-programm/rss/jetzt.xml',
-              state: 'rss.jetzt',
-              cssclass:  'tv_jetzt'
-            },
-    tipps:  { feedname: 'Tipps',
-              url: 'http://www.tvspielfilm.de/tv-programm/rss/tipps.xml',
-              state: 'rss.tipps',
-              cssclass:  'tv_tipps'
-            }
+    jetzt :        { feedname: 'Jetzt',
+                     url: 'http://www.tvspielfilm.de/tv-programm/rss/jetzt.xml',
+                     state: 'rss.jetzt',
+                     cssclass:  'tv_jetzt'
+                   },
+    tipps:         { feedname: 'Tipps',
+                     url: 'http://www.tvspielfilm.de/tv-programm/rss/tipps.xml',
+                     state: 'rss.tipps',
+                     cssclass:  'tv_tipps'
+                    },
+    heute2015uhr:  { feedname: 'heute 20:15 Uhr',
+                     url: 'http://www.tvspielfilm.de/tv-programm/rss/heute2015.xml',
+                     state: 'rss.heute2015',
+                     cssclass:  'tv_heute2015'
+                    },
+    heute2200uhr:  { feedname: 'heute 22:00 Uhr',
+                     url: 'http://www.tvspielfilm.de/tv-programm/rss/heute2200.xml',
+                     state: 'rss.heute2200',
+                     cssclass:  'tv_heute2200'
+                    },
+    filme:          { feedname: 'Spielfilm-Highlights des Tages',
+                     url: 'http://www.tvspielfilm.de/tv-programm/rss/filme.xml',
+                     state: 'rss.filme',
+                     cssclass:  'tv_filme'
+                    }
 }
 
 
