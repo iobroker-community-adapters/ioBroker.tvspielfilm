@@ -48,8 +48,8 @@
 	};
 
     function load(settings, onChange) {
-        if (blacklist){
-            $('#blacklist').val(blacklist.join(', '));
+        if (settings.blacklist) {
+            $('#blacklist').val(settings.blacklist.join(', '));
         }
         $('#blacklist').change(function () {
             onChange();
@@ -60,13 +60,13 @@
     }
       
     function save(callback) {
-        var obj = {};
         var sender = $('#blacklist').val().split(','); // Array aus Senderliste erstellen
-        var native = {blacklist: []}; // leer
-        for (var l = 0; l < sender.length; l++) { // alle sender durchgehen
-            native.blacklist.push(sender[l].trim()); // und in objekt schreiben
+        // remove spaces and empty entries
+        for(var b = sender.length - 1; b >=0; b--) {
+            sender[b] = sender[b].trim();
+            if (!sender[b]) sender.splice(b, 1);
         }
-        callback(obj);
+        callback({blacklist: sender});
     }
     
 </script>
