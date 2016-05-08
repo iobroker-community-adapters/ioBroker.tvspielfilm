@@ -8,11 +8,6 @@
 
 [![NPM](https://nodei.co/npm/iobroker.tvspielfilm.png?downloads=true)](https://nodei.co/npm/iobroker.tvspielfilm/)
 
-
-| :---     |
-| Dieser Adapter liefert das TV Programm aus den RSS-Feeds "Tipps" und "jetzt" des Anbieters tvspielfilm.de | 
-| This adapter delivers german TV program guide. The content ist captured from two RSS feeds of supplier tvspielfilm.de     | 
-
 ## Beschreibung / Description
 Dieser Adapter liefert das TV Programm aus den RSS-Feeds "Tipps" und "jetzt" des Anbieters tvspielfilm.de
 
