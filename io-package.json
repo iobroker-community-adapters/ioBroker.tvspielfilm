@@ -12,14 +12,12 @@
         "loglevel":                 "info",
         "keywords":                 ["tv", "program", "guide", "Fernsehprogramm", "Tvprogramm", "Programm", "tvspielfilm", "spielfilm", "pix"],
         "main":                     "main.js",
-        "authors": [
-            "Pix"
-        ],
+        "authors":                  ["Pix"],
         "license":                  "MIT",
         "readme":                   "https://github.com/Pix---/ioBroker.tvspielfilm/blob/master/README.md",
         "icon":                     "tvspielfilm.png",
         "extIcon":                  "https://raw.githubusercontent.com/Pix---/ioBroker.tvspielfilm/master/admin/tvspielfilm.png",
-	    "allowInit":                true,
+	"allowInit":                true,
         "type":                     "schedule",
         "config": {
             "width": 650,
