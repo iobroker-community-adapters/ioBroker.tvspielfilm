@@ -17,6 +17,10 @@
     #config {
         font-size: smaller;	
     }
+    .headline {
+    	padding-top: 20px;
+    	padding-left: 10px;
+    }
     .table_header {
         background-color: blue;
         color: white;
@@ -44,10 +48,6 @@
 	};
 
     function load(settings, onChange) {
-        $('.value').each(function () {
-            var id = $(this).attr('id');
-            setValue(id, settings[id] || '', onChange);
-        });
         if (common.blacklist){
             $('#blacklist').val(common.blacklist.join(', '));
         }
@@ -61,10 +61,10 @@
       
     function save(callback) {
         var obj = {};
-        var sender = $('#blacklist').val().split(',');
-        var common = {blacklist: []};
-        for (var l = 0; l < sender.length; l++) {
-            common.blacklist.push(sender[l].trim());
+        var sender = $('#blacklist').val().split(','); // Array aus Senderliste erstellen
+        var common = {blacklist: []}; // leer
+        for (var l = 0; l < sender.length; l++) { // alle sender durchgehen
+            common.blacklist.push(sender[l].trim()); // und in objekt schreiben
         }
         callback(obj);
     }
@@ -75,7 +75,7 @@
     <table style="width: 100%">
     	<tr>
             <td><img src="tvspielfilm.png"></td>
-            <td style="padding-top: 20px;padding-left: 10px"><h3 class="translate">tvspielfilm Adapter settings</h3></td>
+            <td class="headline"><h3 class="translate">tvspielfilm Adapter settings</h3></td>
         </tr>
     </table>
     <h4 class="translate" style="width: calc(100% - 10px)">Blacklist</h4>
@@ -84,7 +84,7 @@
             <td class="translate">Sender, die nicht berücksichtigt werden sollen:</td>
         </tr>
         <tr>
-            <td><input id="blacklist" class="value" style="width: 100%"/></td>
+            <td><input type="text" id="blacklist" class="value" style="width: 100%"/></td>
         </tr>
         <tr>    
             <td class="translate" style="color: gray; font-style: italic; font-size: smaller">Divided by comma</td>
