@@ -38,7 +38,7 @@ function readSettings() {
     // eigentlich wird erst in check_sender das setting (config.blacklist) eingelesen
     
     for (var s in adapter.config.blacklist) {
-        adapter.log.info('Blacklist (#' + (s+1) + '): ' + adapter.config.blacklist[s]);
+        adapter.log.info('Blacklist (#' + (parseInt(s,10)+1) + '): ' + adapter.config.blacklist[s]);
     }
 } 
 
