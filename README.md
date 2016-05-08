@@ -9,9 +9,9 @@
 [![NPM](https://nodei.co/npm/iobroker.tvspielfilm.png?downloads=true)](https://nodei.co/npm/iobroker.tvspielfilm/)
 
 ## Beschreibung / Description
-:de: Dieser Adapter liefert das TV Programm aus den RSS-Feeds "Tipps" und "jetzt" des Anbieters tvspielfilm.de. Die Daten werden in zwei JSON Objekte gespeichert, um in [ioBroker.vis](https://github.com/ioBroker/ioBroker.vis) verarbeitet zu werden.
+:de: Dieser Adapter liefert das TV Programm aus den RSS-Feeds "Tipps" und "jetzt" des Anbieters [tvspielfilm.de](http://www.tvspielfilm.de/services/widgets/rss-feeds/rss-feeds-im-ueberblick,3538128,ApplicationArticle.html). Die Daten werden in zwei JSON Objekte gespeichert, um in [ioBroker.vis](https://github.com/ioBroker/ioBroker.vis) verarbeitet zu werden.
 
-:uk: This adapter delivers a german tv program guide. The content ist captured from two rss feeds from supplier tvspielfilm.de stored in two JSON objects ready to use in [ioBroker.vis](https://github.com/ioBroker/ioBroker.vis)
+:uk: This adapter delivers a german tv program guide. The content ist captured from two rss feeds from supplier [tvspielfilm.de](http://www.tvspielfilm.de/services/widgets/rss-feeds/rss-feeds-im-ueberblick,3538128,ApplicationArticle.html) stored in two JSON objects ready to use in [ioBroker.vis](https://github.com/ioBroker/ioBroker.vis)
 
 ## Einstellungen / Configuration
 Sender, die nicht empfangbar sind oder nicht gelistet werden sollen, können in der Blacklist gespeichert und so bei der Ausgabe übersprungen werden.
@@ -119,6 +119,7 @@ The adapter starts every 5min to read both RSS feeds ("Suggestions" and "Now").
 
 ## Todo
 * Programmtipps, die auf eine Uhrzeit hinweisen, die vor der aktuellen Uhrzeit liegt, ausblenden
+* [weitere Feeds](http://www.tvspielfilm.de/services/widgets/rss-feeds/rss-feeds-im-ueberblick,3538128,ApplicationArticle.html) einbauen
 
 
 ## License
