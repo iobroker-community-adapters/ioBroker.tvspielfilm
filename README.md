@@ -23,11 +23,16 @@ TV channels that are not provided by your supplier or simply are not considered 
 
 ##  Datenpunkte / Datapoints
 
-tvspielfilm.# __tipps__  (*JSON* Tabelle für VIS Widget *json,table*)
+tvspielfilm.# __filme__  (*JSON* Tabelle für VIS Widget *json,table*)
+
+tvspielfilm.# __heute2015__  (*JSON* Tabelle für VIS Widget *json,table*)
+
+tvspielfilm.# __heute2200__  (*JSON* Tabelle für VIS Widget *json,table*)
 
 tvspielfilm.# __jetzt__  (*JSON* Tabelle für VIS Widget *json,table*)
 
-tbc
+tvspielfilm.# __tipss__  (*JSON* Tabelle für VIS Widget *json,table*)
+
 
 Beispiel / Example:
 ```
