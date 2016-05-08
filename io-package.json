@@ -5,7 +5,7 @@
         "desc": {                   "en": "TV Spielfilm program guide from rss feed",
                                     "de": "TV Spielfilm Programm Informationen aus RSS Feed",
                                     "ru": "TV Spielfilm Program Guide - translate to russian, please"},
-        "version":                  "0.0.2",
+        "version":                  "0.0.3",
         "mode":                     "schedule",
         "schedule":                 "*/5 * * * *",
         "platform":                 "javascript/Node.js",
@@ -58,6 +58,54 @@
             "common": {
                 "name":  "tvspielfilm jetzt",
                 "desc":  "Was läuft jetzt im TV?",
+                "type":  "string",
+                "read":  true,
+                "write": false
+            },
+            "native": {}
+        },
+        {
+            "_id":  "rss.2000",
+            "type": "state",
+            "common": {
+                "name":  "tvspielfilm 2000 Uhr",
+                "desc":  "Was läuft um 20Uhr im TV?",
+                "type":  "string",
+                "read":  true,
+                "write": false
+            },
+            "native": {}
+        },
+        {
+            "_id":  "rss.2200",
+            "type": "state",
+            "common": {
+                "name":  "tvspielfilm 2200 Uhr",
+                "desc":  "Was läuft um 22Uhr im TV?",
+                "type":  "string",
+                "read":  true,
+                "write": false
+            },
+            "native": {}
+        },
+        {
+            "_id":  "rss.news",
+            "type": "state",
+            "common": {
+                "name":  "tvspielfilm News",
+                "desc":  "News Tipps für heute",
+                "type":  "string",
+                "read":  true,
+                "write": false
+            },
+            "native": {}
+        },
+        {
+            "_id":  "rss.filme",
+            "type": "state",
+            "common": {
+                "name":  "tvspielfilm Filme",
+                "desc":  "Film Tipps für heute",
                 "type":  "string",
                 "read":  true,
                 "write": false
