@@ -135,9 +135,9 @@ function readFeed (x) {
 function main() {
     readSettings();
     for (var j in rss_options) {
-        setTimeout(function () {
+        //setTimeout(function () {
             readFeed(j);
-        }, 1000);
+        //}, 1000);
     }
     adapter.stop();
 }
