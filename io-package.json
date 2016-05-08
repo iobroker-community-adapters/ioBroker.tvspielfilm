@@ -1,11 +1,11 @@
 {
     "common": {
         "name":                     "tvspielfilm",
-        "title":                    "TV Spielfilm RSS",
+        "title":                    "TV Spielfilm",
         "desc": {                   "en": "TV Spielfilm program guide from rss feed",
                                     "de": "TV Spielfilm Programm Informationen aus RSS Feed",
                                     "ru": "TV Spielfilm Program Guide - translate to russian, please"},
-        "version":                  "0.0.1",
+        "version":                  "0.0.2",
         "mode":                     "schedule",
         "schedule":                 "*/5 * * * *",
         "platform":                 "javascript/Node.js",
