@@ -65,7 +65,7 @@
             "native": {}
         },
         {
-            "_id":  "rss.heute2015uhr",
+            "_id":  "rss.heute2015",
             "type": "state",
             "common": {
                 "name":  "tvspielfilm 20:15 Uhr",
@@ -77,7 +77,7 @@
             "native": {}
         },
         {
-            "_id":  "rss.heute2200uhr",
+            "_id":  "rss.heute2200",
             "type": "state",
             "common": {
                 "name":  "tvspielfilm 22:00 Uhr",
