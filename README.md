@@ -41,7 +41,7 @@ Für eine optisch ansprechende Formatierung, empfehle ich folge CSS Definitionen
 For a nicer look the following CSS is suggested to be used to the VIS editor.
 
 ```
-.tclass-th { /* Header */
+.tclass-th { /* Headerzeilen */
     background-color: darkgrey;
     background-color: rgba(100,100,100,0.8);
     color: white;
@@ -49,15 +49,15 @@ For a nicer look the following CSS is suggested to be used to the VIS editor.
     font-family: Arial;
 }
 
-.tclass-th1 { /* left Header */ 
+.tclass-th1 { /* linker Header */ 
     width: 20px;
     text-align: center;
-    color: transparent; /* Text ausblenden - no text */
-    /* display: none; */ /* ganze Spalte ausblenden - no column */
+    color: transparent; /* Text ausblenden */
+    /* display: none; */ /* ganze Spalte ausblenden */
 }
 
 .tclass-th .tclass-th1 {
-    display: none; /* Spaltenüberschrift überm Bild ausblenden - no header above image */
+    display: none; /* Spaltenüberschrift überm Bild ausblenden*/
 }
 
 .tclass-tr {
@@ -79,9 +79,8 @@ For a nicer look the following CSS is suggested to be used to the VIS editor.
 .tv_tipps, 
 .tv_jetzt,
 .tv_filme,
-.tv_2000,
-.tv_2200,
-.tv_news {
+.tv_heute2015,
+.tv_heute2200 {
     font-family: Arial;
     font-size: 75%;
 }
@@ -89,9 +88,8 @@ For a nicer look the following CSS is suggested to be used to the VIS editor.
 .tv_tipps tr, 
 .tv_jetzt tr,
 .tv_filme tr,
-.tv_2000 tr,
-.tv_2200 tr,
-.tv_news tr {
+.tv_heute2015 tr,
+.tv_heute2200 tr {
     background-color: transparent;
     color: white;
 }
@@ -99,9 +97,8 @@ For a nicer look the following CSS is suggested to be used to the VIS editor.
 .tv_tipps tr td a, 
 .tv_jetzt tr td a,
 .tv_filme tr td a,
-.tv_2000 tr td a,
-.tv_2200 tr td a, 
-.tv_news tr td a {
+.tv_heute2015 tr td a,
+.tv_heute2200 tr td a {
     background-color: transparent;
     color: white;
     text-decoration: none;
