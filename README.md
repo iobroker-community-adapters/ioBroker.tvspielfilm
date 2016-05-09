@@ -14,9 +14,15 @@
 :uk: This adapter delivers a german tv program guide. The content ist captured from two rss feeds from supplier [tvspielfilm.de](http://www.tvspielfilm.de/services/widgets/rss-feeds/rss-feeds-im-ueberblick,3538128,ApplicationArticle.html) stored in JSON objects ready to use in [ioBroker.vis](https://github.com/ioBroker/ioBroker.vis)
 
 ## Einstellungen / Configuration
-Sender, die nicht empfangbar sind oder nicht gelistet werden sollen, können in der Blacklist gespeichert und so bei der Ausgabe übersprungen werden.
+### Whitelist
+Sollen nur Sendungen eines oder mehrerer bestimmter Sender angezeigt werden, sind diese Sendernamen in die Whitelist einzutragen. Enthält die Whitelist mindestens einen Eintrag, wird die Blacklist igoriert.
 
-TV channels that are not provided by your supplier or simply are not considered to be listed will be skipped. Therefore you can add them to the blacklist.
+Add a specific list of stations to the whitelist to display only their shows. The blacklist is skipped if the whitelist is not empty.
+
+### Blacklist
+Sender, die nicht empfangbar sind oder nicht gelistet werden sollen, können in der Blacklist gespeichert und so bei der Ausgabe übersprungen werden. Die Blacklist wird nur berücksichtigt, wenn die Whitelist leer ist.
+
+TV channels that are not provided by your supplier or simply are not considered to be listed will be skipped. Therefore you can add them to the blacklist. The blacklist is supported only when the whitelist is empty.
 
 ![alt text](img/tvspielfilmSettingScreenshot.jpg "Screenshot Settings")
 
@@ -127,6 +133,9 @@ Der Adapter startet alle 5min und liest beide Feeds ("Tipps" und "jetzt") ein.
 The adapter starts every 5min to read both RSS feeds ("Suggestions" and "Now").
 
 ## Changelog
+### 0.2.0 (2016-05-09)
+* (pix) Whitelist
+
 ### 0.1.1 (2016-05-08)
 * (pix) Channel renamed to 'json'
 

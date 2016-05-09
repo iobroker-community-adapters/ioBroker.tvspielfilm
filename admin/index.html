@@ -39,11 +39,17 @@
                 "ru": "Настройки tvspielfilm Adapter"
             },
             "Unwanted stations:": {
-                "en": "List of stations to be skipped in processing",
+                "en": "List of stations to be skipped in processing:",
                 "de": "Sender, die nicht berücksichtigt werden sollen:",
                 "ru": "Translate pls: Sender, die nicht berücksichtigt werden sollen:"
             },
+            "Only stations:": {
+                "en": "Only these stations will be displayed. If whitelist is used, blacklist will be disregarded.",
+                "de": "Nur diese Sender anzeigen. Wenn Whitelist Einträge enthält, wird die Blacklist nicht verwendet.",
+                "ru": "Translate pls: Only these stations will be displayed. If whitelist is used, blacklist will be disregarded."
+            },
             "Blacklist":       	{"en": "Blacklist",                          "de": "Blacklist",                              "ru": "Blacklist"},
+            "Whitelist":       	{"en": "Whitelist",                          "de": "Whitelist",                              "ru": "Whitelist"},
             "Divided by comma":	{"en": "Divided by comma",                   "de": "Durch Komma getrennt",                   "ru": "Divided by comma"}
 	};
 
@@ -56,17 +62,34 @@
         }).keyup(function () {
             $(this).trigger('change');
         });
+        
+        if (settings.whitelist) {
+            $('#whitelist').val(settings.whitelist.join(', '));
+        }
+        $('#whitelist').change(function () {
+            onChange();
+        }).keyup(function () {
+            $(this).trigger('change');
+        });
         onChange(false);
     }
       
     function save(callback) {
-        var sender = $('#blacklist').val().split(','); // Array aus Senderliste erstellen
+        var station_black = $('#blacklist').val().split(',');  // List of stations array
         // remove spaces and empty entries
-        for(var b = sender.length - 1; b >=0; b--) {
-            sender[b] = sender[b].trim();
-            if (!sender[b]) sender.splice(b, 1);
+        for(var b = station_black.length - 1; b >=0; b--) {
+            station_black[b] = station_black[b].trim();
+            if (!station_black[b]) station_black.splice(b, 1);
         }
-        callback({blacklist: sender});
+        callback({blacklist: station_black});
+        
+        var station_white = $('#whitelist').val().split(','); // List of stations array
+        // remove spaces and empty entries
+        for(var w = station_white.length - 1; w >=0; w--) {
+            station_white[w] = station_white[w].trim();
+            if (!station_white[w]) station_white.splice(w, 1);
+        }
+        callback({whitelist: station_white});
     }
     
 </script>
@@ -78,7 +101,20 @@
             <td class="headline"><h3 class="translate">tvspielfilm Adapter settings</h3></td>
         </tr>
     </table>
-    <h4 class="translate" style="width: calc(100% - 10px)">Blacklist</h4>
+    <h4 class="translate" style="width: calc(100% - 10px)">Whitelist</h4>
+    <table id="config" style="width: calc(100% - 5px)">
+        <tr>
+            <td class="translate">Only stations:</td>
+        </tr>
+        <tr>
+            <td><input type="text" id="whitelist" class="value" style="width: 100%"/></td>
+        </tr>
+        <tr>    
+            <td class="translate" style="color: gray; font-style: italic; font-size: smaller">Divided by comma</td>
+        </tr>
+        
+    </table>
+    <h4 class="translate" style="margin-top: 20px; width: calc(100% - 10px)">Blacklist</h4>
     <table id="config" style="width: calc(100% - 5px)">
         <tr>
             <td class="translate">Unwanted stations:</td>
@@ -89,6 +125,7 @@
         <tr>    
             <td class="translate" style="color: gray; font-style: italic; font-size: smaller">Divided by comma</td>
         </tr>
+        
     </table>
 </div>
 </html>

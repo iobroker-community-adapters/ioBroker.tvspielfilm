@@ -33,17 +33,23 @@ adapter.on('ready', function () {
 });
 
 function readSettings() {
+    //Blacklist
     if (adapter.config.blacklist === undefined || adapter.config.blacklist.length === 0) adapter.log.info('Keine Stationen zur Blacklist hinzugefügt');
     else if (logging) adapter.log.info('Zahl Stationen in Blacklist: ' + adapter.config.blacklist.length);
-    // eigentlich wird erst in check_sender das setting (config.blacklist) eingelesen
-    
     for (var s in adapter.config.blacklist) {
         if (logging) adapter.log.info('Blacklist (#' + (parseInt(s,10)+1) + '): ' + adapter.config.blacklist[s]);
     }
+    //Whitelist
+    if (adapter.config.whitelist === undefined || adapter.config.whitelist.length === 0) adapter.log.info('Keine Stationen zur Whitelist hinzugefügt');
+    else if (logging) adapter.log.info('Zahl Stationen in Whitelist: ' + adapter.config.whitelist.length);
+    for (var t in adapter.config.whitelist) {
+        if (logging) adapter.log.info('Whitelist (#' + (parseInt(t,10)+1) + '): ' + adapter.config.whitelist[t]);
+    }
+    
 } 
 
 
-function check_sender (show) { //  wird so übergeben "16:50 | Sky Cinema | Kill the Boss 2"
+function check_station (show) { // Eine Sendung/Show wird so übergeben "16:50 | Sky Cinema | Kill the Boss 2"
     var show_info = show.split(' | ');
     
     // es können noch weitere Daten extrahiert und geprüft werden:
@@ -56,10 +62,16 @@ function check_sender (show) { //  wird so übergeben "16:50 | Sky Cinema | Kill
     // Suche nach Filmen genauso möglich
     // movie = show_info[2];
     
-    // Suche nach Sender
+    // check stationname
     var station = show_info[1];
-    var station_in_blacklist = (adapter.config.blacklist.indexOf(station,0) == -1) ? true : false; // Sender nicht in der Blacklist, also empfangbar
-    return(station_in_blacklist); 
+    var display = true; // show em all :-D
+    
+    if (adapter.config.whitelist.length === 0) { // if no entry in whitelist use blacklist
+        display = (adapter.config.blacklist.indexOf(station,0) == -1) ? true : false; // station not in blacklist means display = true
+    } else { // if at least one entry in whitelist do not use blacklist but whitelist only
+        display = (adapter.config.whitelist.indexOf(station,0) != -1) ? true : false; // station not not in whitelist means display = true
+    }
+    return(display);
 }
 
 
@@ -91,7 +103,6 @@ var rss_options = {
                     }
 }
 
-
 function readFeed (x) {
     var link = rss_options[x].url;
     adapter.log.info('RSS Feed wird eingelesen: ' + link);
@@ -107,12 +118,12 @@ function readFeed (x) {
                 if (err) {
                     adapter.log.warn("Fehler: " + err);
                 } else {                                                               
-                    var sender_empfangbar = false;
+                    var display_station = false;
                     if (result.rss.channel.item.length !== null) { // gelegentlicher Fehler bei nächtlicher Abfrage durch length (undefined) soll hier abgefangen werden
                         // Array durchzaehlen von 0 bis Zahl der items
                         for(var i = 0; i < result.rss.channel.item.length; i++) {
-                            sender_empfangbar = check_sender(result.rss.channel.item[i].title);
-                            if (sender_empfangbar) {
+                            display_station = check_station(result.rss.channel.item[i].title);
+                            if (display_station) {
                                 var entry = {
                                     image: result.rss.channel.item[i].enclosure ? '<img width="100%" src="' + result.rss.channel.item[i].enclosure.url + '" />' : '',
                                     text:  '<table class="' + rss_options[x].cssclass + '"><tr><td class="' + rss_options[x].cssclass + '_text" style="text-align: left; padding-left: 5px; font-weight: bold"><a href="' +
@@ -132,6 +143,7 @@ function readFeed (x) {
     });   // Ende request 
     if (logging) adapter.log.info('XML-Daten aus TV Spielfilm (' + rss_options[x].feedname + ') eingelesen');
 }
+
 function main() {
     readSettings();
     for (var j in rss_options) {
