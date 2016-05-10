@@ -5,7 +5,6 @@
 var utils       = require(__dirname + '/lib/utils'); // Get common adapter utils
 var parseString = require('xml2js').parseString;
 var request     = require('request');
-var logging     = true;
 var lang = 'de';
 
 var adapter = utils.adapter({
@@ -20,12 +19,12 @@ adapter.on('ready', function () {
             lang  = data.common.language;
         }
 
-        adapter.log.debug('adapter tvspielfilm initializing objects');
+        adapter.log.debug('initializing objects');
         main();
-        adapter.log.info('adapter tvspielfilm objects written');
+        adapter.log.info('objects written');
 
         setTimeout(function () {
-            adapter.log.info('force terminating after 1 minute');
+            adapter.log.info('force terminating adapter after 1 minute');
             adapter.stop();
         }, 60000);
 
@@ -34,16 +33,16 @@ adapter.on('ready', function () {
 
 function readSettings() {
     //Blacklist
-    if (adapter.config.blacklist === undefined || adapter.config.blacklist.length === 0) adapter.log.info('Keine Stationen zur Blacklist hinzugefügt');
-    else if (logging) adapter.log.info('Zahl Stationen in Blacklist: ' + adapter.config.blacklist.length);
+    if (adapter.config.blacklist === undefined || adapter.config.blacklist.length === 0) adapter.log.debug('Keine Stationen zur Blacklist hinzugefügt');
+    else adapter.log.debug('Zahl Stationen in Blacklist: ' + adapter.config.blacklist.length);
     for (var s in adapter.config.blacklist) {
-        if (logging) adapter.log.info('Blacklist (#' + (parseInt(s,10)+1) + '): ' + adapter.config.blacklist[s]);
+        adapter.log.debug('Blacklist (#' + (parseInt(s,10)+1) + '): ' + adapter.config.blacklist[s]);
     }
     //Whitelist
-    if (adapter.config.whitelist === undefined || adapter.config.whitelist.length === 0) adapter.log.info('Keine Stationen zur Whitelist hinzugefügt');
-    else if (logging) adapter.log.info('Zahl Stationen in Whitelist: ' + adapter.config.whitelist.length);
+    if (adapter.config.whitelist === undefined || adapter.config.whitelist.length === 0) adapter.log.debug('Keine Stationen zur Whitelist hinzugefügt');
+    else adapter.log.debug('Zahl Stationen in Whitelist: ' + adapter.config.whitelist.length);
     for (var t in adapter.config.whitelist) {
-        if (logging) adapter.log.info('Whitelist (#' + (parseInt(t,10)+1) + '): ' + adapter.config.whitelist[t]);
+        adapter.log.debug('Whitelist (#' + (parseInt(t,10)+1) + '): ' + adapter.config.whitelist[t]);
     }
     
 } 
@@ -105,7 +104,7 @@ var rss_options = {
 
 function readFeed (x) {
     var link = rss_options[x].url;
-    adapter.log.info('RSS Feed wird eingelesen: ' + link);
+    adapter.log.debug('RSS Feed wird eingelesen: ' + link);
     request(link, function (error, response, body) {
         if (!error && response.statusCode == 200) {
     
@@ -141,7 +140,7 @@ function readFeed (x) {
             });
         } else adapter.log.warn(error,'error');
     });   // Ende request 
-    if (logging) adapter.log.info('XML-Daten aus TV Spielfilm (' + rss_options[x].feedname + ') eingelesen');
+    if (logging) adapter.log.debug('XML-Daten aus TV Spielfilm (' + rss_options[x].feedname + ') eingelesen');
 }
 
 function main() {
