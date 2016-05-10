@@ -147,9 +147,9 @@ For a nicer look the following CSS is suggested to be used to the VIS editor.
 ### 0.0.1 (2016-05-07)
 * (pix) Adapter created
 
-## Todo
-* Programmtipps, die auf eine Uhrzeit hinweisen, die vor der aktuellen Uhrzeit liegt, ausblenden
-* [weitere Feeds](http://www.tvspielfilm.de/services/widgets/rss-feeds/rss-feeds-im-ueberblick,3538128,ApplicationArticle.html) einbauen
+## Roadmap
+* Programmtipps ausblenden, die auf eine Uhrzeit hinweisen, die vor der aktuellen Uhrzeit liegt. 
+* Film-Alarm: Erkennung von zuvor festgelegten Filmtiteln
 
 
 ## License
