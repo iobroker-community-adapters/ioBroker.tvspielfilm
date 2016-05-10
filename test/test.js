@@ -5,8 +5,8 @@ var objects     = null;
 var states      = null;
 var connected   = false;
 
-describe('feiertage: test adapter', function() {
-    before('feiertage: Start js-controller', function (_done) {
+describe('tvspielfilm: test adapter', function() {
+    before('tvspielfilm: Start js-controller', function (_done) {
         this.timeout(600000); // because of first install from npm
 
         setup.setupController(function () {
@@ -25,24 +25,24 @@ describe('feiertage: test adapter', function() {
         });
     });
 
-    it('feiertage: wait', function (done) {
+    it('tvspielfilm: wait', function (done) {
         this.timeout(5000);
         setTimeout(function () {
             done();
         }, 3000);
     });
 
-    it('feiertage: next holiday must be set', function (done) {
+    it('tvspielfilm: feeds to be parsed', function (done) {
         this.timeout(20000);
-        states.getState('feiertage.0.naechster.Name', function (err, fileName) {
+        states.getState('tvspielfilm.0.json.heute2200', function (err, fileName) {
             expect(err).to.be.not.ok;
             expect(fileName).to.be.ok;
             expect(fileName.ack).to.be.true;
-            states.getState('feiertage.0.naechster.Datum', function (err, fileName) {
+            states.getState('tvspielfilm.0.json.filme', function (err, fileName) {
                 expect(err).to.be.not.ok;
                 expect(fileName).to.be.ok;
                 expect(fileName.ack).to.be.true;
-                states.getState('feiertage.0.naechster.Dauer', function (err, fileName) {
+                states.getState('tvspielfilm.0.json.heute2015', function (err, fileName) {
                     expect(err).to.be.not.ok;
                     expect(fileName).to.be.ok;
                     expect(fileName.ack).to.be.true;
@@ -52,7 +52,7 @@ describe('feiertage: test adapter', function() {
         });
     });
     
-    after('feiertage: Stop js-controller', function (done) {
+    after('tvspielfilm: Stop js-controller', function (done) {
         this.timeout(5000);
         setup.stopController(function () {
             done();
