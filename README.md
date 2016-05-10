@@ -37,7 +37,7 @@ tvspielfilm.0.json.__heute2200__  (*JSON* Tabelle für VIS Widget *json,table*)
 
 tvspielfilm.0.json.__jetzt__  (*JSON* Tabelle für VIS Widget *json,table*)
 
-tvspielfilm.0.json.__tipss__  (*JSON* Tabelle für VIS Widget *json,table*)
+tvspielfilm.0.json.__tipps__  (*JSON* Tabelle für VIS Widget *json,table*)
 
 
 Beispiel / Example:
