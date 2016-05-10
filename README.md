@@ -17,12 +17,12 @@
 ### Whitelist
 Sollen nur Sendungen eines oder mehrerer bestimmter Sender angezeigt werden, sind diese Sendernamen in die Whitelist einzutragen. Enthält die Whitelist mindestens einen Eintrag, wird die Blacklist igoriert.
 
-Add a specific list of stations to the whitelist to display only their shows. The blacklist is skipped if the whitelist is not empty.
+To display only a specific list of stations add the stations names to the whitelist. The blacklist will be skipped if the whitelist is not empty.
 
 ### Blacklist
 Sender, die nicht empfangbar sind oder nicht gelistet werden sollen, können in der Blacklist gespeichert und so bei der Ausgabe übersprungen werden. Die Blacklist wird nur berücksichtigt, wenn die Whitelist leer ist.
 
-TV channels that are not provided by your supplier or simply are not considered to be listed will be skipped. Therefore you can add them to the blacklist. The blacklist is supported only when the whitelist is empty.
+TV channels that are not provided by your supplier or simply are not considered to be listed will be skipped. Therefore you can add them to the blacklist. The blacklist function is supported only when the whitelist is empty.
 
 ![alt text](img/tvspielfilmSettingScreenshot.jpg "Screenshot Settings")
 
@@ -128,11 +128,14 @@ For a nicer look the following CSS is suggested to be used to the VIS editor.
 ```
 
 ## Aktivierung / Schedule
-Der Adapter startet alle 5min und liest beide Feeds ("Tipps" und "jetzt") ein.
+Der Adapter startet alle 5min und liest die RSS-Feeds "Tipps", "Spielfilm-Highlights", "heute um 20:15 Uhr", "heute um 22:00 Uhr" und "jetzt" ein.
 
-The adapter starts every 5min to read both RSS feeds ("Suggestions" and "Now").
+The adapter starts every 5min to read the rss feeds "suggestions", "movie highlights", "today at 0815pm", "today at 10pm" and "now".
 
 ## Changelog
+### 0.2.1 (2016-05-10)
+* (pix) Log levels fixed
+
 ### 0.2.0 (2016-05-09)
 * (pix) Whitelist
 
