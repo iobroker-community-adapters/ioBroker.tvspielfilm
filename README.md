@@ -26,6 +26,10 @@ TV channels that are not provided by your supplier or simply are not considered 
 
 ![alt text](img/tvspielfilmSettingScreenshot.jpg "Screenshot Settings")
 
+## Aktivierung / Schedule
+Der Adapter startet alle 5min und liest die RSS-Feeds "Tipps", "Spielfilm-Highlights", "heute um 20:15 Uhr", "heute um 22:00 Uhr" und "jetzt" ein.
+
+The adapter starts every 5min to read the rss feeds "suggestions", "movie highlights", "today at 0815pm", "today at 10pm" and "now".
 
 ##  Datenpunkte / Datapoints
 
@@ -126,11 +130,6 @@ For a nicer look the following CSS is suggested to be used to the VIS editor.
 ```
 [{"tpl":"tplTableBody","data":{"visibility-cond":"==","visibility-val":1,"static_value":"","table_oid":"tvspielfilm.0.rss.tipps","colCount":"2","colName1":"Vorschau","colWidth1":"30px","colName2":"Tagestipps","colAttr1":"","colWidth2":"60px","hide_header":false,"show_scroll":false,"new_on_top":true,"name":"JSON Tabelle TV Programm TIPPS","gestures-offsetX":0,"gestures-offsetY":0},"style":{"left":"44px","top":"30px","width":"357px","height":"auto","z-index":"25","color":"rgba(250,250,250,1)","text-align":"","font-family":"","background-color":"","border-style":""},"widgetSet":"basic"}]
 ```
-
-## Aktivierung / Schedule
-Der Adapter startet alle 5min und liest die RSS-Feeds "Tipps", "Spielfilm-Highlights", "heute um 20:15 Uhr", "heute um 22:00 Uhr" und "jetzt" ein.
-
-The adapter starts every 5min to read the rss feeds "suggestions", "movie highlights", "today at 0815pm", "today at 10pm" and "now".
 
 ## Changelog
 ### 0.2.1 (2016-05-10)
