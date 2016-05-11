@@ -140,7 +140,7 @@ function readFeed (x) {
             });
         } else adapter.log.warn(error,'error');
     });   // Ende request 
-    if (logging) adapter.log.debug('XML-Daten aus TV Spielfilm (' + rss_options[x].feedname + ') eingelesen');
+    adapter.log.debug('XML-Daten aus TV Spielfilm (' + rss_options[x].feedname + ') eingelesen');
 }
 
 function main() {
