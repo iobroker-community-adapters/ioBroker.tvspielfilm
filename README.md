@@ -134,6 +134,7 @@ For a nicer look the following CSS is suggested to be used to the VIS editor.
 ## Changelog
 ### 0.2.2 (2016-05-12)
 * (bluefox) save settings issue fixed
+* (pix) blacklist & whitelist sort in alphabetical order
 
 ### 0.2.1 (2016-05-10)
 * (pix) Log levels fixed
