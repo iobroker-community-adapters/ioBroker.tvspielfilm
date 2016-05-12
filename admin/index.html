@@ -81,15 +81,14 @@
             station_black[b] = station_black[b].trim();
             if (!station_black[b]) station_black.splice(b, 1);
         }
-        callback({blacklist: station_black});
-        
+
         var station_white = $('#whitelist').val().split(','); // List of stations array
         // remove spaces and empty entries
         for(var w = station_white.length - 1; w >=0; w--) {
             station_white[w] = station_white[w].trim();
             if (!station_white[w]) station_white.splice(w, 1);
         }
-        callback({whitelist: station_white});
+        callback({whitelist: station_white, blacklist: station_black});
     }
     
 </script>
