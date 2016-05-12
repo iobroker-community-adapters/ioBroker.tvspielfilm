@@ -76,6 +76,7 @@
       
     function save(callback) {
         var station_black = $('#blacklist').val().split(',');  // List of stations array
+        station_black = station_black.sort(); // sort in aphabetical order
         // remove spaces and empty entries
         for(var b = station_black.length - 1; b >=0; b--) {
             station_black[b] = station_black[b].trim();
@@ -83,6 +84,7 @@
         }
 
         var station_white = $('#whitelist').val().split(','); // List of stations array
+        station_white = station_white.sort(); // sort in aphabetical order
         // remove spaces and empty entries
         for(var w = station_white.length - 1; w >=0; w--) {
             station_white[w] = station_white[w].trim();
