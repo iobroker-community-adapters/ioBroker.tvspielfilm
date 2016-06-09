@@ -148,5 +148,5 @@ function main() {
     for (var j in rss_options) {
         readFeed(j);
     }
-    adapter.stop();
+    //adapter.stop();
 }
