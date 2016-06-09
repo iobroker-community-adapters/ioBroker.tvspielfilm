@@ -21,7 +21,6 @@ adapter.on('ready', function () {
 
         adapter.log.debug('initializing objects');
         main();
-        adapter.log.info('objects written');
 
         setTimeout(function () {
             adapter.log.info('force terminating adapter after 1 minute');
@@ -148,5 +147,6 @@ function main() {
     for (var j in rss_options) {
         readFeed(j);
     }
+    adapter.log.info('objects written');
     //adapter.stop();
 }
