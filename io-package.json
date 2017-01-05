@@ -12,7 +12,7 @@
                                         "de": "Travis CI und Appveyor Test Unterstützung",
                                         "ru": "Travis CI и Appveyor тестирование при поддержке"
 				    }
-	),
+	},
         "mode":                     "schedule",
         "schedule":                 "*/5 * * * *",
         "platform":                 "javascript/Node.js",
