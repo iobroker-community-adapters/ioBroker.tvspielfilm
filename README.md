@@ -4,9 +4,12 @@
 
 [![NPM version](http://img.shields.io/npm/v/iobroker.tvspielfilm.svg)](https://www.npmjs.com/package/iobroker.tvspielfilm)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.tvspielfilm.svg)](https://www.npmjs.com/package/iobroker.tvspielfilm)
-[![Tests](https://travis-ci.org/Pix---/ioBroker.tvspielfilm.svg?branch=master)](https://travis-ci.org/Pix---/ioBroker.tvspielfilm)
 
 [![NPM](https://nodei.co/npm/iobroker.tvspielfilm.png?downloads=true)](https://nodei.co/npm/iobroker.tvspielfilm/)
+
+**Tests:** Linux/Mac: [![Travis-CI](http://img.shields.io/travis/Pix---/ioBroker.tvspielfilm/master.svg)](https://travis-ci.org/Pix---/ioBroker.tvspielfilm)
+Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/Pix---/ioBroker.tvspielfilm?branch=master&svg=true)](https://ci.appveyor.com/project/Pix---/ioBroker.tvspielfilm/)
+
 
 ## Beschreibung / Description
 :de: Dieser Adapter liefert das TV Programm aus den RSS-Feeds "Tipps" und "jetzt" des Anbieters [tvspielfilm.de](http://www.tvspielfilm.de/services/widgets/rss-feeds/rss-feeds-im-ueberblick,3538128,ApplicationArticle.html). Die Daten werden in JSON Objekte gespeichert, um in [ioBroker.vis](https://github.com/ioBroker/ioBroker.vis) verarbeitet zu werden.
@@ -133,7 +136,7 @@ For a nicer look the following CSS is suggested to be used to the VIS editor.
 
 ## Changelog
 ### 1.0.0 (2017-01-05)
-* (pix) Travis CI implemented
+* (pix) Travis CI and Appveyor implemented
 
 ### 0.2.2 (2016-05-12)
 * (bluefox) save settings issue fixed
