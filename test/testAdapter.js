@@ -130,32 +130,30 @@ describe('Test ' + adapterShortName + ' adapter', function() {
 
     You can also use "sendTo" method to send messages to the started adapter
 */
-
+    
     it('tvspielfilm: feeds to be parsed', function (done) {
         this.timeout(20000);
-        setTimeout(function() {
-            states.getState('tvspielfilm.0.json.heute2200', function (err, fileName) {
+        states.getState('tvspielfilm.0.json.heute2200', function (err, fileName) {
+            expect(err).to.be.not.ok;
+            expect(fileName).to.be.ok;
+            expect(fileName.ack).to.be.true;
+            states.getState('tvspielfilm.0.json.filme', function (err, fileName) {
                 expect(err).to.be.not.ok;
                 expect(fileName).to.be.ok;
                 expect(fileName.ack).to.be.true;
-                states.getState('tvspielfilm.0.json.filme', function (err, fileName) {
+                states.getState('tvspielfilm.0.json.heute2015', function (err, fileName) {
                     expect(err).to.be.not.ok;
                     expect(fileName).to.be.ok;
                     expect(fileName.ack).to.be.true;
-                    states.getState('tvspielfilm.0.json.heute2015', function (err, fileName) {
+                    states.getState('tvspielfilm.0.json.jetzt', function (err, fileName) {
                         expect(err).to.be.not.ok;
                         expect(fileName).to.be.ok;
                         expect(fileName.ack).to.be.true;
-                        states.getState('tvspielfilm.0.json.jetzt', function (err, fileName) {
-                            expect(err).to.be.not.ok;
-                            expect(fileName).to.be.ok;
-                            expect(fileName.ack).to.be.true;
-                            done();
-                        });
+                        done();
                     });
                 });
             });
-        }, 5000); // give him 5 secs to read the feeds
+        });
     });
 
 
