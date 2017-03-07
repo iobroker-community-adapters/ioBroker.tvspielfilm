@@ -1,5 +1,7 @@
 /* jshint -W097 */// jshint strict:false
 /*jslint node: true */
+/*jshint expr: true*/
+
 var expect = require('chai').expect;
 var setup  = require(__dirname + '/lib/setup');
 
@@ -128,30 +130,33 @@ describe('Test ' + adapterShortName + ' adapter', function() {
 
     You can also use "sendTo" method to send messages to the started adapter
 */
-    
+
     it('tvspielfilm: feeds to be parsed', function (done) {
         this.timeout(20000);
-        states.getState('tvspielfilm.0.json.heute2200', function (err, fileName) {
-            expect(err).to.be.not.ok;
-            expect(fileName).to.be.ok;
-            expect(fileName.ack).to.be.true;
-            states.getState('tvspielfilm.0.json.filme', function (err, fileName) {
+
+        setTimeout(function() {
+            states.getState('tvspielfilm.0.json.heute2200', function (err, fileName) {
                 expect(err).to.be.not.ok;
                 expect(fileName).to.be.ok;
                 expect(fileName.ack).to.be.true;
-                states.getState('tvspielfilm.0.json.heute2015', function (err, fileName) {
+                states.getState('tvspielfilm.0.json.filme', function (err, fileName) {
                     expect(err).to.be.not.ok;
                     expect(fileName).to.be.ok;
                     expect(fileName.ack).to.be.true;
-                    states.getState('tvspielfilm.0.json.jetzt', function (err, fileName) {
+                    states.getState('tvspielfilm.0.json.heute2015', function (err, fileName) {
                         expect(err).to.be.not.ok;
                         expect(fileName).to.be.ok;
                         expect(fileName.ack).to.be.true;
-                        done();
+                        states.getState('tvspielfilm.0.json.jetzt', function (err, fileName) {
+                            expect(err).to.be.not.ok;
+                            expect(fileName).to.be.ok;
+                            expect(fileName.ack).to.be.true;
+                            done();
+                        });
                     });
                 });
             });
-        });
+        }, 5000);
     });
 
 
