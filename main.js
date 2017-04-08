@@ -47,6 +47,10 @@ function readSettings() {
 } 
 
 
+function checkWildcard(station,wildcard) { // thx to stackoverflow.com/a/32402438
+    return new RegExp("^" + wildcard.split("*").join(".*") + "$").test(station);
+}
+
 function check_station (show) { // Eine Sendung/Show wird so übergeben "16:50 | Sky Cinema | Kill the Boss 2"
     var show_info = show.split(' | ');
     
@@ -67,11 +71,17 @@ function check_station (show) { // Eine Sendung/Show wird so übergeben "16:50 |
     if (adapter.config.whitelist.length === 0) { // if no entry in whitelist use blacklist
         display = (adapter.config.blacklist.indexOf(station,0) == -1) ? true : false; // station not in blacklist means display = true
     } else { // if at least one entry in whitelist do not use blacklist but whitelist only
-        display = (adapter.config.whitelist.indexOf(station,0) != -1) ? true : false; // station not not in whitelist means display = true
+        for (var wl in adapter.config.whitelist) {
+            display = checkWildcard(station, adapter.config.whitelist[wl]);
+            if (display) break; // if wildcard found end "for"
+        }
+        if (!display) { // if no whildcard found try correct spelling 
+            display = (adapter.config.whitelist.indexOf(station,0) != -1) ? true : false; // station not not in whitelist means display = true
+        }
+        adapter.log.debug(station + ' in Whitelist ?  ' + display);
     }
     return(display);
 }
-
 
 var rss_options = {
     jetzt :        { feedname: 'Jetzt',
