@@ -18,9 +18,12 @@ Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/Pix---/
 
 ## Einstellungen / Configuration
 ### Whitelist
-Sollen nur Sendungen eines oder mehrerer bestimmter Sender angezeigt werden, sind diese Sendernamen in die Whitelist einzutragen. Enthält die Whitelist mindestens einen Eintrag, wird die Blacklist igoriert.
+Sollen nur Sendungen eines oder mehrerer bestimmter Sender angezeigt werden, sind diese Sendernamen in die Whitelist einzutragen. Enthält die Whitelist mindestens einen Eintrag, wird die Blacklist ignoriert.
+Es ist möglich mehrere Sender mit dem Platzhalter "\*" (Stern) abzudecken: *\*RTL*, *RTL\** findet also "*SuperRTL*" und "*RTL II*"
 
 To display only a specific list of stations add the stations names to the whitelist. The blacklist will be skipped if the whitelist is not empty.
+Wildcards "\*" (star) can shorten the whitelist: *\*RTL*, *RTL\** returns "*SuperRTL*" und "*RTL II*"
+
 
 ### Blacklist
 Sender, die nicht empfangbar sind oder nicht gelistet werden sollen, können in der Blacklist gespeichert und so bei der Ausgabe übersprungen werden. Die Blacklist wird nur berücksichtigt, wenn die Whitelist leer ist.
@@ -135,6 +138,9 @@ For a nicer look the following CSS is suggested to be used to the VIS editor.
 ```
 
 ## Changelog
+### 1.0.1 (2017-05-08)
+* (pix) Whitelist accepts wildcards
+
 ### 1.0.0 (2017-01-05)
 * (pix) Travis CI and Appveyor implemented
 
@@ -160,6 +166,7 @@ For a nicer look the following CSS is suggested to be used to the VIS editor.
 ## Roadmap
 * Programmtipps ausblenden, die auf eine Uhrzeit hinweisen, die vor der aktuellen Uhrzeit liegt. 
 * Film-Alarm: Erkennung von zuvor festgelegten Filmtiteln
+* Wildcards for Blacklist
 
 
 ## License
