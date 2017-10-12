@@ -5,19 +5,23 @@
         "desc": {                   "en": "TV Spielfilm program guide from rss feed",
                                     "de": "TV Spielfilm Programm Informationen aus RSS Feed",
                                     "ru": "TV Spielfilm Program Guide - translate to russian, please"},
-        "version":                  "1.0.1",
-	"news": {
-	                            "1.0.1": {
-                                        "en": "Wildcard support in whitelist",
+        "version":                  "1.0.2",
+	    "news": {
+	                            "1.0.2": {
+                                        "en": "No more support for Nodejs 0.12",
+                                        "de": "Nodejs 0.12 wird nicht merh Unterstützt",
+                                        "ru": "No more support for Nodejs 0.12"
+				                },"1.0.1": {
+                                        "en": "Wildcard support in the whitelist",
                                         "de": "Platzhalter Unterstützung in der Whitelist",
-                                        "ru": "Wildcard support in whitelist"
-				    },
-		                    "1.0.0": {
+                                        "ru": "Wildcard support in the whitelist"
+				                },
+		                       "1.0.0": {
                                         "en": "Travis CI and Appveyor testing supported",
                                         "de": "Travis CI und Appveyor Test Unterstützung",
                                         "ru": "Travis CI и Appveyor тестирование при поддержке"
-				    }
-	},
+				                }
+	    },
         "mode":                     "schedule",
         "schedule":                 "*/5 * * * *",
         "platform":                 "javascript/Node.js",
@@ -29,7 +33,7 @@
         "readme":                   "https://github.com/Pix---/ioBroker.tvspielfilm/blob/master/README.md",
         "icon":                     "tvspielfilm.png",
         "extIcon":                  "https://raw.githubusercontent.com/Pix---/ioBroker.tvspielfilm/master/admin/tvspielfilm.png",
-	"allowInit":                true,
+	    "allowInit":                true,
         "type":                     "schedule",
         "config": {
             "width": 650,
