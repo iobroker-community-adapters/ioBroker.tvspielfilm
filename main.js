@@ -46,7 +46,6 @@ function readSettings() {
     
 } 
 
-
 function checkWildcard(station,wildcard) { // thx to stackoverflow.com/a/32402438
     return new RegExp("^" + wildcard.split("*").join(".*") + "$").test(station);
 }
