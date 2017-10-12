@@ -138,6 +138,9 @@ For a nicer look the following CSS is suggested to be used to the VIS editor.
 ```
 
 ## Changelog
+### 1.0.2 (2017-10-12)
+* (pix) No more support for Nodejs 0.12
+
 ### 1.0.1 (2017-05-08)
 * (pix) Whitelist accepts wildcards
 
