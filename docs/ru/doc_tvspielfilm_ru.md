@@ -22,7 +22,7 @@ Wildcards "\*" (star) can shorten the whitelist: *\*RTL*, *RTL\** returns "*Supe
 ### Blacklist
 TV channels that are not provided by your supplier or simply are not considered to be listed will be skipped. Therefore you can add them to the blacklist. The blacklist function is supported only when the whitelist is empty.
 
-![alt text](docs/en/img/tvspielfilmSettingScreenshot.jpg "Screenshot Settings")
+![alt text](img/tvspielfilmSettingScreenshot.jpg "Screenshot Settings")
 
 ## Schedule
 The adapter starts every 5min to read the rss feeds "suggestions", "movie highlights", "today at 0815pm", "today at 10pm" and "now".
@@ -118,7 +118,7 @@ For a nicer look the following CSS is suggested to be used to the VIS editor.
 }
 ```
 
-![alt text](docs/en/img/tvspielfilmVISScreenshot.jpg "Screenshot VIS widgets")
+![alt text](img/tvspielfilmVISScreenshot.jpg "Screenshot VIS widgets")
 
 ## VIS Widget
 ```

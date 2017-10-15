@@ -22,7 +22,7 @@ Es ist möglich mehrere Sender mit dem Platzhalter "\*" (Stern) abzudecken: *\*R
 ### Blacklist
 Sender, die nicht empfangbar sind oder nicht gelistet werden sollen, können in der Blacklist gespeichert und so bei der Ausgabe übersprungen werden. Die Blacklist wird nur berücksichtigt, wenn die Whitelist leer ist.
 
-![alt text](docs/de/img/tvspielfilmSettingScreenshot.jpg "Screenshot Einstellungen")
+![alt text](img/tvspielfilmSettingScreenshot.jpg "Screenshot Einstellungen")
 
 ## Aktivierung / Zeitplan
 Der Adapter startet alle 5min und liest die RSS-Feeds "Tipps", "Spielfilm-Highlights", "heute um 20:15 Uhr", "heute um 22:00 Uhr" und "jetzt" ein.
@@ -118,7 +118,7 @@ Für eine optisch ansprechende Formatierung, empfehle ich folge CSS Definitionen
 }
 ```
 
-![alt text](docs/de/img/tvspielfilmVISScreenshot.jpg "Screenshot VIS widgets")
+![alt text](img/tvspielfilmVISScreenshot.jpg "Screenshot VIS widgets")
 
 ## VIS Widget
 ```
