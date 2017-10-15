@@ -4,6 +4,7 @@
 [![NPM version](http://img.shields.io/npm/v/iobroker.tvspielfilm.svg)](https://www.npmjs.com/package/iobroker.tvspielfilm)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.tvspielfilm.svg)](https://www.npmjs.com/package/iobroker.tvspielfilm)
 [![Open Issues](http://githubbadges.herokuapp.com/Pix---/ioBroker.tvspielfilm/issues.svg)](http://github.com/Pix---/ioBroker.tvspielfilm/issues)
+
 [![NPM](https://nodei.co/npm/iobroker.tvspielfilm.png?downloads=true)](https://nodei.co/npm/iobroker.tvspielfilm/)
 
 **Tests:** Linux/Mac: [![Travis-CI](http://img.shields.io/travis/Pix---/ioBroker.tvspielfilm/master.svg)](https://travis-ci.org/Pix---/ioBroker.tvspielfilm)
