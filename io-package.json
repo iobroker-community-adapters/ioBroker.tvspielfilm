@@ -5,13 +5,24 @@
         "desc": {                   "en": "TV Spielfilm program guide from rss feed",
                                     "de": "TV Spielfilm Programm Informationen aus RSS Feed",
                                     "ru": "TV Spielfilm Program Guide - translate to russian, please"},
-        "version":                  "1.0.2",
+        "docs": {
+            "en": "docs/en/doc_tvspielfilm_en.md",
+            "ru": "docs/ru/doc_tvspielfilm_ru.md",
+            "de": "docs/de/doc_tvspielfilm_de.md"
+        },
+        "version":                  "1.0.3",
 	    "news": {
-	                            "1.0.2": {
+	                            "1.0.3": {
+                                        "en": "new documentation structure",
+                                        "de": "neue Struktur der Dokumentation",
+                                        "ru": "new documentation structure"
+				                },
+				                "1.0.2": {
                                         "en": "No more support for Nodejs 0.12",
                                         "de": "Nodejs 0.12 wird nicht merh Unterstützt",
                                         "ru": "No more support for Nodejs 0.12"
-				                },"1.0.1": {
+				                },
+				                "1.0.1": {
                                         "en": "Wildcard support in the whitelist",
                                         "de": "Platzhalter Unterstützung in der Whitelist",
                                         "ru": "Wildcard support in the whitelist"
