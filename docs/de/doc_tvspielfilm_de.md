@@ -1,4 +1,4 @@
-![Logo](admin/tvspielfilm.png)
+![Logo](../../admin/tvspielfilm.png)
 # ioBroker.tvspielfim
 =================
 
