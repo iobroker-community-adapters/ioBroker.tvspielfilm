@@ -1,51 +1,65 @@
 {
     "common": {
-        "name":                     "tvspielfilm",
-        "title":                    "TV Spielfilm",
-        "desc": {                   "en": "TV Spielfilm program guide from rss feed",
-                                    "de": "TV Spielfilm Programm Informationen aus RSS Feed",
-                                    "ru": "TV Spielfilm Program Guide - translate to russian, please"},
+        "name": "tvspielfilm",
+        "title": "TV Spielfilm",
+        "desc": {
+            "en": "TV Spielfilm program guide from rss feed",
+            "de": "TV Spielfilm Programm Informationen aus RSS Feed",
+            "ru": "TV Spielfilm Program Guide - translate to russian, please"
+        },
         "docs": {
             "en": "docs/en/doc_tvspielfilm_en.md",
             "ru": "docs/ru/doc_tvspielfilm_en.md",
             "de": "docs/de/doc_tvspielfilm_de.md"
         },
-        "version":                  "1.0.3",
-	    "news": {
-	                            "1.0.3": {
-                                        "en": "new documentation structure",
-                                        "de": "neue Struktur der Dokumentation",
-                                        "ru": "new documentation structure"
-				                },
-				                "1.0.2": {
-                                        "en": "No more support for Nodejs 0.12",
-                                        "de": "Nodejs 0.12 wird nicht merh Unterstützt",
-                                        "ru": "No more support for Nodejs 0.12"
-				                },
-				                "1.0.1": {
-                                        "en": "Wildcard support in the whitelist",
-                                        "de": "Platzhalter Unterstützung in der Whitelist",
-                                        "ru": "Wildcard support in the whitelist"
-				                },
-		                       "1.0.0": {
-                                        "en": "Travis CI and Appveyor testing supported",
-                                        "de": "Travis CI und Appveyor Test Unterstützung",
-                                        "ru": "Travis CI и Appveyor тестирование при поддержке"
-				                }
-	    },
-        "mode":                     "schedule",
-        "schedule":                 "*/5 * * * *",
-        "platform":                 "javascript/Node.js",
-        "loglevel":                 "info",
-        "keywords":                 ["tv", "program", "guide", "Fernsehprogramm", "Tvprogramm", "Programm", "tvspielfilm", "spielfilm", "pix"],
-        "main":                     "main.js",
-        "authors":                  ["Pix"],
-        "license":                  "MIT",
-        "readme":                   "https://github.com/Pix---/ioBroker.tvspielfilm/blob/master/README.md",
-        "icon":                     "tvspielfilm.png",
-        "extIcon":                  "https://raw.githubusercontent.com/Pix---/ioBroker.tvspielfilm/master/admin/tvspielfilm.png",
-	    "allowInit":                true,
-        "type":                     "schedule",
+        "version": "1.0.3",
+        "news": {
+            "1.0.3": {
+                "en": "new documentation structure",
+                "de": "neue Struktur der Dokumentation",
+                "ru": "new documentation structure"
+            },
+            "1.0.2": {
+                "en": "No more support for Nodejs 0.12",
+                "de": "Nodejs 0.12 wird nicht merh Unterstützt",
+                "ru": "No more support for Nodejs 0.12"
+            },
+            "1.0.1": {
+                "en": "Wildcard support in the whitelist",
+                "de": "Platzhalter Unterstützung in der Whitelist",
+                "ru": "Wildcard support in the whitelist"
+            },
+            "1.0.0": {
+                "en": "Travis CI and Appveyor testing supported",
+                "de": "Travis CI und Appveyor Test Unterstützung",
+                "ru": "Travis CI и Appveyor тестирование при поддержке"
+            }
+        },
+        "mode": "schedule",
+        "schedule": "*/5 * * * *",
+        "platform": "javascript/Node.js",
+        "loglevel": "info",
+        "keywords": [
+            "tv",
+            "program",
+            "guide",
+            "Fernsehprogramm",
+            "Tvprogramm",
+            "Programm",
+            "tvspielfilm",
+            "spielfilm",
+            "pix"
+        ],
+        "main": "main.js",
+        "authors": [
+            "Pix"
+        ],
+        "license": "MIT",
+        "readme": "https://github.com/Pix---/ioBroker.tvspielfilm/blob/master/README.md",
+        "icon": "tvspielfilm.png",
+        "extIcon": "https://raw.githubusercontent.com/Pix---/ioBroker.tvspielfilm/master/admin/tvspielfilm.png",
+        "allowInit": true,
+        "type": "misc-data",
         "config": {
             "width": 650,
             "height": 450,
@@ -54,13 +68,13 @@
         }
     },
     "native": {
-    	"blacklist" : [],
-    	"whitelist" : []
+        "blacklist": [],
+        "whitelist": []
     },
     "objects": [],
     "instanceObjects": [
         {
-            "_id":  "json",
+            "_id": "json",
             "type": "channel",
             "common": {
                 "role": "",
@@ -69,61 +83,61 @@
             "native": {}
         },
         {
-            "_id":  "json.tipps",
+            "_id": "json.tipps",
             "type": "state",
             "common": {
-                "name":  "tvspielfilm Tipps",
-                "desc":  "TV Tipps für heute",
-                "type":  "string",
-                "read":  true,
+                "name": "tvspielfilm Tipps",
+                "desc": "TV Tipps für heute",
+                "type": "string",
+                "read": true,
                 "write": false
             },
             "native": {}
         },
         {
-            "_id":  "json.jetzt",
+            "_id": "json.jetzt",
             "type": "state",
             "common": {
-                "name":  "tvspielfilm jetzt",
-                "desc":  "Was läuft jetzt im TV?",
-                "type":  "string",
-                "read":  true,
+                "name": "tvspielfilm jetzt",
+                "desc": "Was läuft jetzt im TV?",
+                "type": "string",
+                "read": true,
                 "write": false
             },
             "native": {}
         },
         {
-            "_id":  "json.heute2015",
+            "_id": "json.heute2015",
             "type": "state",
             "common": {
-                "name":  "tvspielfilm 20:15 Uhr",
-                "desc":  "Was läuft um 20:15Uhr im TV?",
-                "type":  "string",
-                "read":  true,
+                "name": "tvspielfilm 20:15 Uhr",
+                "desc": "Was läuft um 20:15Uhr im TV?",
+                "type": "string",
+                "read": true,
                 "write": false
             },
             "native": {}
         },
         {
-            "_id":  "json.heute2200",
+            "_id": "json.heute2200",
             "type": "state",
             "common": {
-                "name":  "tvspielfilm 22:00 Uhr",
-                "desc":  "Was läuft um 22:00Uhr im TV?",
-                "type":  "string",
-                "read":  true,
+                "name": "tvspielfilm 22:00 Uhr",
+                "desc": "Was läuft um 22:00Uhr im TV?",
+                "type": "string",
+                "read": true,
                 "write": false
             },
             "native": {}
         },
         {
-            "_id":  "json.filme",
+            "_id": "json.filme",
             "type": "state",
             "common": {
-                "name":  "tvspielfilm Filme",
-                "desc":  "Spielfilm-Highlights des Tages",
-                "type":  "string",
-                "read":  true,
+                "name": "tvspielfilm Filme",
+                "desc": "Spielfilm-Highlights des Tages",
+                "type": "string",
+                "read": true,
                 "write": false
             },
             "native": {}
