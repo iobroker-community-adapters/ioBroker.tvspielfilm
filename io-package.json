@@ -12,8 +12,13 @@
             "ru": "docs/ru/doc_tvspielfilm_en.md",
             "de": "docs/de/doc_tvspielfilm_de.md"
         },
-        "version": "1.0.3",
+        "version": "1.0.4",
         "news": {
+            "1.0.4": {
+                "en": "Code correction in io-package.json",
+                "de": "Fehlerkorrekturen io-package.json",
+                "ru": "Code correction in io-package.json"
+            },
             "1.0.3": {
                 "en": "new documentation structure",
                 "de": "neue Struktur der Dokumentation",
