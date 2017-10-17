@@ -1,7 +1,7 @@
 {
   "name": "iobroker.tvspielfilm",
   "description": "TV Programm (jetzt und Tipps) aus den RSS Feeds von tvspielfilm.de",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "author": "pix",
   "contributors": [
     "pix"
