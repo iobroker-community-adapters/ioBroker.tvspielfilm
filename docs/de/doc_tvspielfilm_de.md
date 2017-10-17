@@ -126,7 +126,7 @@ Für eine optisch ansprechende Formatierung, empfehle ich folge CSS Definitionen
 ```
 
 ## Changelog
-### 1.0.4 (2017-10-1
+### 1.0.4 (2017-10-17)
 * (apollon77) Fehlerkorrekturen io-package.json
 
 ### 1.0.3 (2017-10-15)
