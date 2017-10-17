@@ -126,6 +126,9 @@ For a nicer look the following CSS is suggested to be used to the VIS editor.
 ```
 
 ## Changelog
+### 1.0.4 (2017-10-17)
+* (apollon77) Code corrections io-package.json
+
 ### 1.0.3 (2017-10-15)
 * (pix) New documentation structure
 
