@@ -7,7 +7,7 @@ var parseString = require('xml2js').parseString;
 var request     = require('request');
 var lang = 'de';
 
-var adapter = utils.adapter({
+var adapter = utils.Adapter({
     name:           'tvspielfilm',
     systemConfig:   true,
     useFormatDate:  true
