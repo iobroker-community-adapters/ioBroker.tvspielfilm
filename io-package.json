@@ -9,7 +9,6 @@
         },
         "docs": {
             "en": "docs/en/doc_tvspielfilm_en.md",
-            "ru": "docs/ru/doc_tvspielfilm_en.md",
             "de": "docs/de/doc_tvspielfilm_de.md"
         },
         "version": "1.0.4",
