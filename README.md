@@ -3,7 +3,6 @@
 
 ![Number of Installations](http://iobroker.live/badges/tvspielfilm-installed.svg) ![Number of Installations](http://iobroker.live/badges/tvspielfilm-stable.svg) [![NPM version](http://img.shields.io/npm/v/iobroker.tvspielfilm.svg)](https://www.npmjs.com/package/iobroker.tvspielfilm)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.tvspielfilm.svg)](https://www.npmjs.com/package/iobroker.tvspielfilm)
-[![Open Issues](http://githubbadges.herokuapp.com/Pix---/ioBroker.tvspielfilm/issues.svg)](http://github.com/Pix---/ioBroker.tvspielfilm/issues)
 
 [![NPM](https://nodei.co/npm/iobroker.tvspielfilm.png?downloads=true)](https://nodei.co/npm/iobroker.tvspielfilm/)
 
