@@ -2,10 +2,29 @@
     "common": {
         "name": "tvspielfilm",
         "title": "TV Spielfilm",
+        "titleLang": {
+            "en": "TV Spielfilm program guide from rss feed",
+            "de": "TV-Spielfilm-Programmführer von RSS-Feed",
+            "ru": "Телепрограмма Spielfilm из RSS-канала",
+            "pt": "Guia do programa TV Spielfilm do feed RSS",
+            "nl": "TV Spielfilm programmagids van RSS-feed",
+            "fr": "Guide de programmation TV Spielfilm du flux rss",
+            "it": "Guida ai programmi TV Spielfilm dal feed rss",
+            "es": "Guía de programas de TV Spielfilm de RSS feed",
+            "pl": "Przewodnik po programie TV Spielfilm z kanału RSS",
+            "zh-cn": "来自rss feed的TV Spielfilm节目指南"
+        },
         "desc": {
             "en": "TV Spielfilm program guide from rss feed",
-            "de": "TV Spielfilm Programm Informationen aus RSS Feed",
-            "ru": "TV Spielfilm Program Guide - translate to russian, please"
+            "de": "TV-Spielfilm-Programmführer von RSS-Feed",
+            "ru": "Телепрограмма Spielfilm из RSS-канала",
+            "pt": "Guia do programa TV Spielfilm do feed RSS",
+            "nl": "TV Spielfilm programmagids van RSS-feed",
+            "fr": "Guide de programmation TV Spielfilm du flux rss",
+            "it": "Guida ai programmi TV Spielfilm dal feed rss",
+            "es": "Guía de programas de TV Spielfilm de RSS feed",
+            "pl": "Przewodnik po programie TV Spielfilm z kanału RSS",
+            "zh-cn": "来自rss feed的TV Spielfilm节目指南"
         },
         "docs": {
             "en": "docs/en/doc_tvspielfilm_en.md",
