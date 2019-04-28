@@ -30,6 +30,46 @@ adapter.on('ready', function () {
     });
 });
 
+
+let searchStringPattern = "";
+let searchString_arr = []; //["Tatort", "Krimi", "Mord", "Verbrechen"]; // <-- kommt aus Datenpunkt als Array
+
+function searchStringCheck() {
+    searchStringPattern = "";
+    adapter.getState("search.list", function(err, obj) {
+        if (!obj) {
+            adapter.log.debug("keine Suchbegriffe festgelegt");
+        } else if (err) {
+            adapter.log.warn("Fehler beim Einlesen der Suchbegriffe");
+        } else {
+            searchString_arr = obj.val.split(",");
+        }
+    });
+    //searchString_arr = ["Tatort", "Mord", "Abend", "Requiem"]; // funktioniert
+    searchString_arr = searchString_arr.sort(); // alphabetisch sortieren
+    adapter.setState("search.list", {val: searchString_arr.toString(), ack: true});
+    for(let rm = searchString_arr.length - 1; rm >=0; rm--) { // Leerzeichen und leere Einträge löschen
+        searchString_arr[rm] = searchString_arr[rm].trim();
+        if (!searchString_arr[rm]) searchString_arr.splice(rm, 1);
+    }
+
+    if (searchString_arr === undefined || searchString_arr.length === 0) adapter.log.debug("keine Suchbegriffe");
+    else {
+        adapter.log.debug("Anzahl der Suchbegriffe: " + searchString_arr.length);
+    }
+
+    for (let s = 0; s < searchString_arr.length; s++) {
+        adapter.log.debug('Suchbegriff (#' + (parseInt(s,10)+1) + '): ' + searchString_arr[s]);
+        searchStringPattern += searchString_arr[s] + (s < searchString_arr.length-1 ? "|" : "");
+    }
+    // RegExp erstellen
+    searchStringPattern = new RegExp(searchStringPattern, "gi" );
+    adapter.log.debug("Suchmuster: " + searchStringPattern/*.source*/);
+    //let searchStringPattern = /Tatort|tagesschau/ig; // aus Datenpunkt übernehmen
+}
+
+
+
 function readSettings() {
     //Blacklist
     if (adapter.config.blacklist === undefined || adapter.config.blacklist.length === 0) adapter.log.debug('Keine Stationen zur Blacklist hinzugefügt');
@@ -43,6 +83,7 @@ function readSettings() {
     for (var t in adapter.config.whitelist) {
         adapter.log.debug('Whitelist (#' + (parseInt(t,10)+1) + '): ' + adapter.config.whitelist[t]);
     }
+
 }
 
 function checkWildcard(station,wildcard) { // thx to stackoverflow.com/a/32402438
@@ -110,43 +151,7 @@ var rss_options = {
 }
 
 
-let searchStringPattern = "";
-let searchString_arr = []; //["Tatort", "Krimi", "Mord", "Verbrechen"]; // <-- kommt aus Datenpunkt als Array
 
-function searchStringCheck() {
-    searchStringPattern = "";
-    adapter.getState("search.list", function(err, obj) {
-        if (!obj) {
-            adapter.log.debug("keine Suchbegriffe festgelegt");
-        } else if (err) {
-            adapter.log.warn("Fehler beim Einlesen der Suchbegriffe");
-        } else {
-            searchString_arr = obj.val.split(",");
-        }
-    });
-    //searchString_arr = ["Tatort", "Mord", "Abend", "Requiem"]; // funktioniert
-    //searchString_arr = adapter.getState("search.list").val.split(",") || ""; // ins Array schreiben | falls nur Skript, dann gegen null prüfen
-    searchString_arr = searchString_arr.sort(); // alphabetisch sortieren
-    adapter.setState("search.list", {val: searchString_arr.toString(), ack: true});
-    for(let rm = searchString_arr.length - 1; rm >=0; rm--) { // Leerzeichen und leere Einträge löschen
-        searchString_arr[rm] = searchString_arr[rm].trim();
-        if (!searchString_arr[rm]) searchString_arr.splice(rm, 1);
-    }
-
-    if (searchString_arr === undefined || searchString_arr.length === 0) adapter.log.debug("keine Suchbegriffe");
-    else {
-        adapter.log.debug("Anzahl der Suchbegriffe: " + searchString_arr.length);
-    }
-
-    for (let s = 0; s < searchString_arr.length; s++) {
-        adapter.log.debug('Suchbegriff (#' + (parseInt(s,10)+1) + '): ' + searchString_arr[s]);
-        searchStringPattern += searchString_arr[s] + (s < searchString_arr.length-1 ? "|" : "");
-    }
-    // RegExp erstellen
-    searchStringPattern = new RegExp(searchStringPattern, "gi" );
-    adapter.log.debug("Suchmuster: " + searchStringPattern/*.source*/);
-    //let searchStringPattern = /Tatort|tagesschau/ig; // aus Datenpunkt übernehmen
-}
 
 // Sendezeit aus Titel extrahieren
 function getShowtime(titel) {
@@ -194,6 +199,7 @@ function readFeed (x) {
                                         // weitere Aktionen möglich
                                         // z.B. das Setzen eines Flags, das das Senden einer Nachricht auslöst
                                         matches++; // Bei Treffer hochzählen
+                                        adapter.log.silly("Matches: " + matches);
                                         adapter.log.debug("Gesuchte Sendung: " + getShowtime(titel).show + " wird heute um " + getShowtime(titel).time + " auf " + getShowtime(titel).station +  " ausgestrahlt.");
                                     }
                                     // Beschreibung auf Suchstring prüfen
@@ -227,6 +233,7 @@ function readFeed (x) {
                                 table.push(entry);
                             } // Ende Abfrage, ob Sender empfangbar
                         }
+                        adapter.log.silly("Endgültige Matches im Suchlauf: " + matches);
                         if (matches > 0) { // auf Treffer prüfen
                             adapter.setState("search.alert", {val: true, ack: true}); // mindestens eine Sendung gefunden
                         } else {
@@ -243,6 +250,7 @@ function readFeed (x) {
 
 function main() {
     readSettings();
+    searchStringCheck();
     for (var j in rss_options) {
         readFeed(j);
     }
