@@ -183,12 +183,13 @@ function readFeed (x) {
                             if (display_station) {
                                 let string_found = ""; // CSS Styles werden eingefügt, wenn Suchmuster gefunden
                                 let titel = result.rss.channel.item[i].title;
+                                let sendung = getShowtime(titel).show;
                                 let beschreibung = result.rss.channel.item[i].description;
                                 //if (searchString_arr !== null) { // Array mit Suchwörter vorhanden?
                                     // Titel auf Suchstring prüfen
-                                    if (searchStringPattern.test(titel) === true) {
-                                        adapter.log.debug("Suchmuster im Titel gefunden: " + searchStringPattern);
-                                        adapter.log.debug("Wort: " + searchStringPattern.exec(titel));
+                                    if (searchStringPattern.test(sendung) === true) {
+                                        adapter.log.debug("Suchmuster im Titel der Sendung gefunden: " + searchStringPattern);
+                                        adapter.log.debug("Wort: " + searchStringPattern.exec(sendung));
                                         string_found = " style=\"border: 2px solid yellow; background-color: rgba(150,0,0,0.9); background-color: darkred;\""; // css Style für Treffer
                                         // weitere Aktionen möglich
                                         // z.B. das Setzen eines Flags, das das Senden einer Nachricht auslöst
