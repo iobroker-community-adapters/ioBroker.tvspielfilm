@@ -6,7 +6,7 @@
 
 [![NPM](https://nodei.co/npm/iobroker.tvspielfilm.png?downloads=true)](https://nodei.co/npm/iobroker.tvspielfilm/)
 
-**Tests:** 
+**Tests:**
 
 Linux/Mac: [![Travis-CI](http://img.shields.io/travis/Pix---/ioBroker.tvspielfilm/master.svg)](https://travis-ci.org/Pix---/ioBroker.tvspielfilm)
 
@@ -34,12 +34,18 @@ TV channels that are not provided by your supplier or simply are not considered 
 
 ![alt text](img/tvspielfilmSettingScreenshot.jpg "Screenshot Settings")
 
+### Suchbegriffe
+In diesem Datenpunkt können kommaseparierte SUchbegriffe hinterlegt werden. Beim Aufbau der HTML-Tabelle werden die Sendungsinformationen auf die hinterlegten Begriffe durchsucht und ggf. markiert.
+
+
 ## Aktivierung / Schedule
 Der Adapter startet alle 5min und liest die RSS-Feeds "Tipps", "Spielfilm-Highlights", "heute um 20:15 Uhr", "heute um 22:00 Uhr" und "jetzt" ein.
 
 The adapter starts every 5min to read the rss feeds "suggestions", "movie highlights", "today at 0815pm", "today at 10pm" and "now".
 
 ##  Datenpunkte / Datapoints
+
+tvspielfilm.0.settings.__searchlist__  (*STRING* Suchbegriffe für VIS oder andere Eingaben *array*)
 
 tvspielfilm.0.json.__filme__  (*JSON* Tabelle für VIS Widget *json,table*)
 
@@ -72,7 +78,7 @@ For a nicer look the following CSS is suggested to be used to the VIS editor.
     font-family: Arial;
 }
 
-.tclass-th1 { /* linker Header */ 
+.tclass-th1 { /* linker Header */
     width: 20px;
     text-align: center;
     color: transparent; /* Text ausblenden */
@@ -99,7 +105,7 @@ For a nicer look the following CSS is suggested to be used to the VIS editor.
     background-color: rgba(150,150,150,0.2);
 }
 
-.tv_tipps, 
+.tv_tipps,
 .tv_jetzt,
 .tv_filme,
 .tv_heute2015,
@@ -108,7 +114,7 @@ For a nicer look the following CSS is suggested to be used to the VIS editor.
     font-size: 75%;
 }
 
-.tv_tipps tr, 
+.tv_tipps tr,
 .tv_jetzt tr,
 .tv_filme tr,
 .tv_heute2015 tr,
@@ -117,7 +123,7 @@ For a nicer look the following CSS is suggested to be used to the VIS editor.
     color: white;
 }
 
-.tv_tipps tr td a, 
+.tv_tipps tr td a,
 .tv_jetzt tr td a,
 .tv_filme tr td a,
 .tv_heute2015 tr td a,
@@ -141,6 +147,9 @@ For a nicer look the following CSS is suggested to be used to the VIS editor.
 ```
 
 ## Changelog
+### 1.1.0 (2019-04-28)
+* (pix) String search added
+
 ### 1.0.4 (2017-10-17)
 * (apollon77) Fehlerkorrekturen io-package.json
 
@@ -171,13 +180,12 @@ For a nicer look the following CSS is suggested to be used to the VIS editor.
 
 ### 0.1.0 (2016-05-08)
 * (pix) Blacklist function fixed
- 
+
 ### 0.0.1 (2016-05-07)
 * (pix) Adapter created
 
 ## Roadmap
-* Programmtipps ausblenden, die auf eine Uhrzeit hinweisen, die vor der aktuellen Uhrzeit liegt. 
-* Film-Alarm: Erkennung von zuvor festgelegten Filmtiteln
+* Programmtipps ausblenden, die auf eine Uhrzeit hinweisen, die vor der aktuellen Uhrzeit liegt.
 * Wildcards for Blacklist
 
 
@@ -206,4 +214,4 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 ---
-*Logo is partly crafted by CHALLENGER* :+1: 
+*Logo is partly crafted by CHALLENGER* :+1:

@@ -30,8 +30,13 @@
             "en": "docs/en/doc_tvspielfilm_en.md",
             "de": "docs/de/doc_tvspielfilm_de.md"
         },
-        "version": "1.0.4",
+        "version": "1.1.0",
         "news": {
+            "1.1.0": {
+                "en": "String search added",
+                "de": "Suchbegriffe zugefügt",
+                "ru": "String search added"
+            },
             "1.0.4": {
                 "en": "Code correction in io-package.json",
                 "de": "Fehlerkorrekturen io-package.json",
@@ -96,7 +101,40 @@
     },
     "objects": [],
     "instanceObjects": [
-        {
+      {
+          "_id": "search",
+          "type": "channel",
+          "common": {
+              "role": "",
+              "name": ""
+          },
+          "native": {}
+      },
+      {
+          "_id": "search.list",
+          "type": "state",
+          "common": {
+              "name": "tvspielfilm Suchbegriffe",
+              "desc": "Array aus Suchbegriffen",
+              "type": "string",
+              "read": true,
+              "write": false
+          },
+          "native": {}
+      },
+      {
+          "_id": "search.alert",
+          "type": "state",
+          "common": {
+              "name": "tvspielfilm Suchbegriff gefunden",
+              "desc": "Suchbegriff gefunden - true/false",
+              "type": "boolean",
+              "read": true,
+              "write": false
+          },
+          "native": {}
+      },
+      {
             "_id": "json",
             "type": "channel",
             "common": {
