@@ -222,7 +222,7 @@ function readFeed (x) {
                                 table.push(entry);
                             } // Ende Abfrage, ob Sender empfangbar
                         }
-                        if matches > 0 { // auf Treffer prüfen
+                        if (matches > 0) { // auf Treffer prüfen
                             adapter.setState("search.alert", {val: true, ack: true}); // mindestens eine Sendung gefunden
                         } else {
                             adapter.setState("search.alert", {val: false, ack: true}); // keine Sendung gefunden
