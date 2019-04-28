@@ -124,6 +124,7 @@ function searchStringCheck() {
     });
     //searchString_arr = adapter.getState("search.list").val.split(",") || ""; // ins Array schreiben | falls nur Skript, dann gegen null prüfen
     searchString_arr = searchString_arr.sort(); // alphabetisch sortieren
+    adapter.setState("search.list", {val: searchString_arr.toString(), ack: true});
     for(let rm = searchString_arr.length - 1; rm >=0; rm--) { // Leerzeichen und leere Einträge löschen
         searchString_arr[rm] = searchString_arr[rm].trim();
         if (!searchString_arr[rm]) searchString_arr.splice(rm, 1);
@@ -189,7 +190,7 @@ function readFeed (x) {
                                         // weitere Aktionen möglich
                                         // z.B. das Setzen eines Flags, das das Senden einer Nachricht auslöst
                                         matches++; // Bei Treffer hochzählen
-                                        adapter.log.debug("Gesuchte Sendung: " + getShowtime(titel).show + " wird heute um " + getShowtime(titel).time + " auf " + getShowtime(titel).station +  "ausgestrahlt.");
+                                        adapter.log.debug("Gesuchte Sendung: " + getShowtime(titel).show + " wird heute um " + getShowtime(titel).time + " auf " + getShowtime(titel).station +  " ausgestrahlt.");
                                     }
                                     // Beschreibung auf Suchstring prüfen
                                     if (searchStringPattern.test(beschreibung) === true) {
@@ -199,7 +200,7 @@ function readFeed (x) {
                                         // weitere Aktionen möglich
                                         // z.B. das Setzen eines Flags, das das Senden einer Nachricht auslöst
                                         matches++; // Bei Treffer hochzählen
-                                        adapter.log.debug("Gesuchte Sendung: " + getShowtime(titel).show + " wird heute um " + getShowtime(titel).time + " auf " + getShowtime(titel).station +  "ausgestrahlt.");
+                                        adapter.log.debug("Gesuchte Sendung: " + getShowtime(titel).show + " wird heute um " + getShowtime(titel).time + " auf " + getShowtime(titel).station +  " ausgestrahlt.");
                                     }
                                     // Position des Suchworts im Text markieren
                                     if (searchStringPattern.test(titel) === true) titel = titel.replace(searchStringPattern,"<mark>$&</mark>");
