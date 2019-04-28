@@ -10,7 +10,17 @@ var lang = 'de';
 var adapter = utils.Adapter({
     name:           'tvspielfilm',
     systemConfig:   true,
-    useFormatDate:  true
+    useFormatDate:  true,
+    stateChange: function(id, state) {
+        if (!id || !state || state.ack) return;
+        adapter.log.debug('stateChange ' + id + ' ' + JSON.stringify(state));
+        adapter.log.debug('input value: ' + state.val.toString());
+        main(); // Datenpunkt (Suchbegriffe) auslesen dann alles neu starten
+    },
+    ready: function() {
+        adapter.log.debug('initializing objects');
+        main();
+    }
 });
 
 adapter.on('ready', function () {
@@ -169,7 +179,7 @@ function readFeed (x) {
     adapter.log.debug('RSS Feed wird eingelesen: ' + link);
     request(link, function (error, response, body) {
         if (!error && response.statusCode == 200) {
-            searchStringCheck(); // prüfen un dvorbereiten der Suchbegriffe
+
             parseString(body, {
                 explicitArray: false,
                 mergeAttrs: true
@@ -182,6 +192,7 @@ function readFeed (x) {
                     var display_station = false;
                     if (result.rss.channel.item.length !== null) { // gelegentlicher Fehler bei nächtlicher Abfrage durch length (undefined) soll hier abgefangen werden
                         let matches = 0;
+
                         // Array durchzaehlen von 0 bis Zahl der items
                         for (var i = 0; i < result.rss.channel.item.length; i++) {
                             display_station = check_station(result.rss.channel.item[i].title);
@@ -190,7 +201,10 @@ function readFeed (x) {
                                 let titel = result.rss.channel.item[i].title;
                                 let sendung = getShowtime(titel).show;
                                 let beschreibung = result.rss.channel.item[i].description;
-                                //if (searchString_arr !== null) { // Array mit Suchwörter vorhanden?
+
+                                if (!searchString_arr) { // kein Array mit Suchwörter vorhanden?
+                                    adapter.log.debug("Search String is empty or not available");
+                                } else { // Array vornhanden
                                     // Titel auf Suchstring prüfen
                                     if (searchStringPattern.test(sendung) === true) {
                                         adapter.log.debug("Suchmuster im Titel der Sendung gefunden: " + searchStringPattern);
@@ -199,7 +213,7 @@ function readFeed (x) {
                                         // weitere Aktionen möglich
                                         // z.B. das Setzen eines Flags, das das Senden einer Nachricht auslöst
                                         matches++; // Bei Treffer hochzählen
-                                        adapter.log.silly("Matches: " + matches);
+                                        adapter.log.debug("Matches: " + matches);
                                         adapter.log.debug("Gesuchte Sendung: " + getShowtime(titel).show + " wird heute um " + getShowtime(titel).time + " auf " + getShowtime(titel).station +  " ausgestrahlt.");
                                     }
                                     // Beschreibung auf Suchstring prüfen
@@ -215,10 +229,7 @@ function readFeed (x) {
                                     // Position des Suchworts im Text markieren
                                     if (searchStringPattern.test(titel) === true) titel = titel.replace(searchStringPattern,"<mark>$&</mark>");
                                     if (searchStringPattern.test(beschreibung) === true) beschreibung = beschreibung.replace(searchStringPattern,"<mark>$&</mark>");
-
-                                /*} else {
-                                    adapter.log.debug("Search String is empty or not available");
-                                }*/
+                                }
 
                                 // Hochkomma noch mit \ escapen, aber auf CSS Styles Einbindung achten
 
@@ -233,7 +244,7 @@ function readFeed (x) {
                                 table.push(entry);
                             } // Ende Abfrage, ob Sender empfangbar
                         }
-                        adapter.log.silly("Endgültige Matches im Suchlauf: " + matches);
+                        adapter.log.debug("Endgültige Matches im Suchlauf: " + matches);
                         if (matches > 0) { // auf Treffer prüfen
                             adapter.setState("search.alert", {val: true, ack: true}); // mindestens eine Sendung gefunden
                         } else {
@@ -249,6 +260,7 @@ function readFeed (x) {
 }
 
 function main() {
+    adapter.subscribeStates('*.list*'); // subscribe Suchbegriffe
     readSettings();
     searchStringCheck();
     for (var j in rss_options) {
