@@ -115,14 +115,16 @@ let searchString_arr = []; //["Tatort", "Krimi", "Mord", "Verbrechen"]; // <-- k
 
 function searchStringCheck() {
     searchStringPattern = "";
-    /*adapter.getState("search.list", function(err, state) {
-        if (!state) {
+    adapter.getState("search.list", function(err, obj) {
+        if (!obj) {
             adapter.log.debug("keine Suchbegriffe festgelegt");
+        } else if (err) {
+            adapter.log.warn("Fehler beim Einlesen der Suchbegriffe");
         } else {
-            searchString_arr = state.split(",");
+            searchString_arr = obj.val.split(",");
         }
-    });*/
-    searchString_arr = ["Tatort", "Mord", "Abend", "Requiem"];
+    });
+    //searchString_arr = ["Tatort", "Mord", "Abend", "Requiem"]; // funktioniert
     //searchString_arr = adapter.getState("search.list").val.split(",") || ""; // ins Array schreiben | falls nur Skript, dann gegen null prüfen
     searchString_arr = searchString_arr.sort(); // alphabetisch sortieren
     adapter.setState("search.list", {val: searchString_arr.toString(), ack: true});
