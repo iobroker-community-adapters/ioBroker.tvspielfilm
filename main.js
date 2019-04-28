@@ -122,7 +122,7 @@ function searchStringCheck() {
             searchString_arr = state.split(",");
         }
     });*/
-    searchString_arr = ["Tatort, Mord, Abend"];
+    searchString_arr = ["Tatort", "Mord", "Abend", "Requiem"];
     //searchString_arr = adapter.getState("search.list").val.split(",") || ""; // ins Array schreiben | falls nur Skript, dann gegen null prüfen
     searchString_arr = searchString_arr.sort(); // alphabetisch sortieren
     adapter.setState("search.list", {val: searchString_arr.toString(), ack: true});
