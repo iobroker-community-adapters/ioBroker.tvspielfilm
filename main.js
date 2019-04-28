@@ -112,9 +112,17 @@ var rss_options = {
 
 let searchStringPattern = "";
 let searchString_arr = ""; //["Tatort", "Krimi", "Mord", "Verbrechen"]; // <-- kommt aus Datenpunkt als Array
+
 function searchStringCheck() {
     searchStringPattern = "";
-    searchString_arr = adapter.getState("search.list").val.split(","); // ins Array schreiben | falls nur Skript, dann gegen null prüfen
+    adapter.getState("search.list", function(err, state) {
+        if (!state) {
+            adapter.log.debug("keine Suchbegriffe festgelegt");
+        } else {
+            searchString_arr = state.split(",")
+        }
+    });
+    //searchString_arr = adapter.getState("search.list").val.split(",") || ""; // ins Array schreiben | falls nur Skript, dann gegen null prüfen
     searchString_arr = searchString_arr.sort(); // alphabetisch sortieren
     for(let rm = searchString_arr.length - 1; rm >=0; rm--) { // Leerzeichen und leere Einträge löschen
         searchString_arr[rm] = searchString_arr[rm].trim();
@@ -142,8 +150,8 @@ function getShowtime(titel) {
     return {
         "time": showtime_arr[0].trim(),                                      // 14:00
         "station": showtime_arr[1].trim(),                                   // RTL
-        "show": (showtime_arr[1].trim()).substr(9,200)                       // Formel 1: Großer Preis von Aserbaidschan
-
+        // "show": (showtime_arr[2].trim()).substr(9,200)
+        "show": showtime_arr[2].trim()                                       // Formel 1: Großer Preis von Aserbaidschan
     };
 }
 
@@ -166,7 +174,7 @@ function readFeed (x) {
                     if (result.rss.channel.item.length !== null) { // gelegentlicher Fehler bei nächtlicher Abfrage durch length (undefined) soll hier abgefangen werden
                         let matches = 0;
                         // Array durchzaehlen von 0 bis Zahl der items
-                        for(var i = 0; i < result.rss.channel.item.length; i++) {
+                        for (var i = 0; i < result.rss.channel.item.length; i++) {
                             display_station = check_station(result.rss.channel.item[i].title);
                             if (display_station) {
                                 let string_found = ""; // CSS Styles werden eingefügt, wenn Suchmuster gefunden
