@@ -114,7 +114,7 @@ let searchStringPattern = "";
 let searchString_arr = ""; //["Tatort", "Krimi", "Mord", "Verbrechen"]; // <-- kommt aus Datenpunkt als Array
 function searchStringCheck() {
     searchStringPattern = "";
-    searchString_arr = adapter.getState(adapter.search.list).val.split(","); // ins Array schreiben | falls nur Skript, dann gegen null prüfen
+    searchString_arr = adapter.getState("search.list").val.split(","); // ins Array schreiben | falls nur Skript, dann gegen null prüfen
     searchString_arr = searchString_arr.sort(); // alphabetisch sortieren
     for(let rm = searchString_arr.length - 1; rm >=0; rm--) { // Leerzeichen und leere Einträge löschen
         searchString_arr[rm] = searchString_arr[rm].trim();
@@ -138,7 +138,7 @@ function searchStringCheck() {
 
 // Sendezeit aus Titel extrahieren
 function getShowtime(titel) {
-    let showtime_arr = titel.split("|");                                 // 14:00 | RTL | Formel 1: Großer Preis von Aserbaidschan
+    let showtime_arr = titel.split(" | ");                                 // 14:00 | RTL | Formel 1: Großer Preis von Aserbaidschan
     return {
         "time": showtime_arr[0].trim(),                                      // 14:00
         "station": showtime_arr[1].trim(),                                   // RTL
