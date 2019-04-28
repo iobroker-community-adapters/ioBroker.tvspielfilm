@@ -43,7 +43,6 @@ function readSettings() {
     for (var t in adapter.config.whitelist) {
         adapter.log.debug('Whitelist (#' + (parseInt(t,10)+1) + '): ' + adapter.config.whitelist[t]);
     }
-
 }
 
 function checkWildcard(station,wildcard) { // thx to stackoverflow.com/a/32402438
@@ -115,7 +114,7 @@ let searchStringPattern = "";
 let searchString_arr = ""; //["Tatort", "Krimi", "Mord", "Verbrechen"]; // <-- kommt aus Datenpunkt als Array
 function searchStringCheck() {
     searchStringPattern = "";
-    searchString_arr = getState(adapter.search.list).val.split(","); // ins Array schreiben | falls nur Skript, dann gegen null prüfen
+    searchString_arr = adapter.getState(adapter.search.list).val.split(","); // ins Array schreiben | falls nur Skript, dann gegen null prüfen
     searchString_arr = searchString_arr.sort(); // alphabetisch sortieren
     for(let rm = searchString_arr.length - 1; rm >=0; rm--) { // Leerzeichen und leere Einträge löschen
         searchString_arr[rm] = searchString_arr[rm].trim();

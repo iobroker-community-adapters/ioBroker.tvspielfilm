@@ -101,40 +101,41 @@
     },
     "objects": [],
     "instanceObjects": [
-      {
-          "_id": "search",
-          "type": "channel",
-          "common": {
-              "role": "",
-              "name": ""
-          },
-          "native": {}
-      },
-      {
-          "_id": "search.list",
-          "type": "state",
-          "common": {
-              "name": "tvspielfilm Suchbegriffe",
-              "desc": "Array aus Suchbegriffen",
-              "type": "string",
-              "read": true,
-              "write": false
-          },
-          "native": {}
-      },
-      {
-          "_id": "search.alert",
-          "type": "state",
-          "common": {
-              "name": "tvspielfilm Suchbegriff gefunden",
-              "desc": "Suchbegriff gefunden - true/false",
-              "type": "boolean",
-              "read": true,
-              "write": false
-          },
-          "native": {}
-      },
-      {
+        {
+            "_id": "search",
+            "type": "channel",
+            "common": {
+                "role": "",
+                "name": ""
+            },
+            "native": {}
+        },
+        {
+            "_id": "search.list",
+            "type": "state",
+            "common": {
+                "name": "tvspielfilm Suchbegriffe",
+                "desc": "Array aus Suchbegriffen",
+                "type": "string",
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "search.alert",
+            "type": "state",
+            "common": {
+                "name": "tvspielfilm Suchbegriff gefunden",
+                "desc": "Suchbegriff gefunden - true/false",
+                "type": "boolean",
+                "role": "indicator",
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        },
+        {
             "_id": "json",
             "type": "channel",
             "common": {
