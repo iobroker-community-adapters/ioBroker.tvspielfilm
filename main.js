@@ -160,7 +160,7 @@ function readFeed (x) {
     adapter.log.debug('RSS Feed wird eingelesen: ' + link);
     request(link, function (error, response, body) {
         if (!error && response.statusCode == 200) {
-            //searchStringCheck(); // prüfen un dvorbereiten der Suchbegriffe
+            searchStringCheck(); // prüfen un dvorbereiten der Suchbegriffe
             parseString(body, {
                 explicitArray: false,
                 mergeAttrs: true
