@@ -180,7 +180,7 @@ function readFeed (x) {
                                         string_found = " style=\"border: 2px solid yellow; background-color: rgba(150,0,0,0.9); background-color: darkred;\""; // css Style für Treffer
                                         // weitere Aktionen möglich
                                         // z.B. das Setzen eines Flags, das das Senden einer Nachricht auslöst
-                                        matches =+ 1; // Bei Treffer hochzählen
+                                        matches ++; // Bei Treffer hochzählen
                                         adapter.log.debug("Gesuchte Sendung: " + getShowtime(titel).show + " wird heute um " + getShowtime(titel).time + " auf " + getShowtime(titel).station +  "ausgestrahlt.");
                                     }
                                     // Beschreibung auf Suchstring prüfen
@@ -190,7 +190,7 @@ function readFeed (x) {
                                         string_found = " style=\"border: 2px solid yellow; background-color: rgba(150,0,0,0.9); background-color: darkred;\""; // css Style für Treffer
                                         // weitere Aktionen möglich
                                         // z.B. das Setzen eines Flags, das das Senden einer Nachricht auslöst
-                                        matches =+ 1; // Bei Treffer hochzählen
+                                        matches ++; // Bei Treffer hochzählen
                                         adapter.log.debug("Gesuchte Sendung: " + getShowtime(titel).show + " wird heute um " + getShowtime(titel).time + " auf " + getShowtime(titel).station +  "ausgestrahlt.");
                                     }
                                     // Position des Suchworts im Text markieren
