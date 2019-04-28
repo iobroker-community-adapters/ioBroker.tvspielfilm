@@ -111,7 +111,7 @@ var rss_options = {
 
 
 let searchStringPattern = "";
-let searchString_arr = ["Tatort", "heute", "Krimi", "Show"]; //["Tatort", "Krimi", "Mord", "Verbrechen"]; // <-- kommt aus Datenpunkt als Array
+let searchString_arr = []; //["Tatort", "Krimi", "Mord", "Verbrechen"]; // <-- kommt aus Datenpunkt als Array
 
 function searchStringCheck() {
     searchStringPattern = "";
@@ -119,7 +119,7 @@ function searchStringCheck() {
         if (!state) {
             adapter.log.debug("keine Suchbegriffe festgelegt");
         } else {
-            searchString_arr = state.split(",")
+            searchString_arr = state.split(",");
         }
     });
     //searchString_arr = adapter.getState("search.list").val.split(",") || ""; // ins Array schreiben | falls nur Skript, dann gegen null prüfen
@@ -188,7 +188,7 @@ function readFeed (x) {
                                         string_found = " style=\"border: 2px solid yellow; background-color: rgba(150,0,0,0.9); background-color: darkred;\""; // css Style für Treffer
                                         // weitere Aktionen möglich
                                         // z.B. das Setzen eines Flags, das das Senden einer Nachricht auslöst
-                                        matches ++; // Bei Treffer hochzählen
+                                        matches++; // Bei Treffer hochzählen
                                         adapter.log.debug("Gesuchte Sendung: " + getShowtime(titel).show + " wird heute um " + getShowtime(titel).time + " auf " + getShowtime(titel).station +  "ausgestrahlt.");
                                     }
                                     // Beschreibung auf Suchstring prüfen
@@ -198,7 +198,7 @@ function readFeed (x) {
                                         string_found = " style=\"border: 2px solid yellow; background-color: rgba(150,0,0,0.9); background-color: darkred;\""; // css Style für Treffer
                                         // weitere Aktionen möglich
                                         // z.B. das Setzen eines Flags, das das Senden einer Nachricht auslöst
-                                        matches ++; // Bei Treffer hochzählen
+                                        matches++; // Bei Treffer hochzählen
                                         adapter.log.debug("Gesuchte Sendung: " + getShowtime(titel).show + " wird heute um " + getShowtime(titel).time + " auf " + getShowtime(titel).station +  "ausgestrahlt.");
                                     }
                                     // Position des Suchworts im Text markieren
