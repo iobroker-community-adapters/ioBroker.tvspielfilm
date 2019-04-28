@@ -118,7 +118,7 @@
                 "desc": "Array aus Suchbegriffen",
                 "type": "string",
                 "read": true,
-                "write": false
+                "write": true
             },
             "native": {}
         },
