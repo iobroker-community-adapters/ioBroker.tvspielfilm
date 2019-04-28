@@ -130,6 +130,7 @@
                 "desc": "Suchbegriff gefunden - true/false",
                 "type": "boolean",
                 "role": "indicator",
+                "def": false,
                 "read": true,
                 "write": false
             },

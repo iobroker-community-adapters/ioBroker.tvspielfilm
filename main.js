@@ -111,7 +111,7 @@ var rss_options = {
 
 
 let searchStringPattern = "";
-let searchString_arr = ""; //["Tatort", "Krimi", "Mord", "Verbrechen"]; // <-- kommt aus Datenpunkt als Array
+let searchString_arr = ["Tatort", "heute", "Krimi", "Show"]; //["Tatort", "Krimi", "Mord", "Verbrechen"]; // <-- kommt aus Datenpunkt als Array
 
 function searchStringCheck() {
     searchStringPattern = "";
@@ -160,7 +160,7 @@ function readFeed (x) {
     adapter.log.debug('RSS Feed wird eingelesen: ' + link);
     request(link, function (error, response, body) {
         if (!error && response.statusCode == 200) {
-            searchStringCheck(); // prüfen un dvorbereiten der Suchbegriffe
+            //searchStringCheck(); // prüfen un dvorbereiten der Suchbegriffe
             parseString(body, {
                 explicitArray: false,
                 mergeAttrs: true
