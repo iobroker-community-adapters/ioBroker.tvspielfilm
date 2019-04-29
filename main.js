@@ -46,14 +46,13 @@ let searchStringPattern = /^$/; // leere Zeichenkette
 let searchString_arr = []; //["Tatort", "Krimi", "Mord", "Verbrechen"]; // <-- kommt aus Datenpunkt als Array
 
 function searchStringCheck() {
-    searchStringPattern = "";
     adapter.getState("search.list", function(err, obj) {
         if (!obj) {
             adapter.log.debug("keine Suchbegriffe festgelegt");
         } else if (err) {
             adapter.log.warn("Fehler beim Einlesen der Suchbegriffe");
         } else {
-            searchString_arr = obj.val.split(",");
+            searchString_arr = obj.val.split(","); // aus CSV ein Array machen
         }
     });
     //searchString_arr = ["Tatort", "Mord", "Abend", "Requiem"]; // funktioniert
@@ -64,19 +63,24 @@ function searchStringCheck() {
         if (!searchString_arr[rm]) searchString_arr.splice(rm, 1);
     }
 
+    // Aus Suchbegriffen ein Pattern bauen
     if (searchString_arr === undefined || searchString_arr.length === 0) adapter.log.debug("keine Suchbegriffe");
     else {
         adapter.log.debug("Anzahl der Suchbegriffe: " + searchString_arr.length);
         // Präpaiertes Array in Datenpunkt schreiben
         adapter.setState("search.list", {val: searchString_arr.toString(), ack: true});
         // RegExp erstellen
+        searchStringPattern = "";
+
+
+        for (let s = 0; s < searchString_arr.length; s++) {
+            adapter.log.debug('Suchbegriff (#' + (parseInt(s,10)+1) + '): ' + searchString_arr[s]);
+            searchStringPattern += searchString_arr[s] + (s < searchString_arr.length-1 ? "|" : "");
+        }
+
+
         searchStringPattern = new RegExp(searchStringPattern, "gi" );
         adapter.log.debug("Suchmuster: " + searchStringPattern/*.source*/);
-    }
-
-    for (let s = 0; s < searchString_arr.length; s++) {
-        adapter.log.debug('Suchbegriff (#' + (parseInt(s,10)+1) + '): ' + searchString_arr[s]);
-        searchStringPattern += searchString_arr[s] + (s < searchString_arr.length-1 ? "|" : "");
     }
 }
 
@@ -205,7 +209,7 @@ function readFeed (x) {
                                 let beschreibung = result.rss.channel.item[i].description;
 
                                 if (searchString_arr === undefined || searchString_arr.length === 0) { // kein Array mit Suchwörter vorhanden?
-                                    adapter.log.debug("Search String is empty or not available");
+                                    adapter.log.silly("Search String is empty or not available (#" + i + ")");
                                 } else { // Array vornhanden
                                     // Titel auf Suchstring prüfen
                                     if (searchStringPattern.test(sendung) === true) {
