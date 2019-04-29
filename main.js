@@ -15,6 +15,22 @@ const adapter = utils.Adapter({
 
 adapter.on('ready', main);
 
+adapter.on('stateChange', (id, state) => {
+    if (state && !state.ack) {
+        if (id === adapter.namespace + '.search.list') { // derzeit nur Suchbegriffe - Datenpunkt
+            if (typeof state.val !== 'string') {
+                if (state.val === null || state.val === undefined || state.val === '') {
+                    adapter.log.warn('Datenpunkt leer');
+                    return;
+                }
+                state.val = state.val.toString();
+            }
+            main();
+        }
+    }
+});
+
+
 let matches = 0;
 let string_found_css = " style=\"border: 2px solid yellow; background-color: rgba(150,0,0,0.9); background-color: darkred;\""; // Style für Table bei Treffer
 let searchStringPattern = ""; // zuerst leere Zeichenkette
@@ -185,7 +201,7 @@ function readIndividualFeed (x) {
                                     if (searchStringPattern.test(sendung) === true) {
                                         adapter.log.debug("Sendung: " + sendung);
                                         adapter.log.debug("Suchmuster im Titel der Sendung gefunden: " + searchStringPattern);
-                                        adapter.log.debug("gefundenes Wort: " + searchStringPattern.exec(sendung));
+                                        adapter.log.debug("gefundenes Wort (im Namen der Sendung): " + searchStringPattern.exec(sendung));
                                         string_found = string_found_css; // css Style für Treffer
                                         // weitere Aktionen möglich
                                         // z.B. das Setzen eines Flags, das das Senden einer Nachricht auslöst
@@ -196,7 +212,7 @@ function readIndividualFeed (x) {
                                     // Beschreibung auf Suchstring prüfen
                                     if (searchStringPattern.test(beschreibung) === true) {
                                         adapter.log.debug("Suchmuster in Beschreibung gefunden: " + searchStringPattern);
-                                        adapter.log.debug("gefundenes Wort: " + searchStringPattern.exec(beschreibung));
+                                        adapter.log.debug("gefundenes Wort (in der Beschreibung): " + searchStringPattern.exec(beschreibung));
                                         string_found = string_found_css; // css Style für Treffer
                                         // weitere Aktionen möglich
                                         // z.B. das Setzen eines Flags, das das Senden einer Nachricht auslöst
@@ -256,7 +272,6 @@ function iterateAllFeeds() {
 
 
 function main() {
-    adapter.subscribeStates('*.list*'); // subscribe auf Suchbegriffe
     readSettings(); // Einstellungen lesen und prüfen
     searchStringCheck(); // Suchbegriffe aus Datenpunkt einlesen und Suchmuster erstellen
     setTimeout(iterateAllFeeds,2000); // Alle Feeds nacheinander durchgehen
