@@ -208,7 +208,7 @@ function readFeed (x) {
                                 let sendung = getShowtime(titel).show;
                                 let beschreibung = result.rss.channel.item[i].description;
 
-                                if (searchString_arr === undefined || searchString_arr.length === 0) { // kein Array mit Suchwörter vorhanden?
+                                if (searchString_arr === undefined || searchString_arr.length === 0 && !searchStringPattern) { // kein Array mit Suchwörter vorhanden?
                                     adapter.log.silly("Search String is empty or not available (#" + i + ")");
                                 } else { // Array vornhanden
                                     // Titel auf Suchstring prüfen
