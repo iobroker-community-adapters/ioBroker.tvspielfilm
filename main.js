@@ -57,8 +57,6 @@ function searchStringCheck() {
     }
 }
 
-
-
 function readSettings() {
 
     //Blacklist
@@ -80,8 +78,8 @@ function checkWildcard(station,wildcard) { // thx to stackoverflow.com/a/3240243
     return new RegExp("^" + wildcard.split("*").join(".*") + "$").test(station);
 }
 
-function check_station (show) { // Eine Sendung/Show wird so übergeben "16:50 | Sky Cinema | Kill the Boss 2"
-    var show_info = show.split(' | ');
+function showStation (titel) { // Eine Sendung/Show wird so übergeben "16:50 | Sky Cinema | Kill the Boss 2"
+    var titel_info = titel.split(' | ');
 
     // es können noch weitere Daten extrahiert und geprüft werden:
     // showtime_info = show_info[0].split(':');
@@ -94,7 +92,7 @@ function check_station (show) { // Eine Sendung/Show wird so übergeben "16:50 |
     // movie = show_info[2];
 
     // check stationname
-    var station = show_info[1];
+    var station = titel_info[1];
     var display = true; // show em all :-D
 
     if (adapter.config.whitelist.length === 0) { // if no entry in whitelist use blacklist
@@ -152,7 +150,7 @@ function getShowDetails(titel) {
     };
 }
 
-function readFeed (x) {
+function readIndividualFeed (x) {
     var link = rss_options[x].url;
     adapter.log.debug('RSS Feed wird eingelesen: ' + link);
     request(link, function (error, response, body) {
@@ -167,14 +165,12 @@ function readFeed (x) {
                 if (err) {
                     adapter.log.warn("Fehler: " + err);
                 } else {
-                    var display_station = false;
                     if (result.rss.channel.item.length !== null) { // gelegentlicher Fehler bei nächtlicher Abfrage durch length (undefined) soll hier abgefangen werden
-
 
                         // Array durchzaehlen von 0 bis Zahl der items
                         for (var i = 0; i < result.rss.channel.item.length; i++) {
-                            display_station = check_station(result.rss.channel.item[i].title); // Ist der Sender in der Blacklist/Whitelist?
-                            if (display_station) {
+                            let showThisStation = showStation(result.rss.channel.item[i].title) || false; // Ist der Sender in der Blacklist/Whitelist?
+                            if (showThisStation) {
                                 let string_found = ""; // CSS Styles werden eingefügt, wenn Suchmuster gefunden
                                 let titel = result.rss.channel.item[i].title;
                                 let sendung = getShowDetails(titel).show;
@@ -234,22 +230,33 @@ function readFeed (x) {
     adapter.log.debug('XML-Daten aus TV Spielfilm (' + rss_options[x].feedname + ') eingelesen');
 }
 
-function main() {
-    adapter.subscribeStates('*.list*'); // subscribe Suchbegriffe
-    readSettings();
-
-    
+function iterateAllFeeds() {
     matches = 0;
     for (var j in rss_options) {
-        readFeed(j);
+        readIndividualFeed(j);
     }
+
     adapter.log.debug("Endgültige Matches im Suchlauf: " + matches);
     if (matches < 1) { // auf Treffer prüfen
-        adapter.setState("search.alert", {val: false, ack: true}); // keine Sendung gefunden
+        adapter.setState("search.alert", {val: false, ack: true}, () => {
+            adapter.log.info('objects written');
+            setTimeout(() => process.exit(0), 5000);
+        }); // keine Sendung gefunden
     } else {
-        adapter.setState("search.alert", {val: true, ack: true}); // mindestens eine Sendung gefunden
+        adapter.setState("search.alert", {val: true, ack: true}), () => {
+            adapter.log.info('objects written');
+            setTimeout(() => process.exit(0), 5000);
+        }); // mindestens eine Sendung gefunden
     }
-    adapter.log.info('objects written');
+}
+
+
+function main() {
+    adapter.subscribeStates('*.list*'); // subscribe auf Suchbegriffe
+    readSettings(); // Einstellungen lesen und prüfen
+    iterateAllFeeds(); // Alle Feeds nacheinander durchgehen
+
+
 
     // Force terminate nach einer Minute
     setTimeout(() => {
