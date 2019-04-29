@@ -141,12 +141,11 @@ const rss_options = {
 
 // Sendezeit aus Titel extrahieren
 function getShowDetails(titel) {
-    let showtime_arr = titel.split(" | ");                                 // 14:00 | RTL | Formel 1: Großer Preis von Aserbaidschan
+    let showDetails_arr = titel.split(" | ");                                 // 14:00 | RTL | Formel 1: Großer Preis von Aserbaidschan
     return {
-        "time": showtime_arr[0].trim(),                                      // 14:00
-        "station": showtime_arr[1].trim(),                                   // RTL
-        // "show": (showtime_arr[2].trim()).substr(9,200)
-        "show": showtime_arr[2].trim()                                       // Formel 1: Großer Preis von Aserbaidschan
+        "time":    showDetails_arr[0].trim(),                                      // 14:00
+        "station": showDetails_arr[1].trim(),                                   // RTL
+        "show":    showDetails_arr[2].trim()                                       // Formel 1: Großer Preis von Aserbaidschan
     };
 }
 
@@ -243,7 +242,7 @@ function iterateAllFeeds() {
             setTimeout(() => process.exit(0), 5000);
         }); // keine Sendung gefunden
     } else {
-        adapter.setState("search.alert", {val: true, ack: true}), () => {
+        adapter.setState("search.alert", {val: true, ack: true}, () => {
             adapter.log.info('objects written');
             setTimeout(() => process.exit(0), 5000);
         }); // mindestens eine Sendung gefunden
