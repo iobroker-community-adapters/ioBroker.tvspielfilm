@@ -55,6 +55,9 @@ function searchStringCheck() {
         searchStringPattern = new RegExp(searchStringPattern, "gi" );
         adapter.log.debug("Suchmuster: " + searchStringPattern/*.source*/);
     }
+    searchStringPattern = new RegExp(searchStringPattern, "gi" ); // erstellt auch Suchmuster, wenn keine Suchbegriff da
+    adapter.log.debug("Suchmuster: " + searchStringPattern/*.source*/);
+    adapter.log.debug("Suchmuster erstellt");
 }
 
 function readSettings() {
@@ -257,7 +260,7 @@ function main() {
     adapter.subscribeStates('*.list*'); // subscribe auf Suchbegriffe
     readSettings(); // Einstellungen lesen und prüfen
     searchStringCheck(); // Suchbegriffe aus Datenpunkt einlesen und Suchmuster erstellen
-    iterateAllFeeds(); // Alle Feeds nacheinander durchgehen
+    setTimeout(iterateAllFeeds,2000); // Alle Feeds nacheinander durchgehen
 
     // Force terminate nach einer Minute
     setTimeout(() => {

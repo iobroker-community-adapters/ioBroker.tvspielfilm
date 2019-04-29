@@ -30,7 +30,7 @@
             "en": "docs/en/doc_tvspielfilm_en.md",
             "de": "docs/de/doc_tvspielfilm_de.md"
         },
-        "version": "1.1.5",
+        "version": "1.1.6",
         "news": {
             "1.1.0": {
                 "en": "String search added",
