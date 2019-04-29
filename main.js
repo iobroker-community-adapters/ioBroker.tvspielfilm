@@ -42,7 +42,7 @@ adapter.on('ready', function () {
 
 let matches = 0;
 let string_found_css = " style=\"border: 2px solid yellow; background-color: rgba(150,0,0,0.9); background-color: darkred;\"";
-let searchStringPattern = "";
+let searchStringPattern = ^$; // leere Zeichenkette
 let searchString_arr = []; //["Tatort", "Krimi", "Mord", "Verbrechen"]; // <-- kommt aus Datenpunkt als Array
 
 function searchStringCheck() {
