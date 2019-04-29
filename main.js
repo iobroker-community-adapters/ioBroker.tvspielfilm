@@ -40,6 +40,7 @@ adapter.on('ready', function () {
     });
 });
 
+let matches = 0;
 let string_found_css = " style=\"border: 2px solid yellow; background-color: rgba(150,0,0,0.9); background-color: darkred;\"";
 let searchStringPattern = "";
 let searchString_arr = []; //["Tatort", "Krimi", "Mord", "Verbrechen"]; // <-- kommt aus Datenpunkt als Array
@@ -191,7 +192,7 @@ function readFeed (x) {
                 } else {
                     var display_station = false;
                     if (result.rss.channel.item.length !== null) { // gelegentlicher Fehler bei nächtlicher Abfrage durch length (undefined) soll hier abgefangen werden
-                        let matches = 0;
+
 
                         // Array durchzaehlen von 0 bis Zahl der items
                         for (var i = 0; i < result.rss.channel.item.length; i++) {
@@ -246,12 +247,7 @@ function readFeed (x) {
                                 table.push(entry);
                             } // Ende Abfrage, ob Sender empfangbar
                         }
-                        adapter.log.debug("Endgültige Matches im Suchlauf: " + matches);
-                        if (matches < 1) { // auf Treffer prüfen
-                            adapter.setState("search.alert", {val: false, ack: true}); // keine Sendung gefunden
-                        } else {
-                            adapter.setState("search.alert", {val: true, ack: true}); // mindestens eine Sendung gefunden
-                        }
+
                     } else adapter.log.warn('LENGTH in TV Programm (' + rss_options[x].feedname + ') nicht definiert'); // ende if ungleich
                 }
                 adapter.setState(rss_options[x].state, {val: JSON.stringify(table), ack: true});// ganze XML in Objekt für Table Widget
@@ -265,8 +261,15 @@ function main() {
     adapter.subscribeStates('*.list*'); // subscribe Suchbegriffe
     readSettings();
     searchStringCheck();
+    matches = 0;
     for (var j in rss_options) {
         readFeed(j);
+    }
+    adapter.log.debug("Endgültige Matches im Suchlauf: " + matches);
+    if (matches < 1) { // auf Treffer prüfen
+        adapter.setState("search.alert", {val: false, ack: true}); // keine Sendung gefunden
+    } else {
+        adapter.setState("search.alert", {val: true, ack: true}); // mindestens eine Sendung gefunden
     }
     adapter.log.info('objects written');
     //adapter.stop();
