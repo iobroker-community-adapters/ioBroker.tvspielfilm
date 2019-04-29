@@ -40,7 +40,7 @@ adapter.on('ready', function () {
     });
 });
 
-
+let string_found_css = " style=\"border: 2px solid yellow; background-color: rgba(150,0,0,0.9); background-color: darkred;\"";
 let searchStringPattern = "";
 let searchString_arr = []; //["Tatort", "Krimi", "Mord", "Verbrechen"]; // <-- kommt aus Datenpunkt als Array
 
@@ -202,29 +202,31 @@ function readFeed (x) {
                                 let sendung = getShowtime(titel).show;
                                 let beschreibung = result.rss.channel.item[i].description;
 
-                                if (!searchString_arr) { // kein Array mit Suchwörter vorhanden?
+                                if (searchString_arr === undefined || searchString_arr.length === 0) { // kein Array mit Suchwörter vorhanden?
                                     adapter.log.debug("Search String is empty or not available");
                                 } else { // Array vornhanden
                                     // Titel auf Suchstring prüfen
                                     if (searchStringPattern.test(sendung) === true) {
+                                        adapter.log.debug("Sendung: " + sendung);
                                         adapter.log.debug("Suchmuster im Titel der Sendung gefunden: " + searchStringPattern);
-                                        adapter.log.debug("Wort: " + searchStringPattern.exec(sendung));
-                                        string_found = " style=\"border: 2px solid yellow; background-color: rgba(150,0,0,0.9); background-color: darkred;\""; // css Style für Treffer
+                                        adapter.log.debug("gefundenes Wort: " + searchStringPattern.exec(sendung));
+                                        string_found = string_found_css; // css Style für Treffer
                                         // weitere Aktionen möglich
                                         // z.B. das Setzen eines Flags, das das Senden einer Nachricht auslöst
                                         matches++; // Bei Treffer hochzählen
                                         adapter.log.debug("Matches: " + matches);
-                                        adapter.log.debug("Gesuchte Sendung: " + getShowtime(titel).show + " wird heute um " + getShowtime(titel).time + " auf " + getShowtime(titel).station +  " ausgestrahlt.");
+                                        adapter.log.debug("Gesuchte Sendung: " + getShowtime(titel).show + " wird heute um " + getShowtime(titel).time + " Uhr auf " + getShowtime(titel).station +  " ausgestrahlt.");
                                     }
                                     // Beschreibung auf Suchstring prüfen
                                     if (searchStringPattern.test(beschreibung) === true) {
                                         adapter.log.debug("Suchmuster in Beschreibung gefunden: " + searchStringPattern);
-                                        adapter.log.debug("Wort: " + searchStringPattern.exec(beschreibung));
-                                        string_found = " style=\"border: 2px solid yellow; background-color: rgba(150,0,0,0.9); background-color: darkred;\""; // css Style für Treffer
+                                        adapter.log.debug("gefundenes Wort: " + searchStringPattern.exec(beschreibung));
+                                        string_found = string_found_css; // css Style für Treffer
                                         // weitere Aktionen möglich
                                         // z.B. das Setzen eines Flags, das das Senden einer Nachricht auslöst
                                         matches++; // Bei Treffer hochzählen
-                                        adapter.log.debug("Gesuchte Sendung: " + getShowtime(titel).show + " wird heute um " + getShowtime(titel).time + " auf " + getShowtime(titel).station +  " ausgestrahlt.");
+                                        adapter.log.debug("Matches: " + matches);
+                                        adapter.log.debug("Gesuchte Sendung: " + getShowtime(titel).show + " wird heute um " + getShowtime(titel).time + " Uhr auf " + getShowtime(titel).station +  " ausgestrahlt.");
                                     }
                                     // Position des Suchworts im Text markieren
                                     if (searchStringPattern.test(titel) === true) titel = titel.replace(searchStringPattern,"<mark>$&</mark>");
@@ -245,10 +247,10 @@ function readFeed (x) {
                             } // Ende Abfrage, ob Sender empfangbar
                         }
                         adapter.log.debug("Endgültige Matches im Suchlauf: " + matches);
-                        if (matches > 0) { // auf Treffer prüfen
-                            adapter.setState("search.alert", {val: true, ack: true}); // mindestens eine Sendung gefunden
-                        } else {
+                        if (matches < 1) { // auf Treffer prüfen
                             adapter.setState("search.alert", {val: false, ack: true}); // keine Sendung gefunden
+                        } else {
+                            adapter.setState("search.alert", {val: true, ack: true}); // mindestens eine Sendung gefunden
                         }
                     } else adapter.log.warn('LENGTH in TV Programm (' + rss_options[x].feedname + ') nicht definiert'); // ende if ungleich
                 }
