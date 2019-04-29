@@ -78,21 +78,31 @@ function checkWildcard(station,wildcard) { // thx to stackoverflow.com/a/3240243
     return new RegExp("^" + wildcard.split("*").join(".*") + "$").test(station);
 }
 
-function showStation (titel) { // Eine Sendung/Show wird so übergeben "16:50 | Sky Cinema | Kill the Boss 2"
+// Sendezeit, Name und Sender aus Titel extrahieren
+function getShowDetails(titel) {
+    let showDetails_arr = titel.split(" | ");                                 // 14:00 | RTL | Formel 1: Großer Preis von Aserbaidschan
+        // es können noch weitere Daten extrahiert und geprüft werden:
+        // showtime_info = show_info[0].split(':');
+        // showtime = new Date ();
+        // showtime.setHours(parseInt(showtime_info[0],10));   // -> 16
+        // showtime.setMinutes(parseInt(showtime_info[1],10)); // -> 50
+        // Vergleich mit aktueller zeit möglich....
+
+        // Suche nach Filmen genauso möglich
+        // movie = show_info[2];
+    return {
+        "time":    showDetails_arr[0].trim(),                                      // 14:00
+        "station": showDetails_arr[1].trim(),                                   // RTL
+        "show":    showDetails_arr[2].trim()                                       // Formel 1: Großer Preis von Aserbaidschan
+    };
+}
+
+// Steht Sender in Whitelist | Blacklist ?
+function showStation(titel) { // Eine Sendung/Show wird so übergeben "16:50 | Sky Cinema | Kill the Boss 2"
     var titel_info = titel.split(' | ');
 
-    // es können noch weitere Daten extrahiert und geprüft werden:
-    // showtime_info = show_info[0].split(':');
-    // showtime = new Date ();
-    // showtime.setHours(parseInt(showtime_info[0],10));   // -> 16
-    // showtime.setMinutes(parseInt(showtime_info[1],10)); // -> 50
-    // Vergleich mit aktueller zeit möglich....
-
-    // Suche nach Filmen genauso möglich
-    // movie = show_info[2];
-
-    // check stationname
-    var station = titel_info[1];
+    // Prüfe Sender
+    var station = getShowDetails(titel).station; // Sendername aus Titel auslesen
     var display = true; // show em all :-D
 
     if (adapter.config.whitelist.length === 0) { // if no entry in whitelist use blacklist
@@ -139,15 +149,6 @@ const rss_options = {
                     }
 }
 
-// Sendezeit aus Titel extrahieren
-function getShowDetails(titel) {
-    let showDetails_arr = titel.split(" | ");                                 // 14:00 | RTL | Formel 1: Großer Preis von Aserbaidschan
-    return {
-        "time":    showDetails_arr[0].trim(),                                      // 14:00
-        "station": showDetails_arr[1].trim(),                                   // RTL
-        "show":    showDetails_arr[2].trim()                                       // Formel 1: Großer Preis von Aserbaidschan
-    };
-}
 
 function readIndividualFeed (x) {
     var link = rss_options[x].url;
@@ -231,20 +232,22 @@ function readIndividualFeed (x) {
 
 function iterateAllFeeds() {
     matches = 0;
-    for (var j in rss_options) {
-        readIndividualFeed(j);
+    for (var feeds in rss_options) { // einzelne Feeds laden und speichern
+        readIndividualFeed(feeds);
     }
 
     adapter.log.debug("Endgültige Matches im Suchlauf: " + matches);
     if (matches < 1) { // auf Treffer prüfen
+        // keine Sendung gefunden
         adapter.setState("search.alert", {val: false, ack: true}, () => {
             adapter.log.info('objects written');
-            setTimeout(() => process.exit(0), 5000);
-        }); // keine Sendung gefunden
+            setTimeout(() => process.exit(0), 10000);
+        });
     } else {
+        // mindestens eine Sendung gefunden
         adapter.setState("search.alert", {val: true, ack: true}, () => {
             adapter.log.info('objects written');
-            setTimeout(() => process.exit(0), 5000);
+            setTimeout(() => process.exit(0), 10000);
         }); // mindestens eine Sendung gefunden
     }
 }
@@ -253,9 +256,8 @@ function iterateAllFeeds() {
 function main() {
     adapter.subscribeStates('*.list*'); // subscribe auf Suchbegriffe
     readSettings(); // Einstellungen lesen und prüfen
+    searchStringCheck(); // Suchbegriffe aus Datenpunkt einlesen und Suchmuster erstellen
     iterateAllFeeds(); // Alle Feeds nacheinander durchgehen
-
-
 
     // Force terminate nach einer Minute
     setTimeout(() => {
