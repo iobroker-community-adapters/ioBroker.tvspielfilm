@@ -26,9 +26,9 @@ function searchStringCheck() {
             if (!obj) {
                 adapter.log.debug("keine Suchbegriffe gefunden, Datenpunkt leer oder nicht angelegt");
             } else {
-                if (searchString_arr === undefined || searchString_arr.length === 0) { // leer
-                    adapter.log.debug("keine Suchbegriffe festgelegt");
-                } else { // Suchbegriffe gefunden
+                //if (searchString_arr === undefined || searchString_arr.length === 0) { // leer
+                //    adapter.log.debug("keine Suchbegriffe festgelegt");
+                //} else { // Suchbegriffe gefunden
                     searchString_arr = obj.val.split(","); // aus CSV ein Array machen
                     searchString_arr = searchString_arr.sort(); // alphabetisch sortieren
 
@@ -51,7 +51,7 @@ function searchStringCheck() {
                     adapter.log.debug("Suchmuster: " + searchStringPattern.source);
 
                     adapter.log.debug("Suchmuster erstellt");
-                } // Ende else Suchbegriffe gefunden
+                //} // Ende else Suchbegriffe gefunden
             } // Ende else !obj
         } else {
             adapter.log.warn("Fehler beim Einlesen der Suchbegriffe");
