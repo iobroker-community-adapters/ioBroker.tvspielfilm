@@ -22,42 +22,41 @@ let searchString_arr = []; //["Tatort", "Krimi", "Mord", "Verbrechen"]; // <-- k
 
 function searchStringCheck() {
     adapter.getState("search.list", function(err, obj) {
-        if (!obj) {
-            adapter.log.debug("keine Suchbegriffe festgelegt");
-        } else if (err) {
-            adapter.log.warn("Fehler beim Einlesen der Suchbegriffe");
+        if (!err) {
+            if (!obj) {
+                adapter.log.debug("keine Suchbegriffe gefunden, Datenpunkt leer oder nicht angelegt");
+            } else {
+                if (searchString_arr === undefined || searchString_arr.length === 0) { // leer
+                    adapter.log.debug("keine Suchbegriffe festgelegt");
+                } else { // Suchbegriffe gefunden
+                    searchString_arr = obj.val.split(","); // aus CSV ein Array machen
+                    searchString_arr = searchString_arr.sort(); // alphabetisch sortieren
+
+                    for(let rm = searchString_arr.length - 1; rm >=0; rm--) { // Leerzeichen und leere Einträge löschen
+                        searchString_arr[rm] = searchString_arr[rm].trim();
+                        if (!searchString_arr[rm]) searchString_arr.splice(rm, 1);
+                    }
+
+                    // Aus Suchbegriffen ein Pattern bauen
+                    adapter.log.debug("Anzahl der Suchbegriffe: " + searchString_arr.length);
+                    // Präpariertes Array in Datenpunkt schreiben
+                    adapter.setState("search.list", {val: searchString_arr.toString(), ack: true});
+                    // RegExp erstellen
+                    searchStringPattern = ""; // Suchmuster zuerst leer
+                    for (let s = 0; s < searchString_arr.length; s++) { // dann mit Begriffen auffüllen
+                        adapter.log.debug('Suchbegriff (#' + (parseInt(s,10)+1) + '): ' + searchString_arr[s]);
+                        searchStringPattern += searchString_arr[s] + (s < searchString_arr.length-1 ? "|" : "");
+                    }
+                    searchStringPattern = new RegExp(searchStringPattern, "gi" ); // und schließlich ein Regulären Ausdruck zusammensetzen
+                    adapter.log.debug("Suchmuster: " + searchStringPattern.source);
+
+                    adapter.log.debug("Suchmuster erstellt");
+                } // Ende else Suchbegriffe gefunden
+            } // Ende else !obj
         } else {
-            searchString_arr = obj.val.split(","); // aus CSV ein Array machen
+            adapter.log.warn("Fehler beim Einlesen der Suchbegriffe");
         }
     });
-    //searchString_arr = ["Tatort", "Mord", "Abend", "Requiem"]; // funktioniert
-    searchString_arr = searchString_arr.sort(); // alphabetisch sortieren
-
-    for(let rm = searchString_arr.length - 1; rm >=0; rm--) { // Leerzeichen und leere Einträge löschen
-        searchString_arr[rm] = searchString_arr[rm].trim();
-        if (!searchString_arr[rm]) searchString_arr.splice(rm, 1);
-    }
-
-    // Aus Suchbegriffen ein Pattern bauen
-    if (searchString_arr === undefined || searchString_arr.length === 0) adapter.log.debug("keine Suchbegriffe");
-    else {
-        adapter.log.debug("Anzahl der Suchbegriffe: " + searchString_arr.length);
-        // Präpaiertes Array in Datenpunkt schreiben
-        adapter.setState("search.list", {val: searchString_arr.toString(), ack: true});
-        // RegExp erstellen
-        searchStringPattern = "";
-
-        for (let s = 0; s < searchString_arr.length; s++) {
-            adapter.log.debug('Suchbegriff (#' + (parseInt(s,10)+1) + '): ' + searchString_arr[s]);
-            searchStringPattern += searchString_arr[s] + (s < searchString_arr.length-1 ? "|" : "");
-        }
-
-        searchStringPattern = new RegExp(searchStringPattern, "gi" );
-        adapter.log.debug("Suchmuster: " + searchStringPattern/*.source*/);
-    }
-    searchStringPattern = new RegExp(searchStringPattern, "gi" ); // erstellt auch Suchmuster, wenn keine Suchbegriff da
-    adapter.log.debug("Suchmuster: " + searchStringPattern/*.source*/);
-    adapter.log.debug("Suchmuster erstellt");
 }
 
 function readSettings() {
