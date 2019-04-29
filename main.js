@@ -7,42 +7,17 @@ var parseString = require('xml2js').parseString;
 var request     = require('request');
 var lang = 'de';
 
-var adapter = utils.Adapter({
+const adapter = utils.Adapter({
     name:           'tvspielfilm',
     systemConfig:   true,
-    useFormatDate:  true,
-    stateChange: function(id, state) {
-        if (!id || !state || state.ack) return;
-        adapter.log.debug('stateChange ' + id + ' ' + JSON.stringify(state));
-        adapter.log.debug('input value: ' + state.val.toString());
-        main(); // Datenpunkt (Suchbegriffe) auslesen dann alles neu starten
-    },
-    ready: function() {
-        adapter.log.debug('initializing objects');
-        main();
-    }
+    useFormatDate:  true
 });
 
-adapter.on('ready', function () {
-    adapter.getForeignObject('system.config', function (err, data) {
-        if (data && data.common) {
-            lang  = data.common.language;
-        }
-
-        adapter.log.debug('initializing objects');
-        main();
-
-        setTimeout(function () {
-            adapter.log.info('force terminating adapter after 1 minute');
-            adapter.stop();
-        }, 60000);
-
-    });
-});
+adapter.on('ready', main);
 
 let matches = 0;
-let string_found_css = " style=\"border: 2px solid yellow; background-color: rgba(150,0,0,0.9); background-color: darkred;\"";
-let searchStringPattern = ""; // leere Zeichenkette
+let string_found_css = " style=\"border: 2px solid yellow; background-color: rgba(150,0,0,0.9); background-color: darkred;\""; // Style für Table bei Treffer
+let searchStringPattern = ""; // zuerst leere Zeichenkette
 let searchString_arr = []; //["Tatort", "Krimi", "Mord", "Verbrechen"]; // <-- kommt aus Datenpunkt als Array
 
 function searchStringCheck() {
@@ -72,12 +47,10 @@ function searchStringCheck() {
         // RegExp erstellen
         searchStringPattern = "";
 
-
         for (let s = 0; s < searchString_arr.length; s++) {
             adapter.log.debug('Suchbegriff (#' + (parseInt(s,10)+1) + '): ' + searchString_arr[s]);
             searchStringPattern += searchString_arr[s] + (s < searchString_arr.length-1 ? "|" : "");
         }
-
 
         searchStringPattern = new RegExp(searchStringPattern, "gi" );
         adapter.log.debug("Suchmuster: " + searchStringPattern/*.source*/);
@@ -87,17 +60,18 @@ function searchStringCheck() {
 
 
 function readSettings() {
+
     //Blacklist
     if (adapter.config.blacklist === undefined || adapter.config.blacklist.length === 0) adapter.log.debug('Keine Stationen zur Blacklist hinzugefügt');
     else adapter.log.debug('Zahl Stationen in Blacklist: ' + adapter.config.blacklist.length);
-    for (var s in adapter.config.blacklist) {
-        adapter.log.debug('Blacklist (#' + (parseInt(s,10)+1) + '): ' + adapter.config.blacklist[s]);
+    for (var bl in adapter.config.blacklist) {
+        adapter.log.debug('Blacklist (#' + (parseInt(bl,10)+1) + '): ' + adapter.config.blacklist[bl]);
     }
     //Whitelist
     if (adapter.config.whitelist === undefined || adapter.config.whitelist.length === 0) adapter.log.debug('Keine Stationen zur Whitelist hinzugefügt');
     else adapter.log.debug('Zahl Stationen in Whitelist: ' + adapter.config.whitelist.length);
-    for (var t in adapter.config.whitelist) {
-        adapter.log.debug('Whitelist (#' + (parseInt(t,10)+1) + '): ' + adapter.config.whitelist[t]);
+    for (var wl in adapter.config.whitelist) {
+        adapter.log.debug('Whitelist (#' + (parseInt(wl,10)+1) + '): ' + adapter.config.whitelist[wl]);
     }
 
 }
@@ -135,10 +109,11 @@ function check_station (show) { // Eine Sendung/Show wird so übergeben "16:50 |
         }
         adapter.log.debug(station + ' in Whitelist ?  ' + display);
     }
-    return(display);
+    return(display); // true | false
 }
 
-var rss_options = {
+// RSS Kanäle
+const rss_options = {
     jetzt :        { feedname: 'Jetzt',
                      url: 'http://www.tvspielfilm.de/tv-programm/rss/jetzt.xml',
                      state: 'json.jetzt',
@@ -166,11 +141,8 @@ var rss_options = {
                     }
 }
 
-
-
-
 // Sendezeit aus Titel extrahieren
-function getShowtime(titel) {
+function getShowDetails(titel) {
     let showtime_arr = titel.split(" | ");                                 // 14:00 | RTL | Formel 1: Großer Preis von Aserbaidschan
     return {
         "time": showtime_arr[0].trim(),                                      // 14:00
@@ -201,11 +173,11 @@ function readFeed (x) {
 
                         // Array durchzaehlen von 0 bis Zahl der items
                         for (var i = 0; i < result.rss.channel.item.length; i++) {
-                            display_station = check_station(result.rss.channel.item[i].title);
+                            display_station = check_station(result.rss.channel.item[i].title); // Ist der Sender in der Blacklist/Whitelist?
                             if (display_station) {
                                 let string_found = ""; // CSS Styles werden eingefügt, wenn Suchmuster gefunden
                                 let titel = result.rss.channel.item[i].title;
-                                let sendung = getShowtime(titel).show;
+                                let sendung = getShowDetails(titel).show;
                                 let beschreibung = result.rss.channel.item[i].description;
 
                                 if (searchString_arr === undefined || searchString_arr.length === 0 && !searchStringPattern) { // kein Array mit Suchwörter vorhanden?
@@ -221,7 +193,7 @@ function readFeed (x) {
                                         // z.B. das Setzen eines Flags, das das Senden einer Nachricht auslöst
                                         matches++; // Bei Treffer hochzählen
                                         adapter.log.debug("Matches: " + matches);
-                                        adapter.log.debug("Gesuchte Sendung: " + getShowtime(titel).show + " wird heute um " + getShowtime(titel).time + " Uhr auf " + getShowtime(titel).station +  " ausgestrahlt.");
+                                        adapter.log.debug("Gesuchte Sendung: " + getShowDetails(titel).show + " wird heute um " + getShowDetails(titel).time + " Uhr auf " + getShowDetails(titel).station +  " ausgestrahlt.");
                                     }
                                     // Beschreibung auf Suchstring prüfen
                                     if (searchStringPattern.test(beschreibung) === true) {
@@ -232,10 +204,10 @@ function readFeed (x) {
                                         // z.B. das Setzen eines Flags, das das Senden einer Nachricht auslöst
                                         matches++; // Bei Treffer hochzählen
                                         adapter.log.debug("Matches: " + matches);
-                                        adapter.log.debug("Gesuchte Sendung: " + getShowtime(titel).show + " wird heute um " + getShowtime(titel).time + " Uhr auf " + getShowtime(titel).station +  " ausgestrahlt.");
+                                        adapter.log.debug("Gesuchte Sendung: " + getShowDetails(titel).show + " wird heute um " + getShowDetails(titel).time + " Uhr auf " + getShowDetails(titel).station +  " ausgestrahlt.");
                                     }
                                     // Position des Suchworts im Text markieren
-                                    if (searchStringPattern.test(titel) === true) titel = titel.replace(searchStringPattern,"<mark>$&</mark>");
+                                    if (searchStringPattern.test(sendung) === true) titel = titel.replace(searchStringPattern,"<mark>$&</mark>");
                                     if (searchStringPattern.test(beschreibung) === true) beschreibung = beschreibung.replace(searchStringPattern,"<mark>$&</mark>");
                                 }
 
@@ -265,7 +237,8 @@ function readFeed (x) {
 function main() {
     adapter.subscribeStates('*.list*'); // subscribe Suchbegriffe
     readSettings();
-    searchStringCheck();
+
+    
     matches = 0;
     for (var j in rss_options) {
         readFeed(j);
@@ -277,5 +250,11 @@ function main() {
         adapter.setState("search.alert", {val: true, ack: true}); // mindestens eine Sendung gefunden
     }
     adapter.log.info('objects written');
-    //adapter.stop();
+
+    // Force terminate nach einer Minute
+    setTimeout(() => {
+        adapter.log.info('force terminating adapter after 1 minute');
+        process.exit(1);
+    }, 60000);
+
 }
