@@ -58,7 +58,7 @@ function searchStringCheck() {
     });
     //searchString_arr = ["Tatort", "Mord", "Abend", "Requiem"]; // funktioniert
     searchString_arr = searchString_arr.sort(); // alphabetisch sortieren
-    adapter.setState("search.list", {val: searchString_arr.toString(), ack: true});
+
     for(let rm = searchString_arr.length - 1; rm >=0; rm--) { // Leerzeichen und leere Einträge löschen
         searchString_arr[rm] = searchString_arr[rm].trim();
         if (!searchString_arr[rm]) searchString_arr.splice(rm, 1);
@@ -67,16 +67,17 @@ function searchStringCheck() {
     if (searchString_arr === undefined || searchString_arr.length === 0) adapter.log.debug("keine Suchbegriffe");
     else {
         adapter.log.debug("Anzahl der Suchbegriffe: " + searchString_arr.length);
+        // Präpaiertes Array in Datenpunkt schreiben
+        adapter.setState("search.list", {val: searchString_arr.toString(), ack: true});
+        // RegExp erstellen
+        searchStringPattern = new RegExp(searchStringPattern, "gi" );
+        adapter.log.debug("Suchmuster: " + searchStringPattern/*.source*/);
     }
 
     for (let s = 0; s < searchString_arr.length; s++) {
         adapter.log.debug('Suchbegriff (#' + (parseInt(s,10)+1) + '): ' + searchString_arr[s]);
         searchStringPattern += searchString_arr[s] + (s < searchString_arr.length-1 ? "|" : "");
     }
-    // RegExp erstellen
-    searchStringPattern = new RegExp(searchStringPattern, "gi" );
-    adapter.log.debug("Suchmuster: " + searchStringPattern/*.source*/);
-    //let searchStringPattern = /Tatort|tagesschau/ig; // aus Datenpunkt übernehmen
 }
 
 
