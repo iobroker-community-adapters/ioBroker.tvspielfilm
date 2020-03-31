@@ -204,6 +204,75 @@
                 "write": false
             },
             "native": {}
+        },
+        {
+            "_id": "json.raw",
+            "type": "channel",
+            "common": {
+                "role": "",
+                "name": ""
+            },
+            "native": {}
+        },
+        {
+            "_id": "json.raw.tipps",
+            "type": "state",
+            "common": {
+                "name": "tvspielfilm Tipps",
+                "desc": "TV Tipps für heute",
+                "type": "string",
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "json.raw.jetzt",
+            "type": "state",
+            "common": {
+                "name": "tvspielfilm jetzt",
+                "desc": "Was läuft jetzt im TV?",
+                "type": "string",
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "json.raw.heute2015",
+            "type": "state",
+            "common": {
+                "name": "tvspielfilm 20:15 Uhr",
+                "desc": "Was läuft um 20:15Uhr im TV?",
+                "type": "string",
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "json.raw.heute2200",
+            "type": "state",
+            "common": {
+                "name": "tvspielfilm 22:00 Uhr",
+                "desc": "Was läuft um 22:00Uhr im TV?",
+                "type": "string",
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "json.raw.filme",
+            "type": "state",
+            "common": {
+                "name": "tvspielfilm Filme",
+                "desc": "Spielfilm-Highlights des Tages",
+                "type": "string",
+                "read": true,
+                "write": false
+            },
+            "native": {}
         }
     ]
 }
