@@ -212,7 +212,7 @@ function readIndividualFeed(x) {
                                     station: getShowDetails(titel).station,
                                     time: getShowDetails(titel).time,
                                     imgUrl: result.rss.channel.item[i].enclosure && result.rss.channel.item[i].enclosure.url ? result.rss.channel.item[i].enclosure.url : ''
-                                })
+                                });
 
                                 if (searchString_arr === undefined || searchString_arr.length === 0 && !searchStringPattern) { // kein Array mit Suchwörter vorhanden?
                                     adapter.log.silly("Search String is empty or not available (#" + i + ")");
