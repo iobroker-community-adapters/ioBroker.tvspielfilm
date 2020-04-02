@@ -1,7 +1,7 @@
 {
   "name": "iobroker.tvspielfilm",
   "description": "TV Programm (jetzt und Tipps) aus den RSS Feeds von tvspielfilm.de",
-  "version": "1.1.10",
+  "version": "2.0.0",
   "author": "pix",
   "contributors": [
     "pix",
@@ -29,11 +29,7 @@
     "@iobroker/adapter-core": "^2.2.1"
   },
   "devDependencies": {
-    "grunt": "^1.1.0",
-    "grunt-replace": "^1.0.1",
-    "grunt-contrib-jshint": "^2.1.0",
-    "grunt-jscs": "^3.0.1",
-    "grunt-http": "^2.3.3",
+    "gulp": "^4.0.2",
     "mocha": "^7.1.1",
     "chai": "^4.2.0"
   },

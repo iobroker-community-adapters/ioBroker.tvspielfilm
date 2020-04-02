@@ -30,8 +30,20 @@
             "en": "docs/en/doc_tvspielfilm_en.md",
             "de": "docs/de/doc_tvspielfilm_de.md"
         },
-        "version": "1.1.10",
+        "version": "2.0.0",
         "news": {
+            "2.0.0": {
+              "en": "Admin3 support added, more translations",
+              "de": "Admin3-Unterstützung hinzugefügt, mehr Übersetzungen",
+              "ru": "Добавлена поддержка Admin3, больше переводов",
+              "pt": "Suporte Admin3 adicionado, mais traduções",
+              "nl": "Admin3-ondersteuning toegevoegd, meer vertalingen",
+              "fr": "Support Admin3 ajouté, plus de traductions",
+              "it": "Aggiunto supporto Admin3, più traduzioni",
+              "es": "Soporte de Admin3 agregado, más traducciones",
+              "pl": "Dodano obsługę Admin3, więcej tłumaczeń",
+              "zh-cn": "添加了Admin3支持，更多翻译"
+            },
             "1.1.0": {
                 "en": "String search added",
                 "de": "Suchbegriffe zugefügt",

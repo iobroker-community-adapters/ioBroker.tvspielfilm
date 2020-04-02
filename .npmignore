@@ -1,4 +1,4 @@
-Gruntfile.js
+gulpfile.js
 tasks
 node_modules
 .idea
@@ -6,5 +6,4 @@ node_modules
 /node_modules
 test
 .travis.yml
-.gitignore
 appveyor.yml

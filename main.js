@@ -5,6 +5,7 @@
 var utils = require('@iobroker/adapter-core'); // Get common adapter utils
 var parseString = require('xml2js').parseString;
 var request = require('request');
+
 var lang = 'de';
 
 const adapter = utils.Adapter({
@@ -13,25 +14,71 @@ const adapter = utils.Adapter({
     useFormatDate: true
 });
 
-adapter.on('ready', main);
-
-adapter.on('stateChange', (id, state) => {
-    if (state && !state.ack) {
-        if (id === adapter.namespace + '.search.list') { // derzeit nur Suchbegriffe - Datenpunkt
-            /*if (typeof state.val !== 'string') {
-                if (state.val === null || state.val === undefined || state.val === '') {
-                    adapter.log.warn('Datenpunkt leer');
-                    return;
-                }
-                state.val = state.val.toString();
-            }*/
-            adapter.log.info("Suchbegriffe geändert");
-            main();
-        }
+// RSS Kanäle
+const rss_options = {
+    jetzt: {
+        feedname: 'Jetzt',
+        url: 'http://www.tvspielfilm.de/tv-programm/rss/jetzt.xml',
+        state: 'json.jetzt',
+        stateRaw: 'json.raw.jetzt',
+        cssclass: 'tv_jetzt'
+    },
+    tipps: {
+        feedname: 'Tipps',
+        url: 'http://www.tvspielfilm.de/tv-programm/rss/tipps.xml',
+        state: 'json.tipps',
+        stateRaw: 'json.raw.tipps',
+        cssclass: 'tv_tipps'
+    },
+    heute2015uhr: {
+        feedname: 'heute 20:15 Uhr',
+        url: 'http://www.tvspielfilm.de/tv-programm/rss/heute2015.xml',
+        state: 'json.heute2015',
+        stateRaw: 'json.raw.heute2015',
+        cssclass: 'tv_heute2015'
+    },
+    heute2200uhr: {
+        feedname: 'heute 22:00 Uhr',
+        url: 'http://www.tvspielfilm.de/tv-programm/rss/heute2200.xml',
+        state: 'json.heute2200',
+        stateRaw: 'json.raw.heute2200',
+        cssclass: 'tv_heute2200'
+    },
+    filme: {
+        feedname: 'Spielfilm-Highlights des Tages',
+        url: 'http://www.tvspielfilm.de/tv-programm/rss/filme.xml',
+        state: 'json.filme',
+        stateRaw: 'json.raw.filme',
+        cssclass: 'tv_filme'
     }
-});
+}
 
+// Settings
+function readSettings() {
 
+    //Blacklist
+    if (adapter.config.blacklist === undefined || adapter.config.blacklist.length === 0) {
+      adapter.log.debug('Keine Stationen zur Blacklist hinzugefügt');
+    } else adapter.log.debug('Zahl Stationen in Blacklist: ' + adapter.config.blacklist.length);
+    for (var bl in adapter.config.blacklist) {
+        adapter.log.debug('Blacklist (#' + (parseInt(bl, 10) + 1) + '): ' + adapter.config.blacklist[bl]);
+    }
+    //Whitelist
+    if (adapter.config.whitelist === undefined || adapter.config.whitelist.length === 0) {
+      adapter.log.debug('Keine Stationen zur Whitelist hinzugefügt');
+    } else adapter.log.debug('Zahl Stationen in Whitelist: ' + adapter.config.whitelist.length);
+    for (var wl in adapter.config.whitelist) {
+        adapter.log.debug('Whitelist (#' + (parseInt(wl, 10) + 1) + '): ' + adapter.config.whitelist[wl]);
+    }
+
+}
+
+function checkWildcard(station, wildcard) { // thx to stackoverflow.com/a/32402438
+    return new RegExp("^" + wildcard.split("*").join(".*") + "$").test(station);
+}
+// End settings
+
+// String search
 let matches = 0;
 let string_found_css = " style=\"border: 2px solid yellow; background-color: rgba(150,0,0,0.9); background-color: darkred;\""; // Style für Table bei Treffer
 let searchStringPattern = ""; // zuerst leere Zeichenkette
@@ -75,27 +122,11 @@ function searchStringCheck() {
         }
     });
 }
+// End String Searching
 
-function readSettings() {
 
-    //Blacklist
-    if (adapter.config.blacklist === undefined || adapter.config.blacklist.length === 0) adapter.log.debug('Keine Stationen zur Blacklist hinzugefügt');
-    else adapter.log.debug('Zahl Stationen in Blacklist: ' + adapter.config.blacklist.length);
-    for (var bl in adapter.config.blacklist) {
-        adapter.log.debug('Blacklist (#' + (parseInt(bl, 10) + 1) + '): ' + adapter.config.blacklist[bl]);
-    }
-    //Whitelist
-    if (adapter.config.whitelist === undefined || adapter.config.whitelist.length === 0) adapter.log.debug('Keine Stationen zur Whitelist hinzugefügt');
-    else adapter.log.debug('Zahl Stationen in Whitelist: ' + adapter.config.whitelist.length);
-    for (var wl in adapter.config.whitelist) {
-        adapter.log.debug('Whitelist (#' + (parseInt(wl, 10) + 1) + '): ' + adapter.config.whitelist[wl]);
-    }
 
-}
-
-function checkWildcard(station, wildcard) { // thx to stackoverflow.com/a/32402438
-    return new RegExp("^" + wildcard.split("*").join(".*") + "$").test(station);
-}
+// HAUPTBEREICH
 
 // Sendezeit, Name und Sender aus Titel extrahieren
 function getShowDetails(titel) {
@@ -139,46 +170,7 @@ function showStation(titel) { // Eine Sendung/Show wird so übergeben "16:50 | S
     return (display); // true | false
 }
 
-// RSS Kanäle
-const rss_options = {
-    jetzt: {
-        feedname: 'Jetzt',
-        url: 'http://www.tvspielfilm.de/tv-programm/rss/jetzt.xml',
-        state: 'json.jetzt',
-        stateRaw: 'json.raw.jetzt',
-        cssclass: 'tv_jetzt'
-    },
-    tipps: {
-        feedname: 'Tipps',
-        url: 'http://www.tvspielfilm.de/tv-programm/rss/tipps.xml',
-        state: 'json.tipps',
-        stateRaw: 'json.raw.tipps',
-        cssclass: 'tv_tipps'
-    },
-    heute2015uhr: {
-        feedname: 'heute 20:15 Uhr',
-        url: 'http://www.tvspielfilm.de/tv-programm/rss/heute2015.xml',
-        state: 'json.heute2015',
-        stateRaw: 'json.raw.heute2015',
-        cssclass: 'tv_heute2015'
-    },
-    heute2200uhr: {
-        feedname: 'heute 22:00 Uhr',
-        url: 'http://www.tvspielfilm.de/tv-programm/rss/heute2200.xml',
-        state: 'json.heute2200',
-        stateRaw: 'json.raw.heute2200',
-        cssclass: 'tv_heute2200'
-    },
-    filme: {
-        feedname: 'Spielfilm-Highlights des Tages',
-        url: 'http://www.tvspielfilm.de/tv-programm/rss/filme.xml',
-        state: 'json.filme',
-        stateRaw: 'json.raw.filme',
-        cssclass: 'tv_filme'
-    }
-}
-
-
+// Einlesen EINES RSS-Feeds
 function readIndividualFeed(x) {
     var link = rss_options[x].url;
     adapter.log.debug('RSS Feed wird eingelesen: ' + link);
@@ -264,7 +256,7 @@ function readIndividualFeed(x) {
                 }
                 adapter.log.warn(rss_options[x].stateRaw);
                 adapter.log.error(rawData);
-                
+
                 adapter.setState(rss_options[x].state, { val: JSON.stringify(table), ack: true });              // ganze XML in Objekt für Table Widget
                 adapter.setState(rss_options[x].stateRaw, { val: JSON.stringify(rawData), ack: true });         // raw daten als json string
             });
@@ -273,7 +265,9 @@ function readIndividualFeed(x) {
     adapter.log.debug('XML-Daten aus TV Spielfilm (' + rss_options[x].feedname + ') eingelesen');
 }
 
+// alle Feeds NACHEINANDER durchgehen
 function iterateAllFeeds() {
+    let matches_bool = false;
     matches = 0;
     for (var feeds in rss_options) { // einzelne Feeds laden und speichern
         readIndividualFeed(feeds);
@@ -281,18 +275,18 @@ function iterateAllFeeds() {
 
     adapter.log.debug("Endgültige Matches im Suchlauf: " + matches);
     if (matches < 1) { // auf Treffer prüfen
-        // keine Sendung gefunden
-        adapter.setState("search.alert", { val: false, ack: true }, () => {
-            adapter.log.info('objects written');
-            setTimeout(() => process.exit(0), 10000);
-        });
+        matches_bool = false; // keine Sendung gefunden
     } else {
-        // mindestens eine Sendung gefunden
-        adapter.setState("search.alert", { val: true, ack: true }, () => {
-            adapter.log.info('objects written');
-            setTimeout(() => process.exit(0), 10000);
-        }); // mindestens eine Sendung gefunden
+        matches_bool = true; // mindestens eine Sendung gefunden
     }
+    adapter.setState("search.alert", {
+      val: matches_bool,
+      ack: true
+    }, () => {
+        adapter.log.info('objects written');
+        setTimeout(adapter.stop, 10000);
+    });
+
 }
 
 
@@ -302,9 +296,29 @@ function main() {
     setTimeout(iterateAllFeeds, 2000); // Alle Feeds nacheinander durchgehen
 
     // Force terminate nach einer Minute
-    setTimeout(() => {
+    setTimeout(function () {
         adapter.log.info('force terminating adapter after 1 minute');
-        process.exit(1);
+        adapter.stop();
     }, 60000);
 
 }
+
+// TRIGGER
+// Änderungen in den Datenpunkten
+adapter.on('stateChange', (id, state) => {
+    if (state && !state.ack) {
+        if (id === adapter.namespace + '.search.list') { // derzeit nur Suchbegriffe - Datenpunkt
+            /*if (typeof state.val !== 'string') {
+                if (state.val === null || state.val === undefined || state.val === '') {
+                    adapter.log.warn('Datenpunkt leer');
+                    return;
+                }
+                state.val = state.val.toString();
+            }*/
+            adapter.log.info("Suchbegriffe geändert");
+            main();
+        }
+    }
+});
+
+adapter.on("ready", main);
