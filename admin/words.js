@@ -2,17 +2,17 @@
 "use strict";
 
 systemDictionary = {
-    "tvspielfilm Adapter settings": {
-        "en": "tvspielfilm Adapter settings",
-        "de": "tvspielfilm Adaptereinstellungen",
-        "ru": "tvspielfilm Настройки адаптера",
-        "pt": "Configurações do adaptador tvspielfilm",
-        "nl": "tvspielfilm Adapterinstellingen",
-        "fr": "tvspielfilm Paramètres de l'adaptateur",
-        "it": "tvspielfilm Impostazioni dell'adattatore",
-        "es": "configuración del adaptador tvspielfilm",
-        "pl": "tvspielfilm Ustawienia adaptera",
-        "zh-cn": "tvspielfilm适配器设置"
+    "stations": {
+      "en": "TV channels",
+      "de": "Fernsehsender",
+      "ru": "Телеканалы",
+      "pt": "canais de televisão",
+      "nl": "TV-zenders",
+      "fr": "chaînes de télé",
+      "it": "canali tv",
+      "es": "canales de televisión",
+      "pl": "Kanały telewizyjne",
+      "zh-cn": "电视频道"
     },
     "Unwanted stations": {
       "en": "List of stations to be skipped in processing:",
@@ -26,7 +26,7 @@ systemDictionary = {
       "pl": "Lista stacji, które należy pominąć podczas przetwarzania:",
       "zh-cn": "处理中要跳过的电台列表："
     },
-    "Only stations:": {
+    "Selected stations:": {
       "en": "Only these stations will be displayed (if whitelist is used, blacklist will be disregarded):",
       "de": "Es werden nur diese Sender angezeigt (wenn eine Whitelist verwendet wird, wird die Blacklist nicht berücksichtigt):",
       "ru": "Будут отображаться только эти станции (если используется белый список, черный список будет игнорироваться):",

@@ -19,31 +19,39 @@
         <!-- you have to define 2 functions in the global scope: -->
         <script type="text/javascript">
 
-          function load(settings, onChange) {
-              if (settings.blacklist) {
-                $('#blacklist').val(settings.blacklist.join(', '));
-              }
-              $('#blacklist').change(function () {
-                onChange();
-              }).keyup(function () {
-                $(this).trigger('change');
-              });
+            function load(settings, onChange) {
 
-              if (settings.whitelist) {
-                $('#whitelist').val(settings.whitelist.join(', '));
-              }
-              $('#whitelist').change(function () {
-                onChange();
-              }).keyup(function () {
-                $(this).trigger('change');
-              });
-              //M.updateTextFields();
-              onChange(false);
-             }
+                if (settings.blacklist) {
+                    $('#blacklist').val(settings.blacklist.join(', '));
+                }
+                $('#blacklist').change(function () {
+                    onChange();
+                }).keyup(function () {
+                    $(this).trigger('change');
+                });
 
+                if (settings.whitelist) {
+                    $('#whitelist').val(settings.whitelist.join(', '));
+                }
+                $('#whitelist').change(function () {
+                    onChange();
+                }).keyup(function () {
+                    $(this).trigger('change');
+                });
+
+                M.updateTextFields();
+                onChange(false);
             }
 
             function save(callback) {
+
+                var station_white = $('#whitelist').val().split(','); // List of stations array
+                station_white = station_white.sort(); // sort in aphabetical order
+                // remove spaces and empty entries
+                for(var w = station_white.length - 1; w >=0; w--) {
+                    station_white[w] = station_white[w].trim();
+                    if (!station_white[w]) station_white.splice(w, 1);
+                }
 
                 var station_black = $('#blacklist').val().split(',');  // List of stations array
                 station_black = station_black.sort(); // sort in aphabetical order
@@ -53,13 +61,6 @@
                     if (!station_black[b]) station_black.splice(b, 1);
                 }
 
-                var station_white = $('#whitelist').val().split(','); // List of stations array
-                station_white = station_white.sort(); // sort in aphabetical order
-                // remove spaces and empty entries
-                for(var w = station_white.length - 1; w >=0; w--) {
-                    station_white[w] = station_white[w].trim();
-                    if (!station_white[w]) station_white.splice(w, 1);
-                }
                 callback({
                   whitelist: station_white,
                   blacklist: station_black
@@ -83,7 +84,7 @@
                 <div class="col s12">
                     <ul class="tabs">
                         <li class="tab col s4">  <!-- statt s2 -->
-                            <a href="#tab-main" class="translate">tvspielfilm Adapter settings</a>
+                            <a href="#tab-main" class="translate">stations</a>
                         </li><!-- weitere Tabs einfügen -->
                     </ul>
                 </div>
@@ -94,12 +95,12 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="input-field col s12 m8 l6">
+                        <div class="input-field col s12 m12 l6">
                             <!-- ggf. Prüfung bauen <input pattern="[0-9]{1,2,3}+\.[0-9]{1,2,3}+\.[0-9]{1,2,3}+\.[0-9]{1,2,3}$" placeholder="192.168.178.50" name="homepilot_ip_adress" type="text" id="homepilot_ip" class="value" size="15" maxlength="15" autocomplete="off" /> -->
                             <input name="Whitelist" type="text" id="whitelist" class="value" />
                             <label class="translate active" for="whitelist">Whitelist</label><span class="helper-text translate">Whitelist_helper</span>
                         </div>
-                        <div class="input-field col s12 m8 l6">
+                        <div class="input-field col s12 m12 l6">
                             <!-- ggf. Prüfung bauen <input pattern="[0-9]{1,2,3}+\.[0-9]{1,2,3}+\.[0-9]{1,2,3}+\.[0-9]{1,2,3}$" placeholder="192.168.178.50" name="homepilot_ip_adress" type="text" id="homepilot_ip" class="value" size="15" maxlength="15" autocomplete="off" /> -->
                             <input name="Blacklist" type="text" id="blacklist" class="value" />
                             <label class="translate active" for="blacklist">Blacklist</label><span class="helper-text translate">Blacklist_helper</span>
