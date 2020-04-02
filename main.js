@@ -8,6 +8,7 @@ var request = require('request');
 
 var lang = 'de';
 
+
 const adapter = utils.Adapter({
     name: 'tvspielfilm',
     systemConfig: true,
@@ -203,7 +204,7 @@ function readIndividualFeed(x) {
                                     description: result.rss.channel.item[i].description,
                                     station: getShowDetails(titel).station,
                                     time: getShowDetails(titel).time,
-                                    imgUrl: result.rss.channel.item[i].enclosure && result.rss.channel.item[i].enclosure.url ? result.rss.channel.item[i].enclosure.url : ''
+                                    imgUrl: result.rss.channel.item[i].enclosure && result.rss.channel.item[i].enclosure.url ? result.rss.channel.item[i].enclosure.url : ""
                                 });
 
                                 if (searchString_arr === undefined || searchString_arr.length === 0 && !searchStringPattern) { // kein Array mit Suchwörter vorhanden?
@@ -255,7 +256,7 @@ function readIndividualFeed(x) {
                     } else adapter.log.warn('LENGTH in TV Programm (' + rss_options[x].feedname + ') nicht definiert'); // ende if ungleich
                 }
                 adapter.log.warn(rss_options[x].stateRaw);
-                adapter.log.error(rawData);
+                adapter.log.error(JSON.stringify(rawData)); // Umwandeln in String für Log
 
                 adapter.setState(rss_options[x].state, { val: JSON.stringify(table), ack: true });              // ganze XML in Objekt für Table Widget
                 adapter.setState(rss_options[x].stateRaw, { val: JSON.stringify(rawData), ack: true });         // raw daten als json string
