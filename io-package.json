@@ -77,7 +77,7 @@
         },
         "mode": "schedule",
         "schedule": "*/5 * * * *",
-        "platform": "javascript/Node.js",,
+        "platform": "javascript/Node.js",
         "materialize": true,
         "loglevel": "info",
         "keywords": [
