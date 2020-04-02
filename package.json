@@ -42,5 +42,8 @@
   },
   "maintainers": [
     "pix"
-  ]
+  ],
+  "materialize": true
+
+
 }
