@@ -6,9 +6,9 @@
 
 [![NPM](https://nodei.co/npm/iobroker.tvspielfilm.png?downloads=true)](https://nodei.co/npm/iobroker.tvspielfilm/)
 
-**Tests:**
-
 [![Known Vulnerabilities](https://snyk.io/test/github/Pix---/ioBroker.tvspielfilm/badge.svg?targetFile=package.json)](https://snyk.io/test/github/Pix---/ioBroker.tvspielfilm?targetFile=package.json)
+
+**Tests:**
 
 Linux/Mac: [![Travis-CI](http://img.shields.io/travis/Pix---/ioBroker.tvspielfilm/master.svg)](https://travis-ci.org/Pix---/ioBroker.tvspielfilm)
 
