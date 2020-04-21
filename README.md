@@ -2,11 +2,9 @@
 # ioBroker.tvspielfim
 
 ![Number of Installations](http://iobroker.live/badges/tvspielfilm-installed.svg) ![Number of Installations](http://iobroker.live/badges/tvspielfilm-stable.svg) [![NPM version](http://img.shields.io/npm/v/iobroker.tvspielfilm.svg)](https://www.npmjs.com/package/iobroker.tvspielfilm)
-[![Downloads](https://img.shields.io/npm/dm/iobroker.tvspielfilm.svg)](https://www.npmjs.com/package/iobroker.tvspielfilm)
+[![Downloads](https://img.shields.io/npm/dm/iobroker.tvspielfilm.svg)](https://www.npmjs.com/package/iobroker.tvspielfilm) [![Known Vulnerabilities](https://snyk.io/test/github/Pix---/ioBroker.tvspielfilm/badge.svg?targetFile=package.json)](https://snyk.io/test/github/Pix---/ioBroker.tvspielfilm?targetFile=package.json)
 
 [![NPM](https://nodei.co/npm/iobroker.tvspielfilm.png?downloads=true)](https://nodei.co/npm/iobroker.tvspielfilm/)
-
-[![Known Vulnerabilities](https://snyk.io/test/github/Pix---/ioBroker.tvspielfilm/badge.svg?targetFile=package.json)](https://snyk.io/test/github/Pix---/ioBroker.tvspielfilm?targetFile=package.json)
 
 **Tests:**
 
@@ -14,7 +12,7 @@ Linux/Mac: [![Travis-CI](http://img.shields.io/travis/Pix---/ioBroker.tvspielfil
 
 Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/Pix---/ioBroker.tvspielfilm?branch=master&svg=true)](https://ci.appveyor.com/project/Pix---/ioBroker-tvspielfilm/)
 
-NodeJS v8 bis v12 werden unterstützt
+NodeJS v10 oder höher wird vorausgesetzt.
 
 ## Documentation
 :de: [Dokumentation](/docs/de/doc_tankerkoenig_de.md)
@@ -23,9 +21,10 @@ NodeJS v8 bis v12 werden unterstützt
 
 
 ## Changelog
-### 1.2.0 (2020-04-02)
+### 2.0.0 (2020-04-02)
 * (Scrounger) devlibs updated and JSON interface created
 * (pix) docs updated
+* NodeJS 10 or higher required
 
 ### 1.1.0 (2019-04-28)
 * (pix) String search added
