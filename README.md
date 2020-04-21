@@ -21,10 +21,12 @@ NodeJS v10 oder höher wird vorausgesetzt.
 
 
 ## Changelog
+### 2.0.1 (2020-04-21)
+* (pix) NodeJS 10 or higher required
+
 ### 2.0.0 (2020-04-02)
 * (Scrounger) devlibs updated and JSON interface created
 * (pix) docs updated
-* NodeJS 10 or higher required
 
 ### 1.1.0 (2019-04-28)
 * (pix) String search added

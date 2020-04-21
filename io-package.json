@@ -30,19 +30,31 @@
             "en": "docs/en/doc_tvspielfilm_en.md",
             "de": "docs/de/doc_tvspielfilm_de.md"
         },
-        "version": "2.0.0",
+        "version": "2.0.1",
         "news": {
+            "2.0.1": {
+                "en": "NodeJS 10 or higher required",
+                "de": "NodeJS 10 oder höher erforderlich",
+                "ru": "Требуется NodeJS 10 или выше",
+                "pt": "Necessário NodeJS 10 ou superior",
+                "nl": "NodeJS 10 of hoger vereist",
+                "fr": "NodeJS 10 ou supérieur requis",
+                "it": "Nodo JS 10 o superiore richiesto",
+                "es": "Nodo JS 10 o superior requerido",
+                "pl": "Wymagany NodeJS 10 lub wyższy",
+                "zh-cn": "需要NodeJS 10或更高版本"
+            },
             "2.0.0": {
-              "en": "Admin3 support added, more translations",
-              "de": "Admin3-Unterstützung hinzugefügt, mehr Übersetzungen",
-              "ru": "Добавлена поддержка Admin3, больше переводов",
-              "pt": "Suporte Admin3 adicionado, mais traduções",
-              "nl": "Admin3-ondersteuning toegevoegd, meer vertalingen",
-              "fr": "Support Admin3 ajouté, plus de traductions",
-              "it": "Aggiunto supporto Admin3, più traduzioni",
-              "es": "Soporte de Admin3 agregado, más traducciones",
-              "pl": "Dodano obsługę Admin3, więcej tłumaczeń",
-              "zh-cn": "添加了Admin3支持，更多翻译"
+                "en": "Admin3 support added, more translations",
+                "de": "Admin3-Unterstützung hinzugefügt, mehr Übersetzungen",
+                "ru": "Добавлена поддержка Admin3, больше переводов",
+                "pt": "Suporte Admin3 adicionado, mais traduções",
+                "nl": "Admin3-ondersteuning toegevoegd, meer vertalingen",
+                "fr": "Support Admin3 ajouté, plus de traductions",
+                "it": "Aggiunto supporto Admin3, più traduzioni",
+                "es": "Soporte de Admin3 agregado, más traducciones",
+                "pl": "Dodano obsługę Admin3, więcej tłumaczeń",
+                "zh-cn": "添加了Admin3支持，更多翻译"
             },
             "1.1.0": {
                 "en": "String search added",
