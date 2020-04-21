@@ -8,6 +8,8 @@
 
 **Tests:**
 
+[![Known Vulnerabilities](https://snyk.io/test/github/Pix---/ioBroker.tvspielfilm/badge.svg?targetFile=package.json)](https://snyk.io/test/github/Pix---/ioBroker.tvspielfilm?targetFile=package.json)
+
 Linux/Mac: [![Travis-CI](http://img.shields.io/travis/Pix---/ioBroker.tvspielfilm/master.svg)](https://travis-ci.org/Pix---/ioBroker.tvspielfilm)
 
 Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/Pix---/ioBroker.tvspielfilm?branch=master&svg=true)](https://ci.appveyor.com/project/Pix---/ioBroker-tvspielfilm/)
