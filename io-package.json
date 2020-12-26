@@ -89,6 +89,7 @@
         },
         "mode": "schedule",
         "schedule": "*/5 * * * *",
+        "allowInit": true,
         "platform": "javascript/Node.js",
         "materialize": true,
         "loglevel": "info",
