@@ -30,8 +30,20 @@
             "en": "docs/en/doc_tvspielfilm_en.md",
             "de": "docs/de/doc_tvspielfilm_de.md"
         },
-        "version": "2.0.1",
+        "version": "2.0.2",
         "news": {
+            "2.0.2": {
+                "en": "Now cron is initialized at adapter start",
+                "de": "Jetzt wird cron beim Adapterstart initialisiert",
+                "ru": "Теперь cron инициализируется при запуске адаптера",
+                "pt": "Agora o cron é inicializado na inicialização do adaptador",
+                "nl": "Nu wordt cron geïnitialiseerd bij het starten van de adapter",
+                "fr": "Maintenant, cron est initialisé au démarrage de l'adaptateur",
+                "it": "Ora cron è inizializzato all'avvio dell'adattatore",
+                "es": "Ahora cron se inicializa al inicio del adaptador",
+                "pl": "Teraz cron jest inicjowany przy starcie adaptera",
+                "zh-cn": "现在cron在适配器启动时被初始化"
+            },
             "2.0.1": {
                 "en": "NodeJS 10 or higher required",
                 "de": "NodeJS 10 oder höher erforderlich",
