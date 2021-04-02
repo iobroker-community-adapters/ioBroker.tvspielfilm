@@ -15,9 +15,9 @@ Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/Pix---/
 NodeJS v10 oder höher wird vorausgesetzt.
 
 ## Documentation
-:de: [Dokumentation](/docs/de/doc_tankerkoenig_de.md)
+:de: [Dokumentation](/docs/de/doc_tvspielfilm_de.md)
 
-:uk: [Documentation](/docs/en/doc_tankerkoenig_en.md)
+:uk: [Documentation](/docs/en/doc_tvspielfilm_en.md)
 
 
 ## Changelog
