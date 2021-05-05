@@ -30,7 +30,7 @@
             "en": "docs/en/doc_tvspielfilm_en.md",
             "de": "docs/de/doc_tvspielfilm_de.md"
         },
-        "version": "2.0.2",
+        "version": „2.0.3“,
         "news": {
             "2.0.2": {
                 "en": "Now cron is initialized at adapter start",
@@ -126,6 +126,8 @@
         "extIcon": "https://raw.githubusercontent.com/Pix---/ioBroker.tvspielfilm/master/admin/tvspielfilm.png",
         "allowInit": true,
         "type": "misc-data",
+        "connectionType": "cloud",
+        "dataSource": "poll",
         "config": {
             "width": 650,
             "height": 450,
