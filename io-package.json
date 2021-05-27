@@ -30,8 +30,20 @@
             "en": "docs/en/doc_tvspielfilm_en.md",
             "de": "docs/de/doc_tvspielfilm_de.md"
         },
-        "version": "2.0.3",
+        "version": "2.0.4",
         "news": {
+            "2.0.4": {
+              "en": "Code improved (timer)",
+              "de": "Code verbessert (Timer)",
+              "ru": "Код улучшен (таймер)",
+              "pt": "Código melhorado (cronômetro)",
+              "nl": "Code verbeterd (timer)",
+              "fr": "Code amélioré (minuterie)",
+              "it": "Codice migliorato (timer)",
+              "es": "Código mejorado (temporizador)",
+              "pl": "Kod poprawiony (timer)",
+              "zh-cn": "代码改进（计时器）"
+            },
             "2.0.2": {
                 "en": "Now cron is initialized at adapter start",
                 "de": "Jetzt wird cron beim Adapterstart initialisiert",
@@ -73,16 +85,6 @@
                 "de": "Suchbegriffe zugefügt",
                 "ru": "String search added"
             },
-            "1.0.4": {
-                "en": "Code correction in io-package.json",
-                "de": "Fehlerkorrekturen io-package.json",
-                "ru": "Code correction in io-package.json"
-            },
-            "1.0.3": {
-                "en": "new documentation structure",
-                "de": "neue Struktur der Dokumentation",
-                "ru": "new documentation structure"
-            },
             "1.0.2": {
                 "en": "No more support for Nodejs 0.12",
                 "de": "Nodejs 0.12 wird nicht merh Unterstützt",
@@ -92,11 +94,6 @@
                 "en": "Wildcard support in the whitelist",
                 "de": "Platzhalter Unterstützung in der Whitelist",
                 "ru": "Wildcard support in the whitelist"
-            },
-            "1.0.0": {
-                "en": "Travis CI and Appveyor testing supported",
-                "de": "Travis CI und Appveyor Test Unterstützung",
-                "ru": "Travis CI и Appveyor тестирование при поддержке"
             }
         },
         "mode": "schedule",

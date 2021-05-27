@@ -5,7 +5,7 @@
 var utils = require('@iobroker/adapter-core'); // Get common adapter utils
 var parseString = require('xml2js').parseString;
 var request = require('request');
-
+var terminating_timer;
 var lang = 'de';
 
 
@@ -253,7 +253,7 @@ function readIndividualFeed(x) {
                             } // Ende Abfrage, ob Sender empfangbar
                         }
 
-                    } else adapter.log.warn('LENGTH in TV Programm (' + rss_options[x].feedname + ') nicht definiert'); // ende if ungleich
+                    } else adapter.log.warn("LENGTH in TV Programm (" + rss_options[x].feedname + ") nicht definiert"); // ende if ungleich
                 }
                 //adapter.log.warn(rss_options[x].stateRaw);
                 //adapter.log.error(JSON.stringify(rawData)); // Umwandeln in String für Log
@@ -261,9 +261,9 @@ function readIndividualFeed(x) {
                 adapter.setState(rss_options[x].state, { val: JSON.stringify(table), ack: true });              // ganze XML in Objekt für Table Widget
                 adapter.setState(rss_options[x].stateRaw, { val: JSON.stringify(rawData), ack: true });         // raw daten als json string
             });
-        } else adapter.log.warn(error, 'error');
+        } else adapter.log.warn(error, "error");
     });   // Ende request
-    adapter.log.debug('XML-Daten aus TV Spielfilm (' + rss_options[x].feedname + ') eingelesen');
+    adapter.log.debug("XML-Daten aus TV Spielfilm (" + rss_options[x].feedname + ") eingelesen");
 }
 
 // alle Feeds NACHEINANDER durchgehen
@@ -284,8 +284,8 @@ function iterateAllFeeds() {
       val: matches_bool,
       ack: true
     }, () => {
-        adapter.log.info('objects written');
-        setTimeout(adapter.stop, 10000);
+        adapter.log.info("objects written");
+        setTimeout(stopAdapter, 10000);
     });
 
 }
@@ -296,19 +296,21 @@ function main() {
     searchStringCheck(); // Suchbegriffe aus Datenpunkt einlesen und Suchmuster erstellen
     setTimeout(iterateAllFeeds, 2000); // Alle Feeds nacheinander durchgehen
 
-    // Force terminate nach einer Minute
-    setTimeout(function () {
-        adapter.log.info('force terminating adapter after 1 minute');
-        adapter.stop();
-    }, 60000);
+}
 
+function stopAdapter (isTimeout) {
+    clearTimeout(terminating_timer);
+    if (isTimeout) {
+      adapter.log.info("force terminating after 1 minute");
+    }
+    adapter.stop();
 }
 
 // TRIGGER
 // Änderungen in den Datenpunkten
-adapter.on('stateChange', (id, state) => {
+adapter.on("stateChange", (id, state) => {
     if (state && !state.ack) {
-        if (id === adapter.namespace + '.search.list') { // derzeit nur Suchbegriffe - Datenpunkt
+        if (id === adapter.namespace + ".search.list") { // derzeit nur Suchbegriffe - Datenpunkt
             /*if (typeof state.val !== 'string') {
                 if (state.val === null || state.val === undefined || state.val === '') {
                     adapter.log.warn('Datenpunkt leer');
@@ -322,4 +324,15 @@ adapter.on('stateChange', (id, state) => {
     }
 });
 
-adapter.on("ready", main);
+adapter.on("ready", function () {
+    terminating_timer = setTimeout(() => stopAdapter(true), 60000);
+
+    adapter.getForeignObject("system.config", function (err, data) {
+        if (data && data.common) {
+          lang = data.common.language;
+        }
+
+        adapter.log.debug("adapter tvspielfilm initializing objects");
+        main();
+    });
+};

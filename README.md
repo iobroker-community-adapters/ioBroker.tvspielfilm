@@ -21,6 +21,9 @@ NodeJS v10 oder höher wird vorausgesetzt.
 
 
 ## Changelog
+### 2.0.4 (2021-05-27)
+* (pix, crycode) Code improved (timer)
+
 ### 2.0.3 (2021-05-05)
 * (pix) connectionType and dataSource added
 
@@ -72,9 +75,10 @@ NodeJS v10 oder höher wird vorausgesetzt.
 * (pix) Adapter created
 
 ## Roadmap
-* Alarm für gefunde Suchen
-* Wildcards for Blacklist
+* Alarm für gefundene Suchen
+* Wildcards for blacklist
 * Programmtipps ausblenden, die auf eine Uhrzeit hinweisen, die vor der aktuellen Uhrzeit liegt.
+* *axios* replaces *request*
 
 
 ## License
