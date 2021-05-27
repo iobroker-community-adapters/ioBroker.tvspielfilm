@@ -52,7 +52,7 @@ const rss_options = {
         stateRaw: 'json.raw.filme',
         cssclass: 'tv_filme'
     }
-}
+};
 
 // Settings
 function readSettings() {
@@ -326,5 +326,6 @@ adapter.on("stateChange", (id, state) => {
 
 adapter.on("ready", function () {
     terminating_timer = setTimeout(() => stopAdapter(true), 60000);
+    adapter.log.debug("adapter tvspielfilm initializing objects");
     main();
-};
+});
