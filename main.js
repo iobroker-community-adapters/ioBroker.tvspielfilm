@@ -326,13 +326,5 @@ adapter.on("stateChange", (id, state) => {
 
 adapter.on("ready", function () {
     terminating_timer = setTimeout(() => stopAdapter(true), 60000);
-
-    adapter.getForeignObject("system.config", function (err, data) {
-        if (data && data.common) {
-          lang = data.common.language;
-        }
-
-        adapter.log.debug("adapter tvspielfilm initializing objects");
-        main();
-    });
+    main();
 };
