@@ -7,10 +7,10 @@
     "pix",
     "Scrounger"
   ],
-  "homepage": "https://github.com/Pix---/ioBroker.tvspielfilm",
+  "homepage": "https://github.com/iobroker-community-adapters/ioBroker.tvspielfilm",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Pix---/ioBroker.tvspielfilm"
+    "url": "https://github.com/iobroker-community-adapters/ioBroker.tvspielfilm"
   },
   "license": "MIT",
   "keywords": [
@@ -34,7 +34,7 @@
     "chai": "^4.2.0"
   },
   "bugs": {
-    "url": "https://github.com/Pix---/ioBroker.tvspielfilm/issues"
+    "url": "https://github.com/iobroker-community-adapters/ioBroker.tvspielfilm/issues"
   },
   "main": "main.js",
   "scripts": {
