@@ -2,15 +2,9 @@
 # ioBroker.tvspielfim
 
 ![Number of Installations](http://iobroker.live/badges/tvspielfilm-installed.svg) ![Number of Installations](http://iobroker.live/badges/tvspielfilm-stable.svg) [![NPM version](http://img.shields.io/npm/v/iobroker.tvspielfilm.svg)](https://www.npmjs.com/package/iobroker.tvspielfilm)
-[![Downloads](https://img.shields.io/npm/dm/iobroker.tvspielfilm.svg)](https://www.npmjs.com/package/iobroker.tvspielfilm) [![Known Vulnerabilities](https://snyk.io/test/github/Pix---/ioBroker.tvspielfilm/badge.svg?targetFile=package.json)](https://snyk.io/test/github/Pix---/ioBroker.tvspielfilm?targetFile=package.json)
+[![Downloads](https://img.shields.io/npm/dm/iobroker.tvspielfilm.svg)](https://www.npmjs.com/package/iobroker.tvspielfilm) 
 
 [![NPM](https://nodei.co/npm/iobroker.tvspielfilm.png?downloads=true)](https://nodei.co/npm/iobroker.tvspielfilm/)
-
-**Tests:**
-
-Linux/Mac: [![Travis-CI](http://img.shields.io/travis/Pix---/ioBroker.tvspielfilm/master.svg)](https://travis-ci.org/Pix---/ioBroker.tvspielfilm)
-
-Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/Pix---/ioBroker.tvspielfilm?branch=master&svg=true)](https://ci.appveyor.com/project/Pix---/ioBroker-tvspielfilm/)
 
 NodeJS v10 oder höher wird vorausgesetzt.
 
@@ -85,7 +79,7 @@ NodeJS v10 oder höher wird vorausgesetzt.
 
 The MIT License (MIT)
 
-Copyright (c) 2016-2021 pix
+Copyright (c) 2016-2022 pix
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
