@@ -99,7 +99,7 @@
         "mode": "schedule",
         "schedule": "*/5 * * * *",
         "allowInit": true,
-        "platform": "javascript/Node.js",
+        "platform": "Javascript/Node.js",
         "materialize": true,
         "loglevel": "info",
         "keywords": [
@@ -113,6 +113,11 @@
             "spielfilm",
             "pix"
         ],
+        "dependencies": [
+            {
+                "js-controller": ">=2.0.0"
+            }
+        ],
         "main": "main.js",
         "authors": [
             "Pix"
@@ -121,16 +126,10 @@
         "readme": "https://github.com/iobroker-community-adapters/ioBroker.tvspielfilm/blob/master/README.md",
         "icon": "tvspielfilm.png",
         "extIcon": "https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.tvspielfilm/master/admin/tvspielfilm.png",
-        "allowInit": true,
         "type": "misc-data",
         "connectionType": "cloud",
         "dataSource": "poll",
-        "config": {
-            "width": 650,
-            "height": 450,
-            "minWidth": 650,
-            "minHeight": 300
-        }
+        "tier": 2
     },
     "native": {
         "blacklist": [],

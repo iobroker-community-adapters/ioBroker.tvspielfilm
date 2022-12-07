@@ -15,6 +15,11 @@ NodeJS v10 oder höher wird vorausgesetzt.
 
 
 ## Changelog
+
+### __WORK IN PROGRESS__
+* (tugsi) Remove tipps feed because no longer maintained 
+* (Apollon77) General updates
+
 ### 2.0.4 (2021-05-27)
 * (pix, crycode) Code improved (timer)
 
