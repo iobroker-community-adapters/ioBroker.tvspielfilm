@@ -156,7 +156,7 @@ describe('Test ' + adapterShortName + ' adapter', function() {
                     });
                 });
             });
-        }, 5000);
+        }, 10000);
     });
 
 
