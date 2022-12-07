@@ -24,13 +24,14 @@ const rss_options = {
         stateRaw: 'json.raw.jetzt',
         cssclass: 'tv_jetzt'
     },
-    tipps: {
+/* RSS-Feed Tagestipp aktuell nicht mehr geopflegt von TV-Spielfilm, daher erstmal auskommentiert
+     tipps: {
         feedname: 'Tipps',
         url: 'http://www.tvspielfilm.de/tv-programm/rss/tipps.xml',
         state: 'json.tipps',
         stateRaw: 'json.raw.tipps',
         cssclass: 'tv_tipps'
-    },
+    }, */
     heute2015uhr: {
         feedname: 'heute 20:15 Uhr',
         url: 'http://www.tvspielfilm.de/tv-programm/rss/heute2015.xml',
