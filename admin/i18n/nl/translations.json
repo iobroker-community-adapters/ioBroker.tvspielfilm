@@ -1,0 +1,12 @@
+{
+    "Abfrageinfo": "De gegevens van de bronfeed worden slechts om de vier minuten bijgewerkt door de server op tankerkoenig.de. Het kortste polling-interval is daarom 5 minuten omdat een frequentere polling geen zin heeft.",
+    "Blacklist": "Zwarte lijst",
+    "Blacklist_helper": "Afmelden voor specifieke stations.",
+    "Divided by comma": "Gescheiden door komma's",
+    "Selected stations:": "Alleen deze stations worden weergegeven (als de witte lijst wordt gebruikt, wordt de zwarte lijst genegeerd):",
+    "Settings": "instellingen",
+    "Unwanted stations": "Lijst van stations die bij de verwerking moeten worden overgeslagen:",
+    "Whitelist": "Witte lijst",
+    "Whitelist_helper": "Om alleen een specifieke lijst met stations weer te geven, voegt u de stationsnamen toe aan de witte lijst. De zwarte lijst wordt overgeslagen als de witte lijst niet leeg is.",
+    "stations": "TV-zenders"
+}

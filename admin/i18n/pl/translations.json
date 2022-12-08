@@ -1,0 +1,12 @@
+{
+    "Abfrageinfo": "Dane z kanału źródłowego są aktualizowane przez serwer na tankerkoenig.de tylko co 4 minuty. Najkrótszy interwał sondowania wynosi zatem 5 minut, ponieważ częstsze sondowanie nie ma sensu.",
+    "Blacklist": "Czarna lista",
+    "Blacklist_helper": "Zrezygnuj z określonych stacji.",
+    "Divided by comma": "Rozdzielone przecinkiem",
+    "Selected stations:": "Wyświetlane będą tylko te stacje (jeśli zostanie użyta biała lista, czarna lista zostanie zignorowana):",
+    "Settings": "ustawienia",
+    "Unwanted stations": "Lista stacji, które należy pominąć podczas przetwarzania:",
+    "Whitelist": "Biała lista",
+    "Whitelist_helper": "Aby wyświetlić tylko określoną listę stacji, dodaj nazwy stacji do białej listy. Czarna lista zostanie pominięta, jeśli biała lista nie jest pusta.",
+    "stations": "Kanały telewizyjne"
+}

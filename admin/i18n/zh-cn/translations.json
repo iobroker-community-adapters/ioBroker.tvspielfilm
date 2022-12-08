@@ -1,0 +1,12 @@
+{
+    "Abfrageinfo": "服务器在tankerkoenig.de仅每4分钟更新一次源数据。因此，最短的轮询间隔是5分钟，因为更频繁的轮询是没有意义的。",
+    "Blacklist": "黑名单",
+    "Blacklist_helper": "退出特定电台。",
+    "Divided by comma": "以逗号分隔",
+    "Selected stations:": "仅显示这些电台（如果使用白名单，则将忽略黑名单）：",
+    "Settings": "设置",
+    "Unwanted stations": "处理中要跳过的电台列表：",
+    "Whitelist": "白名单",
+    "Whitelist_helper": "要仅显示特定的电台列表，请将电台名称添加到白名单中。如果白名单不为空，则将跳过黑名单。",
+    "stations": "电视频道"
+}

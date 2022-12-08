@@ -83,7 +83,6 @@ NodeJS v10 oder höher wird vorausgesetzt.
 ## License
 
 The MIT License (MIT)
-
 Copyright (c) 2016-2022 pix
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

@@ -1,0 +1,12 @@
+{
+    "Abfrageinfo": "The data of the source feed are updated by the server at tankerkoenig.de only every 4 minutes. The shortest polling interval is therefore 5 minutes because a more frequent polling makes no sense.",
+    "Blacklist": "Blacklist",
+    "Blacklist_helper": "Opt out specific stations.",
+    "Divided by comma": "Separated by comma",
+    "Selected stations:": "Only these stations will be displayed (if whitelist is used, blacklist will be disregarded):",
+    "Settings": "settings",
+    "Unwanted stations": "List of stations to be skipped in processing:",
+    "Whitelist": "Whitelist",
+    "Whitelist_helper": "To display only a specific list of stations add the stations names to the whitelist. The blacklist will be skipped if the whitelist is not empty.",
+    "stations": "TV channels"
+}

@@ -1,0 +1,12 @@
+{
+    "Abfrageinfo": "El servidor de tankerkoenig.de actualiza los datos de la fuente de alimentación solo cada 4 minutos. Por lo tanto, el intervalo de sondeo más corto es de 5 minutos porque un sondeo más frecuente no tiene sentido.",
+    "Blacklist": "Lista negra",
+    "Blacklist_helper": "Optar por estaciones específicas.",
+    "Divided by comma": "Separado por coma",
+    "Selected stations:": "Solo se mostrarán estas estaciones (si se usa la lista blanca, no se tendrá en cuenta la lista negra):",
+    "Settings": "ajustes",
+    "Unwanted stations": "Lista de estaciones a omitir en el procesamiento:",
+    "Whitelist": "Lista blanca",
+    "Whitelist_helper": "Para mostrar solo una lista específica de estaciones, agregue los nombres de las estaciones a la lista blanca. La lista negra se omitirá si la lista blanca no está vacía.",
+    "stations": "canales de televisión"
+}

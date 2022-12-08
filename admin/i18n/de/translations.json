@@ -1,0 +1,12 @@
+{
+    "Abfrageinfo": "Die Daten des Quellfeeds werden vom Server bei tankerkoenig.de nur alle 4 Minuten aktualisiert. Das kürzeste Abfrageintervall beträgt daher 5 Minuten, da eine häufigere Abfrage keinen Sinn macht.",
+    "Blacklist": "Blacklist",
+    "Blacklist_helper": "Deaktivieren Sie bestimmte Stationen.",
+    "Divided by comma": "Durch Komma getrennt",
+    "Selected stations:": "Es werden nur diese Sender angezeigt (wenn eine Whitelist verwendet wird, wird die Blacklist nicht berücksichtigt):",
+    "Settings": "Einstellungen",
+    "Unwanted stations": "Liste der Stationen, die bei der Verarbeitung übersprungen werden sollen:",
+    "Whitelist": "Whitelist",
+    "Whitelist_helper": "Um nur eine bestimmte Liste von Sendern anzuzeigen, fügen Sie die Sendernamen zur Whitelist hinzu. Die schwarze Liste wird übersprungen, wenn die Whitelist nicht leer ist.",
+    "stations": "Fernsehsender"
+}

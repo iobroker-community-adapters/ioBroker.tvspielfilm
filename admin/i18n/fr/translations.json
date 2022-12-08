@@ -1,0 +1,12 @@
+{
+    "Abfrageinfo": "Les données du flux source ne sont mises à jour par le serveur sur tankerkoenig.de que toutes les 4 minutes. L'intervalle d'interrogation le plus court est donc de 5 minutes, car une interrogation plus fréquente n'a aucun sens.",
+    "Blacklist": "Liste noire",
+    "Blacklist_helper": "Désactivez des stations spécifiques.",
+    "Divided by comma": "Séparé par une virgule",
+    "Selected stations:": "Seules ces stations seront affichées (si la liste blanche est utilisée, la liste noire sera ignorée):",
+    "Settings": "réglages",
+    "Unwanted stations": "Liste des stations à ignorer lors du traitement:",
+    "Whitelist": "Liste blanche",
+    "Whitelist_helper": "Pour afficher uniquement une liste spécifique de stations, ajoutez les noms des stations à la liste blanche. La liste noire sera ignorée si la liste blanche n'est pas vide.",
+    "stations": "chaînes de télé"
+}

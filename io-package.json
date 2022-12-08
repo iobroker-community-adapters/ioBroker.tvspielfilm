@@ -12,7 +12,8 @@
             "it": "Guida ai programmi TV Spielfilm dal feed rss",
             "es": "Guía de programas de TV Spielfilm de RSS feed",
             "pl": "Przewodnik po programie TV Spielfilm z kanału RSS",
-            "zh-cn": "来自rss feed的TV Spielfilm节目指南"
+            "zh-cn": "来自rss feed的TV Spielfilm节目指南",
+            "uk": "Телегід TV Spielfilm з rss стрічки"
         },
         "desc": {
             "en": "TV Spielfilm program guide from rss feed",
@@ -24,7 +25,8 @@
             "it": "Guida ai programmi TV Spielfilm dal feed rss",
             "es": "Guía de programas de TV Spielfilm de RSS feed",
             "pl": "Przewodnik po programie TV Spielfilm z kanału RSS",
-            "zh-cn": "来自rss feed的TV Spielfilm节目指南"
+            "zh-cn": "来自rss feed的TV Spielfilm节目指南",
+            "uk": "Телегід TV Spielfilm з rss стрічки"
         },
         "docs": {
             "en": "docs/en/doc_tvspielfilm_en.md",
@@ -33,16 +35,17 @@
         "version": "2.0.4",
         "news": {
             "2.0.4": {
-              "en": "Code improved (timer)",
-              "de": "Code verbessert (Timer)",
-              "ru": "Код улучшен (таймер)",
-              "pt": "Código melhorado (cronômetro)",
-              "nl": "Code verbeterd (timer)",
-              "fr": "Code amélioré (minuterie)",
-              "it": "Codice migliorato (timer)",
-              "es": "Código mejorado (temporizador)",
-              "pl": "Kod poprawiony (timer)",
-              "zh-cn": "代码改进（计时器）"
+                "en": "Code improved (timer)",
+                "de": "Code verbessert (Timer)",
+                "ru": "Код улучшен (таймер)",
+                "pt": "Código melhorado (cronômetro)",
+                "nl": "Code verbeterd (timer)",
+                "fr": "Code amélioré (minuterie)",
+                "it": "Codice migliorato (timer)",
+                "es": "Código mejorado (temporizador)",
+                "pl": "Kod poprawiony (timer)",
+                "zh-cn": "代码改进（计时器）",
+                "uk": "Код покращено (таймер)"
             },
             "2.0.2": {
                 "en": "Now cron is initialized at adapter start",
@@ -54,7 +57,8 @@
                 "it": "Ora cron è inizializzato all'avvio dell'adattatore",
                 "es": "Ahora cron se inicializa al inicio del adaptador",
                 "pl": "Teraz cron jest inicjowany przy starcie adaptera",
-                "zh-cn": "现在cron在适配器启动时被初始化"
+                "zh-cn": "现在cron在适配器启动时被初始化",
+                "uk": "Тепер cron ініціалізується під час запуску адаптера"
             },
             "2.0.1": {
                 "en": "NodeJS 10 or higher required",
@@ -66,7 +70,8 @@
                 "it": "Nodo JS 10 o superiore richiesto",
                 "es": "Nodo JS 10 o superior requerido",
                 "pl": "Wymagany NodeJS 10 lub wyższy",
-                "zh-cn": "需要NodeJS 10或更高版本"
+                "zh-cn": "需要NodeJS 10或更高版本",
+                "uk": "Потрібен NodeJS 10 або вище"
             },
             "2.0.0": {
                 "en": "Admin3 support added, more translations",
@@ -78,22 +83,47 @@
                 "it": "Aggiunto supporto Admin3, più traduzioni",
                 "es": "Soporte de Admin3 agregado, más traducciones",
                 "pl": "Dodano obsługę Admin3, więcej tłumaczeń",
-                "zh-cn": "添加了Admin3支持，更多翻译"
+                "zh-cn": "添加了Admin3支持，更多翻译",
+                "uk": "Додано підтримку Admin3, більше перекладів"
             },
             "1.1.0": {
                 "en": "String search added",
                 "de": "Suchbegriffe zugefügt",
-                "ru": "String search added"
+                "ru": "String search added",
+                "pt": "Pesquisa de string adicionada",
+                "nl": "Tekenreeks zoeken toegevoegd",
+                "fr": "Recherche de chaîne ajoutée",
+                "it": "Ricerca di stringhe aggiunta",
+                "es": "Búsqueda de cadenas añadida",
+                "pl": "Dodano wyszukiwanie ciągów",
+                "uk": "Додано пошук рядків",
+                "zh-cn": "添加了字符串搜索"
             },
             "1.0.2": {
                 "en": "No more support for Nodejs 0.12",
                 "de": "Nodejs 0.12 wird nicht merh Unterstützt",
-                "ru": "No more support for Nodejs 0.12"
+                "ru": "No more support for Nodejs 0.12",
+                "pt": "Não há mais suporte para Nodejs 0.12",
+                "nl": "Geen ondersteuning meer voor Nodejs 0.12",
+                "fr": "Plus de support pour Nodejs 0.12",
+                "it": "Niente più supporto per Nodejs 0.12",
+                "es": "No más soporte para Nodejs 0.12",
+                "pl": "Koniec wsparcia dla Nodejs 0.12",
+                "uk": "Більше немає підтримки для Nodejs 0.12",
+                "zh-cn": "不再支持 Nodejs 0.12"
             },
             "1.0.1": {
                 "en": "Wildcard support in the whitelist",
                 "de": "Platzhalter Unterstützung in der Whitelist",
-                "ru": "Wildcard support in the whitelist"
+                "ru": "Wildcard support in the whitelist",
+                "pt": "Suporte curinga na lista de permissões",
+                "nl": "Wildcard-ondersteuning in de whitelist",
+                "fr": "Prise en charge des caractères génériques dans la liste blanche",
+                "it": "Supporto di caratteri jolly nella whitelist",
+                "es": "Compatibilidad con comodines en la lista blanca",
+                "pl": "Obsługa symboli wieloznacznych na białej liście",
+                "uk": "Підтримка шаблонів у білому списку",
+                "zh-cn": "白名单中的通配符支持"
             }
         },
         "mode": "schedule",

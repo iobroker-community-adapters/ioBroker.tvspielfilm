@@ -1,0 +1,12 @@
+{
+    "Abfrageinfo": "Os dados do feed de origem são atualizados pelo servidor em tankerkoenig.de somente a cada 4 minutos. O menor intervalo de pesquisa é, portanto, de 5 minutos, porque uma pesquisa mais freqüente não faz sentido.",
+    "Blacklist": "Lista negra",
+    "Blacklist_helper": "Desative estações específicas.",
+    "Divided by comma": "Separado por vírgula",
+    "Selected stations:": "Somente essas estações serão exibidas (se a lista de permissões for usada, a lista negra será desconsiderada):",
+    "Settings": "definições",
+    "Unwanted stations": "Lista de estações a serem puladas no processamento:",
+    "Whitelist": "Lista de permissões",
+    "Whitelist_helper": "Para exibir apenas uma lista específica de estações, adicione os nomes das estações à lista de permissões. A lista negra será ignorada se a lista de permissões não estiver vazia.",
+    "stations": "canais de televisão"
+}

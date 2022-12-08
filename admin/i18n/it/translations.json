@@ -1,0 +1,12 @@
+{
+    "Abfrageinfo": "I dati del feed di origine vengono aggiornati dal server su tankerkoenig.de solo ogni 4 minuti. L'intervallo di polling più breve è quindi di 5 minuti perché un sondaggio più frequente non ha senso.",
+    "Blacklist": "Lista nera",
+    "Blacklist_helper": "Annulla le stazioni specifiche.",
+    "Divided by comma": "Separato da virgola",
+    "Selected stations:": "Verranno visualizzate solo queste stazioni (se viene utilizzata la whitelist, la blacklist verrà ignorata):",
+    "Settings": "impostazioni",
+    "Unwanted stations": "Elenco delle stazioni da saltare nell'elaborazione:",
+    "Whitelist": "Lista bianca",
+    "Whitelist_helper": "Per visualizzare solo un elenco specifico di stazioni, aggiungere i nomi delle stazioni alla lista bianca. La lista nera verrà ignorata se la whitelist non è vuota.",
+    "stations": "canali tv"
+}
