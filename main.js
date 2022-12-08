@@ -189,7 +189,7 @@ function readIndividualFeed(x) {
                 if (err) {
                     adapter.log.warn("Fehler: " + err);
                 } else {
-                    if (result.rss.channel.item.length !== null) { // gelegentlicher Fehler bei nächtlicher Abfrage durch length (undefined) soll hier abgefangen werden
+                    if (result && result.rss && result.rss.channel && result.rss.channel.item && result.rss.channel.item.length) { // gelegentlicher Fehler bei nächtlicher Abfrage durch length (undefined) soll hier abgefangen werden
 
                         // Array durchzaehlen von 0 bis Zahl der items
                         for (var i = 0; i < result.rss.channel.item.length; i++) {
