@@ -1,344 +1,344 @@
 {
-    "common": {
-        "name": "tvspielfilm",
-        "title": "TV Spielfilm",
-        "titleLang": {
-            "en": "TV Spielfilm program guide from rss feed",
-            "de": "TV-Spielfilm-Programmführer von RSS-Feed",
-            "ru": "Телепрограмма Spielfilm из RSS-канала",
-            "pt": "Guia do programa TV Spielfilm do feed RSS",
-            "nl": "TV Spielfilm programmagids van RSS-feed",
-            "fr": "Guide de programmation TV Spielfilm du flux rss",
-            "it": "Guida ai programmi TV Spielfilm dal feed rss",
-            "es": "Guía de programas de TV Spielfilm de RSS feed",
-            "pl": "Przewodnik po programie TV Spielfilm z kanału RSS",
-            "zh-cn": "来自rss feed的TV Spielfilm节目指南",
-            "uk": "Телегід TV Spielfilm з rss стрічки"
-        },
-        "desc": {
-            "en": "TV Spielfilm program guide from rss feed",
-            "de": "TV-Spielfilm-Programmführer von RSS-Feed",
-            "ru": "Телепрограмма Spielfilm из RSS-канала",
-            "pt": "Guia do programa TV Spielfilm do feed RSS",
-            "nl": "TV Spielfilm programmagids van RSS-feed",
-            "fr": "Guide de programmation TV Spielfilm du flux rss",
-            "it": "Guida ai programmi TV Spielfilm dal feed rss",
-            "es": "Guía de programas de TV Spielfilm de RSS feed",
-            "pl": "Przewodnik po programie TV Spielfilm z kanału RSS",
-            "zh-cn": "来自rss feed的TV Spielfilm节目指南",
-            "uk": "Телегід TV Spielfilm з rss стрічки"
-        },
-        "docs": {
-            "en": "docs/en/doc_tvspielfilm_en.md",
-            "de": "docs/de/doc_tvspielfilm_de.md"
-        },
-        "version": "2.0.4",
-        "news": {
-            "2.0.4": {
-                "en": "Code improved (timer)",
-                "de": "Code verbessert (Timer)",
-                "ru": "Код улучшен (таймер)",
-                "pt": "Código melhorado (cronômetro)",
-                "nl": "Code verbeterd (timer)",
-                "fr": "Code amélioré (minuterie)",
-                "it": "Codice migliorato (timer)",
-                "es": "Código mejorado (temporizador)",
-                "pl": "Kod poprawiony (timer)",
-                "zh-cn": "代码改进（计时器）",
-                "uk": "Код покращено (таймер)"
-            },
-            "2.0.2": {
-                "en": "Now cron is initialized at adapter start",
-                "de": "Jetzt wird cron beim Adapterstart initialisiert",
-                "ru": "Теперь cron инициализируется при запуске адаптера",
-                "pt": "Agora o cron é inicializado na inicialização do adaptador",
-                "nl": "Nu wordt cron geïnitialiseerd bij het starten van de adapter",
-                "fr": "Maintenant, cron est initialisé au démarrage de l'adaptateur",
-                "it": "Ora cron è inizializzato all'avvio dell'adattatore",
-                "es": "Ahora cron se inicializa al inicio del adaptador",
-                "pl": "Teraz cron jest inicjowany przy starcie adaptera",
-                "zh-cn": "现在cron在适配器启动时被初始化",
-                "uk": "Тепер cron ініціалізується під час запуску адаптера"
-            },
-            "2.0.1": {
-                "en": "NodeJS 10 or higher required",
-                "de": "NodeJS 10 oder höher erforderlich",
-                "ru": "Требуется NodeJS 10 или выше",
-                "pt": "Necessário NodeJS 10 ou superior",
-                "nl": "NodeJS 10 of hoger vereist",
-                "fr": "NodeJS 10 ou supérieur requis",
-                "it": "Nodo JS 10 o superiore richiesto",
-                "es": "Nodo JS 10 o superior requerido",
-                "pl": "Wymagany NodeJS 10 lub wyższy",
-                "zh-cn": "需要NodeJS 10或更高版本",
-                "uk": "Потрібен NodeJS 10 або вище"
-            },
-            "2.0.0": {
-                "en": "Admin3 support added, more translations",
-                "de": "Admin3-Unterstützung hinzugefügt, mehr Übersetzungen",
-                "ru": "Добавлена поддержка Admin3, больше переводов",
-                "pt": "Suporte Admin3 adicionado, mais traduções",
-                "nl": "Admin3-ondersteuning toegevoegd, meer vertalingen",
-                "fr": "Support Admin3 ajouté, plus de traductions",
-                "it": "Aggiunto supporto Admin3, più traduzioni",
-                "es": "Soporte de Admin3 agregado, más traducciones",
-                "pl": "Dodano obsługę Admin3, więcej tłumaczeń",
-                "zh-cn": "添加了Admin3支持，更多翻译",
-                "uk": "Додано підтримку Admin3, більше перекладів"
-            },
-            "1.1.0": {
-                "en": "String search added",
-                "de": "Suchbegriffe zugefügt",
-                "ru": "String search added",
-                "pt": "Pesquisa de string adicionada",
-                "nl": "Tekenreeks zoeken toegevoegd",
-                "fr": "Recherche de chaîne ajoutée",
-                "it": "Ricerca di stringhe aggiunta",
-                "es": "Búsqueda de cadenas añadida",
-                "pl": "Dodano wyszukiwanie ciągów",
-                "uk": "Додано пошук рядків",
-                "zh-cn": "添加了字符串搜索"
-            },
-            "1.0.2": {
-                "en": "No more support for Nodejs 0.12",
-                "de": "Nodejs 0.12 wird nicht merh Unterstützt",
-                "ru": "No more support for Nodejs 0.12",
-                "pt": "Não há mais suporte para Nodejs 0.12",
-                "nl": "Geen ondersteuning meer voor Nodejs 0.12",
-                "fr": "Plus de support pour Nodejs 0.12",
-                "it": "Niente più supporto per Nodejs 0.12",
-                "es": "No más soporte para Nodejs 0.12",
-                "pl": "Koniec wsparcia dla Nodejs 0.12",
-                "uk": "Більше немає підтримки для Nodejs 0.12",
-                "zh-cn": "不再支持 Nodejs 0.12"
-            },
-            "1.0.1": {
-                "en": "Wildcard support in the whitelist",
-                "de": "Platzhalter Unterstützung in der Whitelist",
-                "ru": "Wildcard support in the whitelist",
-                "pt": "Suporte curinga na lista de permissões",
-                "nl": "Wildcard-ondersteuning in de whitelist",
-                "fr": "Prise en charge des caractères génériques dans la liste blanche",
-                "it": "Supporto di caratteri jolly nella whitelist",
-                "es": "Compatibilidad con comodines en la lista blanca",
-                "pl": "Obsługa symboli wieloznacznych na białej liście",
-                "uk": "Підтримка шаблонів у білому списку",
-                "zh-cn": "白名单中的通配符支持"
-            }
-        },
-        "mode": "schedule",
-        "schedule": "*/5 * * * *",
-        "allowInit": true,
-        "platform": "Javascript/Node.js",
-        "materialize": true,
-        "loglevel": "info",
-        "keywords": [
-            "tv",
-            "program",
-            "guide",
-            "Fernsehprogramm",
-            "Tvprogramm",
-            "Programm",
-            "tvspielfilm",
-            "spielfilm",
-            "pix"
-        ],
-        "dependencies": [
-            {
-                "js-controller": ">=2.0.0"
-            }
-        ],
-        "main": "main.js",
-        "authors": [
-            "Pix"
-        ],
-        "license": "MIT",
-        "readme": "https://github.com/iobroker-community-adapters/ioBroker.tvspielfilm/blob/master/README.md",
-        "icon": "tvspielfilm.png",
-        "extIcon": "https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.tvspielfilm/master/admin/tvspielfilm.png",
-        "type": "misc-data",
-        "connectionType": "cloud",
-        "dataSource": "poll",
-        "tier": 2
+  "common": {
+    "name": "tvspielfilm",
+    "title": "TV Spielfilm",
+    "titleLang": {
+      "en": "TV Spielfilm program guide from rss feed",
+      "de": "TV-Spielfilm-Programmführer von RSS-Feed",
+      "ru": "Телепрограмма Spielfilm из RSS-канала",
+      "pt": "Guia do programa TV Spielfilm do feed RSS",
+      "nl": "TV Spielfilm programmagids van RSS-feed",
+      "fr": "Guide de programmation TV Spielfilm du flux rss",
+      "it": "Guida ai programmi TV Spielfilm dal feed rss",
+      "es": "Guía de programas de TV Spielfilm de RSS feed",
+      "pl": "Przewodnik po programie TV Spielfilm z kanału RSS",
+      "zh-cn": "来自rss feed的TV Spielfilm节目指南",
+      "uk": "Телегід TV Spielfilm з rss стрічки"
     },
-    "native": {
-        "blacklist": [],
-        "whitelist": []
+    "desc": {
+      "en": "TV Spielfilm program guide from rss feed",
+      "de": "TV-Spielfilm-Programmführer von RSS-Feed",
+      "ru": "Телепрограмма Spielfilm из RSS-канала",
+      "pt": "Guia do programa TV Spielfilm do feed RSS",
+      "nl": "TV Spielfilm programmagids van RSS-feed",
+      "fr": "Guide de programmation TV Spielfilm du flux rss",
+      "it": "Guida ai programmi TV Spielfilm dal feed rss",
+      "es": "Guía de programas de TV Spielfilm de RSS feed",
+      "pl": "Przewodnik po programie TV Spielfilm z kanału RSS",
+      "zh-cn": "来自rss feed的TV Spielfilm节目指南",
+      "uk": "Телегід TV Spielfilm з rss стрічки"
     },
-    "objects": [],
-    "instanceObjects": [
-        {
-            "_id": "search",
-            "type": "channel",
-            "common": {
-                "role": "",
-                "name": ""
-            },
-            "native": {}
-        },
-        {
-            "_id": "search.list",
-            "type": "state",
-            "common": {
-                "name": "tvspielfilm Suchbegriffe",
-                "desc": "Array aus Suchbegriffen",
-                "type": "string",
-                "read": true,
-                "write": true
-            },
-            "native": {}
-        },
-        {
-            "_id": "search.alert",
-            "type": "state",
-            "common": {
-                "name": "tvspielfilm Suchbegriff gefunden",
-                "desc": "Suchbegriff gefunden - true/false",
-                "type": "boolean",
-                "role": "indicator",
-                "def": false,
-                "read": true,
-                "write": false
-            },
-            "native": {}
-        },
-        {
-            "_id": "json",
-            "type": "channel",
-            "common": {
-                "role": "",
-                "name": ""
-            },
-            "native": {}
-        },
-        {
-            "_id": "json.tipps",
-            "type": "state",
-            "common": {
-                "name": "tvspielfilm Tipps",
-                "desc": "TV Tipps für heute",
-                "type": "string",
-                "read": true,
-                "write": false
-            },
-            "native": {}
-        },
-        {
-            "_id": "json.jetzt",
-            "type": "state",
-            "common": {
-                "name": "tvspielfilm jetzt",
-                "desc": "Was läuft jetzt im TV?",
-                "type": "string",
-                "read": true,
-                "write": false
-            },
-            "native": {}
-        },
-        {
-            "_id": "json.heute2015",
-            "type": "state",
-            "common": {
-                "name": "tvspielfilm 20:15 Uhr",
-                "desc": "Was läuft um 20:15Uhr im TV?",
-                "type": "string",
-                "read": true,
-                "write": false
-            },
-            "native": {}
-        },
-        {
-            "_id": "json.heute2200",
-            "type": "state",
-            "common": {
-                "name": "tvspielfilm 22:00 Uhr",
-                "desc": "Was läuft um 22:00Uhr im TV?",
-                "type": "string",
-                "read": true,
-                "write": false
-            },
-            "native": {}
-        },
-        {
-            "_id": "json.filme",
-            "type": "state",
-            "common": {
-                "name": "tvspielfilm Filme",
-                "desc": "Spielfilm-Highlights des Tages",
-                "type": "string",
-                "read": true,
-                "write": false
-            },
-            "native": {}
-        },
-        {
-            "_id": "json.raw",
-            "type": "channel",
-            "common": {
-                "role": "",
-                "name": ""
-            },
-            "native": {}
-        },
-        {
-            "_id": "json.raw.tipps",
-            "type": "state",
-            "common": {
-                "name": "tvspielfilm Tipps",
-                "desc": "TV Tipps für heute",
-                "type": "string",
-                "read": true,
-                "write": false
-            },
-            "native": {}
-        },
-        {
-            "_id": "json.raw.jetzt",
-            "type": "state",
-            "common": {
-                "name": "tvspielfilm jetzt",
-                "desc": "Was läuft jetzt im TV?",
-                "type": "string",
-                "read": true,
-                "write": false
-            },
-            "native": {}
-        },
-        {
-            "_id": "json.raw.heute2015",
-            "type": "state",
-            "common": {
-                "name": "tvspielfilm 20:15 Uhr",
-                "desc": "Was läuft um 20:15Uhr im TV?",
-                "type": "string",
-                "read": true,
-                "write": false
-            },
-            "native": {}
-        },
-        {
-            "_id": "json.raw.heute2200",
-            "type": "state",
-            "common": {
-                "name": "tvspielfilm 22:00 Uhr",
-                "desc": "Was läuft um 22:00Uhr im TV?",
-                "type": "string",
-                "read": true,
-                "write": false
-            },
-            "native": {}
-        },
-        {
-            "_id": "json.raw.filme",
-            "type": "state",
-            "common": {
-                "name": "tvspielfilm Filme",
-                "desc": "Spielfilm-Highlights des Tages",
-                "type": "string",
-                "read": true,
-                "write": false
-            },
-            "native": {}
-        }
-    ]
+    "docs": {
+      "en": "docs/en/doc_tvspielfilm_en.md",
+      "de": "docs/de/doc_tvspielfilm_de.md"
+    },
+    "version": "2.0.5",
+    "news": {
+      "2.0.5": {
+        "en": "Remove tipps feed because no longer maintained \nGeneral updates",
+        "de": "Tipps-Feed entfernen, weil nicht mehr gehalten\nAllgemeine Aktualisierungen",
+        "ru": "Удалить фискы, потому что больше не поддерживается\nОбщие обновления",
+        "pt": "Remover dicaps feed porque não mais mantido\nAtualizações gerais",
+        "nl": "Verwijder fooien, want niet langer onderhouden\nGeneraal updates",
+        "fr": "Retirer l'alimentation des tipps parce qu'il n'est plus maintenu\nMises à jour générales",
+        "it": "Rimuovere l'alimentazione delle punte perché non più mantenuto\nAggiornamenti generali",
+        "es": "Quitar la alimentación de los tipps porque ya no se mantiene\nActualizaciones generales",
+        "pl": "Przesuwają się napój, ponieważ nie zachowały się dłużej\nAktualizacja",
+        "uk": "Видалити наконечники корму, тому що більше не підтримується\nЗагальні оновлення",
+        "zh-cn": "D. 搬离破裂的饲料,因为不再维持。\nA. 总更新"
+      },
+      "2.0.4": {
+        "en": "Code improved (timer)",
+        "de": "Code verbessert (Timer)",
+        "ru": "Код улучшен (таймер)",
+        "pt": "Código melhorado (cronômetro)",
+        "nl": "Code verbeterd (timer)",
+        "fr": "Code amélioré (minuterie)",
+        "it": "Codice migliorato (timer)",
+        "es": "Código mejorado (temporizador)",
+        "pl": "Kod poprawiony (timer)",
+        "zh-cn": "代码改进（计时器）",
+        "uk": "Код покращено (таймер)"
+      },
+      "2.0.2": {
+        "en": "Now cron is initialized at adapter start",
+        "de": "Jetzt wird cron beim Adapterstart initialisiert",
+        "ru": "Теперь cron инициализируется при запуске адаптера",
+        "pt": "Agora o cron é inicializado na inicialização do adaptador",
+        "nl": "Nu wordt cron geïnitialiseerd bij het starten van de adapter",
+        "fr": "Maintenant, cron est initialisé au démarrage de l'adaptateur",
+        "it": "Ora cron è inizializzato all'avvio dell'adattatore",
+        "es": "Ahora cron se inicializa al inicio del adaptador",
+        "pl": "Teraz cron jest inicjowany przy starcie adaptera",
+        "zh-cn": "现在cron在适配器启动时被初始化",
+        "uk": "Тепер cron ініціалізується під час запуску адаптера"
+      },
+      "2.0.1": {
+        "en": "NodeJS 10 or higher required",
+        "de": "NodeJS 10 oder höher erforderlich",
+        "ru": "Требуется NodeJS 10 или выше",
+        "pt": "Necessário NodeJS 10 ou superior",
+        "nl": "NodeJS 10 of hoger vereist",
+        "fr": "NodeJS 10 ou supérieur requis",
+        "it": "Nodo JS 10 o superiore richiesto",
+        "es": "Nodo JS 10 o superior requerido",
+        "pl": "Wymagany NodeJS 10 lub wyższy",
+        "zh-cn": "需要NodeJS 10或更高版本",
+        "uk": "Потрібен NodeJS 10 або вище"
+      },
+      "2.0.0": {
+        "en": "Admin3 support added, more translations",
+        "de": "Admin3-Unterstützung hinzugefügt, mehr Übersetzungen",
+        "ru": "Добавлена поддержка Admin3, больше переводов",
+        "pt": "Suporte Admin3 adicionado, mais traduções",
+        "nl": "Admin3-ondersteuning toegevoegd, meer vertalingen",
+        "fr": "Support Admin3 ajouté, plus de traductions",
+        "it": "Aggiunto supporto Admin3, più traduzioni",
+        "es": "Soporte de Admin3 agregado, más traducciones",
+        "pl": "Dodano obsługę Admin3, więcej tłumaczeń",
+        "zh-cn": "添加了Admin3支持，更多翻译",
+        "uk": "Додано підтримку Admin3, більше перекладів"
+      },
+      "1.1.0": {
+        "en": "String search added",
+        "de": "Suchbegriffe zugefügt",
+        "ru": "String search added",
+        "pt": "Pesquisa de string adicionada",
+        "nl": "Tekenreeks zoeken toegevoegd",
+        "fr": "Recherche de chaîne ajoutée",
+        "it": "Ricerca di stringhe aggiunta",
+        "es": "Búsqueda de cadenas añadida",
+        "pl": "Dodano wyszukiwanie ciągów",
+        "uk": "Додано пошук рядків",
+        "zh-cn": "添加了字符串搜索"
+      },
+      "1.0.2": {
+        "en": "No more support for Nodejs 0.12",
+        "de": "Nodejs 0.12 wird nicht merh Unterstützt",
+        "ru": "No more support for Nodejs 0.12",
+        "pt": "Não há mais suporte para Nodejs 0.12",
+        "nl": "Geen ondersteuning meer voor Nodejs 0.12",
+        "fr": "Plus de support pour Nodejs 0.12",
+        "it": "Niente più supporto per Nodejs 0.12",
+        "es": "No más soporte para Nodejs 0.12",
+        "pl": "Koniec wsparcia dla Nodejs 0.12",
+        "uk": "Більше немає підтримки для Nodejs 0.12",
+        "zh-cn": "不再支持 Nodejs 0.12"
+      }
+    },
+    "mode": "schedule",
+    "schedule": "*/5 * * * *",
+    "allowInit": true,
+    "platform": "Javascript/Node.js",
+    "materialize": true,
+    "loglevel": "info",
+    "keywords": [
+      "tv",
+      "program",
+      "guide",
+      "Fernsehprogramm",
+      "Tvprogramm",
+      "Programm",
+      "tvspielfilm",
+      "spielfilm",
+      "pix"
+    ],
+    "dependencies": [
+      {
+        "js-controller": ">=2.0.0"
+      }
+    ],
+    "main": "main.js",
+    "authors": [
+      "Pix"
+    ],
+    "license": "MIT",
+    "readme": "https://github.com/iobroker-community-adapters/ioBroker.tvspielfilm/blob/master/README.md",
+    "icon": "tvspielfilm.png",
+    "extIcon": "https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.tvspielfilm/master/admin/tvspielfilm.png",
+    "type": "misc-data",
+    "connectionType": "cloud",
+    "dataSource": "poll",
+    "tier": 2
+  },
+  "native": {
+    "blacklist": [],
+    "whitelist": []
+  },
+  "objects": [],
+  "instanceObjects": [
+    {
+      "_id": "search",
+      "type": "channel",
+      "common": {
+        "role": "",
+        "name": ""
+      },
+      "native": {}
+    },
+    {
+      "_id": "search.list",
+      "type": "state",
+      "common": {
+        "name": "tvspielfilm Suchbegriffe",
+        "desc": "Array aus Suchbegriffen",
+        "type": "string",
+        "read": true,
+        "write": true
+      },
+      "native": {}
+    },
+    {
+      "_id": "search.alert",
+      "type": "state",
+      "common": {
+        "name": "tvspielfilm Suchbegriff gefunden",
+        "desc": "Suchbegriff gefunden - true/false",
+        "type": "boolean",
+        "role": "indicator",
+        "def": false,
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "json",
+      "type": "channel",
+      "common": {
+        "role": "",
+        "name": ""
+      },
+      "native": {}
+    },
+    {
+      "_id": "json.tipps",
+      "type": "state",
+      "common": {
+        "name": "tvspielfilm Tipps",
+        "desc": "TV Tipps für heute",
+        "type": "string",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "json.jetzt",
+      "type": "state",
+      "common": {
+        "name": "tvspielfilm jetzt",
+        "desc": "Was läuft jetzt im TV?",
+        "type": "string",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "json.heute2015",
+      "type": "state",
+      "common": {
+        "name": "tvspielfilm 20:15 Uhr",
+        "desc": "Was läuft um 20:15Uhr im TV?",
+        "type": "string",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "json.heute2200",
+      "type": "state",
+      "common": {
+        "name": "tvspielfilm 22:00 Uhr",
+        "desc": "Was läuft um 22:00Uhr im TV?",
+        "type": "string",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "json.filme",
+      "type": "state",
+      "common": {
+        "name": "tvspielfilm Filme",
+        "desc": "Spielfilm-Highlights des Tages",
+        "type": "string",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "json.raw",
+      "type": "channel",
+      "common": {
+        "role": "",
+        "name": ""
+      },
+      "native": {}
+    },
+    {
+      "_id": "json.raw.tipps",
+      "type": "state",
+      "common": {
+        "name": "tvspielfilm Tipps",
+        "desc": "TV Tipps für heute",
+        "type": "string",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "json.raw.jetzt",
+      "type": "state",
+      "common": {
+        "name": "tvspielfilm jetzt",
+        "desc": "Was läuft jetzt im TV?",
+        "type": "string",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "json.raw.heute2015",
+      "type": "state",
+      "common": {
+        "name": "tvspielfilm 20:15 Uhr",
+        "desc": "Was läuft um 20:15Uhr im TV?",
+        "type": "string",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "json.raw.heute2200",
+      "type": "state",
+      "common": {
+        "name": "tvspielfilm 22:00 Uhr",
+        "desc": "Was läuft um 22:00Uhr im TV?",
+        "type": "string",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "json.raw.filme",
+      "type": "state",
+      "common": {
+        "name": "tvspielfilm Filme",
+        "desc": "Spielfilm-Highlights des Tages",
+        "type": "string",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    }
+  ]
 }
