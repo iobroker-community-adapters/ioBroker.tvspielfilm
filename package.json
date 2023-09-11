@@ -23,6 +23,9 @@
     "program",
     "home automation"
   ],
+  "engines": {
+    "node": ">=16"
+  },
   "dependencies": {
     "request": "^2.88.2",
     "xml2js": "^0.4.23",
