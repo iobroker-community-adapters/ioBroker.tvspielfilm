@@ -6,7 +6,7 @@
 
 [![NPM](https://nodei.co/npm/iobroker.tvspielfilm.png?downloads=true)](https://nodei.co/npm/iobroker.tvspielfilm/)
 
-NodeJS v10 oder höher wird vorausgesetzt.
+NodeJS v16 oder höher wird vorausgesetzt.
 
 ## Documentation
 :de: [Dokumentation](/docs/de/doc_tvspielfilm_de.md)
