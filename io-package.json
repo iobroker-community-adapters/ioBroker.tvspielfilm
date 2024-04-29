@@ -1,7 +1,6 @@
 {
   "common": {
     "name": "tvspielfilm",
-    "title": "TV Spielfilm",
     "titleLang": {
       "en": "TV Spielfilm program guide from rss feed",
       "de": "TV-Spielfilm-Programmführer von RSS-Feed",
@@ -145,7 +144,12 @@
     ],
     "dependencies": [
       {
-        "js-controller": ">=2.0.0"
+        "js-controller": ">=5.0.19"
+      }
+    ],
+    "globalDependencies": [
+      {
+        "admin": ">=6.13.16"
       }
     ],
     "main": "main.js",

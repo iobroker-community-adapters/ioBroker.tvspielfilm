@@ -15,6 +15,14 @@ NodeJS v16 oder höher wird vorausgesetzt.
 
 
 ## Changelog
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+### **WORK IN PROGRESS**
+* (mcm1957) Adapter requires node.js >= 18 and js-controller >= 5 now
+* (mcm1957) Dependencies have been updated
+
 ### 2.0.5 (2022-12-08)
 * (tugsi) Remove tipps feed because no longer maintained 
 * (Apollon77) General updates
@@ -72,16 +80,12 @@ NodeJS v16 oder höher wird vorausgesetzt.
 ### 0.0.1 (2016-05-07)
 * (pix) Adapter created
 
-## Roadmap
-* Alarm für gefundene Suchen
-* Wildcards for blacklist
-* Programmtipps ausblenden, die auf eine Uhrzeit hinweisen, die vor der aktuellen Uhrzeit liegt.
-* *axios* replaces *request*
-
 
 ## License
 
 The MIT License (MIT)
+
+Copyright (c) 2023-2024 ioBroker Community Developers <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2016-2022 pix
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
