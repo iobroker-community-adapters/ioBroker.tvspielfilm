@@ -40,7 +40,7 @@ NodeJS v16 oder höher wird vorausgesetzt.
 
 The MIT License (MIT)
 
-Copyright (c) 2023-2024 ioBroker Community Developers <iobroker-community-adapters@gmx.de>  
+Copyright (c) 2023-2025 ioBroker Community Developers <iobroker-community-adapters@gmx.de>  
 Copyright (c) 2016-2022 pix
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
