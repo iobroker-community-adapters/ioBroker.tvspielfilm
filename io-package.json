@@ -152,7 +152,6 @@
         "admin": ">=6.13.16"
       }
     ],
-    "main": "main.js",
     "authors": [
       "Pix"
     ],
