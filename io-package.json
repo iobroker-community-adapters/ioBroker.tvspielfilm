@@ -157,7 +157,10 @@
       "Pix",
       "iobroker-community-adapters <iobroker-community-adapters@gmx.de>"
     ],
-    "license": "MIT",
+    "licenseInformation": {
+      "type": "free",
+      "license": "MIT"
+    },
     "readme": "https://github.com/iobroker-community-adapters/ioBroker.tvspielfilm/blob/master/README.md",
     "icon": "tvspielfilm.png",
     "extIcon": "https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.tvspielfilm/master/admin/tvspielfilm.png",
