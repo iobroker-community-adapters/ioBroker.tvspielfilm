@@ -152,7 +152,6 @@
         "admin": ">=7.7.22"
       }
     ],
-    "main": "main.js",
     "authors": [
       "Pix",
       "iobroker-community-adapters <iobroker-community-adapters@gmx.de>"
