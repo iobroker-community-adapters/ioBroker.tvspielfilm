@@ -42,6 +42,8 @@ NodeJS v16 oder höher wird vorausgesetzt.
 ### 2.0.2 (2021-03-19)
 * (DutchmanNL) Now cron is initialized at adapter start
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## License
 
 The MIT License (MIT)
