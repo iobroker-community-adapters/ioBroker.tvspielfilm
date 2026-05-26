@@ -129,7 +129,6 @@
     "schedule": "*/5 * * * *",
     "allowInit": true,
     "platform": "Javascript/Node.js",
-    "materialize": true,
     "loglevel": "info",
     "keywords": [
       "tv",
@@ -164,7 +163,10 @@
     "type": "misc-data",
     "connectionType": "cloud",
     "dataSource": "poll",
-    "tier": 2
+    "tier": 2,
+    "adminUI": {
+      "config": "materialize"
+    }
   },
   "native": {
     "blacklist": [],
