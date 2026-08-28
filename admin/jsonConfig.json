@@ -1,0 +1,37 @@
+{
+  "i18n": true,
+  "type": "panel",
+  "items": {
+    "headerSettings": {
+      "type": "header",
+      "text": "Settings",
+      "size": 2,
+      "xs": 12,
+      "sm": 12,
+      "md": 12,
+      "lg": 12,
+      "xl": 12
+    },
+    "whitelist": {
+      "type": "chips",
+      "label": "Whitelist",
+      "help": "Whitelist_helper",
+      "newLine": true,
+      "xs": 12,
+      "sm": 12,
+      "md": 6,
+      "lg": 6,
+      "xl": 6
+    },
+    "blacklist": {
+      "type": "chips",
+      "label": "Blacklist",
+      "help": "Blacklist_helper",
+      "xs": 12,
+      "sm": 12,
+      "md": 6,
+      "lg": 6,
+      "xl": 6
+    }
+  }
+}
